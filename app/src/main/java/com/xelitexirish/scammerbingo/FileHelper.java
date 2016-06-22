@@ -1,7 +1,9 @@
 package com.xelitexirish.scammerbingo;
 
+import android.app.AlertDialog;
 import android.app.DownloadManager;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.database.Cursor;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -25,12 +27,13 @@ public class FileHelper {
     public static final String downloadUrlWebsites = "https://raw.githubusercontent.com/XeliteXirish/ScammerBingoApp/master/data/numbersList.txt";
     public static final String downloadUrlIps = "https://raw.githubusercontent.com/XeliteXirish/ScammerBingoApp/master/data/websiteList.txt";
 
-    public static String[] downloadUrls = new String[]{downloadUrlNumbers, downloadUrlWebsites, downloadUrlIps};
-    public static String[] fileNames = new String[]{fileNameNumbers, fileNameWebsites, fileNameIps};
-
     public static File localFileNumbers;
     public static File localFileWebsites;
     public static File localFileIps;
+
+    public static String[] fileNames = new String[]{fileNameNumbers, fileNameWebsites, fileNameIps};
+    public static String[] downloadUrls = new String[]{downloadUrlNumbers, downloadUrlWebsites, downloadUrlIps};
+    public static File[] localFiles = new File[]{localFileNumbers, localFileWebsites, localFileIps};
 
     public static long downloadID;
 
@@ -45,7 +48,7 @@ public class FileHelper {
 
     public static void checkLocalFiles(){
         if(localFileNumbers.exists() && localFileWebsites.exists() && localFileIps.exists()){
-
+            showAlertBox();
         }else{
             downloadFiles(downloadUrls);
         }
@@ -98,6 +101,32 @@ public class FileHelper {
                     break;
             }
         }
+    }
+
+    public static void showAlertBox(){
+        // FileType 0 = paper 1, 1 = paper 2, 2 = marking scheme
+        AlertDialog.Builder alerBox = new AlertDialog.Builder(context);
+        alerBox.setTitle("Local version found").setMessage("Do you want to use local file or download a new version?");
+
+        alerBox.setPositiveButton("Use local", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+
+        alerBox.setNegativeButton("Download", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                for(int x = 0; x < localFiles.length; x++){
+                    File file = localFiles[x];
+                    file.delete();
+                    downloadFiles(downloadUrls);
+                }
+                dialog.dismiss();
+            }
+        });
+        alerBox.show();
     }
 
     public static boolean hasConnection(){
