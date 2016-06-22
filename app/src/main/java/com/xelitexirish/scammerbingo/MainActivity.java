@@ -10,6 +10,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -38,13 +39,6 @@ public class MainActivity extends AppCompatActivity {
 
     public static int score = 0;
     public Button[] allButtons;
-
-    private BroadcastReceiver receiver = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            FileHelper.queryDownloadStatus();
-        }
-    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,20 +82,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        FileHelper fileHelper = new FileHelper(this);
         DataHelper.inflateLists();
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        unregisterReceiver(receiver);
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        registerReceiver(receiver, new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
     }
 
     @Override
@@ -128,7 +109,10 @@ public class MainActivity extends AppCompatActivity {
             return true;
         } else if (id == R.id.action_about) {
             AboutDialog aboutDialog = new AboutDialog(this);
-            aboutDialog.show();
+            //aboutDialog.show();
+
+            Intent intent = new Intent(this, DialogScammerList.class);
+            startActivity(intent);
         }
 
         return super.onOptionsItemSelected(item);
@@ -151,5 +135,16 @@ public class MainActivity extends AppCompatActivity {
 
     public void updateScore() {
         this.textViewScore.setText(score + " / " + allButtons.length);
+
+        if(score == allButtons.length){
+            AlertDialog alertDialogComplete = new AboutDialog(this);
+            alertDialogComplete.setMessage("Well done, you played the scammer for a really long time! Make sure to report them!");
+            alertDialogComplete.setTitle("Bingo!");
+
+        }else if(score == allButtons.length/2){
+            AlertDialog alertDialogHalf = new AboutDialog(this);
+            alertDialogHalf.setMessage("You're half way there! You can rat out the scammer now if it's taking too long.");
+            alertDialogHalf.setTitle("Half way there");
+        }
     }
 }

@@ -3,6 +3,7 @@ package com.xelitexirish.scammerbingo;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -10,6 +11,11 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 public class DialogScammerList extends AppCompatActivity{
 
@@ -27,6 +33,7 @@ public class DialogScammerList extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.dialog_scammer_list);
 
         this.viewPager = (ViewPager) findViewById(R.id.viewPager);
         this.tabLayout = (TabLayout) findViewById(R.id.tabLayout);
@@ -102,8 +109,6 @@ public class DialogScammerList extends AppCompatActivity{
 
     public static class NumbersTab extends Fragment{
 
-
-
         public static NumbersTab newInstance(){
             NumbersTab numbersTab = new NumbersTab();
             return numbersTab;
@@ -119,6 +124,24 @@ public class DialogScammerList extends AppCompatActivity{
     }
 
     public static class IpTab extends Fragment{
+
+        ListView listViewScammers;
+
+        @Nullable
+        @Override
+        public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+            return inflater.inflate(R.layout.dialog_scammer_list_view, container);
+        }
+
+        @Override
+        public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+            super.onViewCreated(view, savedInstanceState);
+            this.listViewScammers = (ListView) view.findViewById(R.id.listViewScammers);
+
+            ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.activity_list_item, DataHelper.ipsList);
+            this.listViewScammers.setAdapter(arrayAdapter);
+        }
+
         public static IpTab newInstance(){
             IpTab ipTab = new IpTab();
             return ipTab;
