@@ -36,6 +36,7 @@
         android:text="Click the button when the scammer does or says any of the things displayed." />
 
     <ScrollView
+        android:id="@+id/scrollLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textViewInstructions"
@@ -219,7 +220,21 @@
                     android:textStyle="bold" />
 
             </LinearLayout>
-
         </LinearLayout>
     </ScrollView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/scrollLayout"
+        android:layout_alignParentBottom="true">
+
+        <TextView
+            android:id="@+id/textViewCredits"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Developed by XeliteXirish"
+            android:gravity="center"/>
+    </RelativeLayout>
+
 </RelativeLayout>

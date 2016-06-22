@@ -101,6 +101,9 @@ public class DialogScammerList extends AppCompatActivity{
     }
 
     public static class NumbersTab extends Fragment{
+
+
+
         public static NumbersTab newInstance(){
             NumbersTab numbersTab = new NumbersTab();
             return numbersTab;

@@ -1,3 +1,44 @@
 <resources>
     <string name="app_name">Scammer Bingo</string>
+
+
+    <!-- About Fragment Text -->
+    <string name="about_fragment_title">About</string>
+    <!-- HTML text for the About dialog box -->
+    <!-- Note: please keep the <![CDATA[...]]> section -->
+    <string name="about_fragment_msg_description">
+        <![CDATA[
+        <p>Version: %s</p>
+
+        <p><a href="http://www.xelitexirish.com">http://www.xelitexirish.com</a></p>
+
+        <p>Scammer bingo is a quick and simple game you can play when a scammer calls you or you call them first.  Test them secretly to see how stupid they really are!<p>
+
+        ]]>
+    </string>
+
+    <string name="about_fragment_msg_credits_title">
+        <![CDATA[
+        <strong>Credits:</strong>
+        ]]>
+    </string>
+    <string name="about_fragment_msg_credits">
+        <![CDATA[
+        <p>Scammer bingo was designed from the Windows version created by <a href="https://hexxiumcreations.com/applications/">Hexxium Creations</a></p>
+
+        ]]>
+    </string>
+
+    <string name="about_fragment_author_title">
+        <![CDATA[
+
+        <strong>Author:</strong>
+        ]]>
+    </string>
+
+    <string name="about_fragment_author">
+        <![CDATA[
+        <p>This app is created by XeliteXirish. Visit my website to view my other projects.</p>
+        ]]>
+    </string>
 </resources>

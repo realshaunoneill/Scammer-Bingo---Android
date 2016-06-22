@@ -1,6 +1,12 @@
 package com.xelitexirish.scammerbingo;
 
+import android.app.DownloadManager;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -15,6 +21,7 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
     TextView textViewScore;
+    TextView textViewCredits;
 
     Button button1;
     Button button2;
@@ -32,12 +39,20 @@ public class MainActivity extends AppCompatActivity {
     public static int score = 0;
     public Button[] allButtons;
 
+    private BroadcastReceiver receiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            FileHelper.queryDownloadStatus();
+        }
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         this.textViewScore = (TextView) findViewById(R.id.textViewScore);
+        this.textViewCredits = (TextView) findViewById(R.id.textViewCredits);
 
         this.button1 = (Button) findViewById(R.id.button1);
         this.button2 = (Button) findViewById(R.id.button2);
@@ -54,15 +69,39 @@ public class MainActivity extends AppCompatActivity {
 
         this.allButtons = new Button[]{button1, button2, button3, button4, button5, button6, button7, button8, button9, button10, button11, button12};
 
-        for(int x = 0; x < allButtons.length; x++){
+        for (int x = 0; x < allButtons.length; x++) {
             final Button button = allButtons[x];
             button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     onButtonPressed(button);
+
                 }
             });
         }
+
+        this.textViewCredits.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://xelitexirish.com"));
+                startActivity(intent);
+            }
+        });
+
+        FileHelper fileHelper = new FileHelper(this);
+        DataHelper.inflateLists();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        unregisterReceiver(receiver);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        registerReceiver(receiver, new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
     }
 
     @Override
@@ -75,20 +114,21 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        if(id == R.id.action_share) {
+        if (id == R.id.action_share) {
             Intent intent = new Intent();
             intent.setAction(Intent.ACTION_SEND);
             intent.putExtra(Intent.EXTRA_TEXT, "I scored a massive " + score + " / " + allButtons.length + " If you are getting scammed see what score you get too!");
             intent.setType("text/plain");
             startActivity(intent);
 
-        }else if (id == R.id.action_reset) {
+        } else if (id == R.id.action_reset) {
             score = 0;
             updateScore();
             setButtonsEnabled();
             return true;
-        }else if (id == R.id.action_about){
-
+        } else if (id == R.id.action_about) {
+            AboutDialog aboutDialog = new AboutDialog(this);
+            aboutDialog.show();
         }
 
         return super.onOptionsItemSelected(item);
@@ -102,14 +142,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void setButtonsEnabled() {
-        for(int x = 0; x < allButtons.length; x++){
+        for (int x = 0; x < allButtons.length; x++) {
             Button button = allButtons[x];
 
             button.setEnabled(true);
         }
     }
 
-    public void updateScore(){
+    public void updateScore() {
         this.textViewScore.setText(score + " / " + allButtons.length);
     }
 }
