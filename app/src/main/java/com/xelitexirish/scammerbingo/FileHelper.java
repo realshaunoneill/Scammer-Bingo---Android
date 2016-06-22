@@ -21,9 +21,9 @@ public class FileHelper {
     public static final String fileNameWebsites = "websitesList.txt";
     public static final String fileNameIps = "ipsList.txt";
 
-    public static final String downloadUrlNumbers = "";
-    public static final String downloadUrlWebsites = "";
-    public static final String downloadUrlIps = "";
+    public static final String downloadUrlNumbers = "https://raw.githubusercontent.com/XeliteXirish/ScammerBingoApp/master/data/numbersList.txt";
+    public static final String downloadUrlWebsites = "https://raw.githubusercontent.com/XeliteXirish/ScammerBingoApp/master/data/numbersList.txt";
+    public static final String downloadUrlIps = "https://raw.githubusercontent.com/XeliteXirish/ScammerBingoApp/master/data/websiteList.txt";
 
     public static String[] downloadUrls = new String[]{downloadUrlNumbers, downloadUrlWebsites, downloadUrlIps};
     public static String[] fileNames = new String[]{fileNameNumbers, fileNameWebsites, fileNameIps};
