@@ -1,23 +1,17 @@
 package com.xelitexirish.scammerbingo;
 
-import android.app.DownloadManager;
-import android.content.BroadcastReceiver;
-import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.IntentFilter;
-import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -87,6 +81,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_header, menu);
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
@@ -95,7 +90,11 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        if (id == R.id.action_share) {
+        if(id == R.id.action_scammer_details){
+            Intent intent = new Intent(this, DialogScammerList.class);
+            startActivity(intent);
+
+        }else if (id == R.id.action_share) {
             Intent intent = new Intent();
             intent.setAction(Intent.ACTION_SEND);
             intent.putExtra(Intent.EXTRA_TEXT, "I scored a massive " + score + " / " + allButtons.length + " If you are getting scammed see what score you get too!");
@@ -104,15 +103,13 @@ public class MainActivity extends AppCompatActivity {
 
         } else if (id == R.id.action_reset) {
             score = 0;
+            Toast.makeText(this, "Score reset", Toast.LENGTH_SHORT).show();
             updateScore();
             setButtonsEnabled();
             return true;
         } else if (id == R.id.action_about) {
             AboutDialog aboutDialog = new AboutDialog(this);
-            //aboutDialog.show();
-
-            Intent intent = new Intent(this, DialogScammerList.class);
-            startActivity(intent);
+            aboutDialog.show();
         }
 
         return super.onOptionsItemSelected(item);
@@ -136,15 +133,29 @@ public class MainActivity extends AppCompatActivity {
     public void updateScore() {
         this.textViewScore.setText(score + " / " + allButtons.length);
 
-        if(score == allButtons.length){
-            AlertDialog alertDialogComplete = new AboutDialog(this);
+        if (score == allButtons.length) {
+            AlertDialog.Builder alertDialogComplete = new AlertDialog.Builder(this);
             alertDialogComplete.setMessage("Well done, you played the scammer for a really long time! Make sure to report them!");
             alertDialogComplete.setTitle("Bingo!");
+            alertDialogComplete.setPositiveButton("Okay", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    // Dismiss
+                }
+            });
+            alertDialogComplete.show();
 
-        }else if(score == allButtons.length/2){
-            AlertDialog alertDialogHalf = new AboutDialog(this);
-            alertDialogHalf.setMessage("You're half way there! You can rat out the scammer now if it's taking too long.");
+        } else if (score == allButtons.length / 2) {
+            AlertDialog.Builder alertDialogHalf = new AboutDialog.Builder(this);
+            alertDialogHalf.setMessage("You're half way there! You can rat out the scammer now if it's taking too long but still make sure to report them!.");
             alertDialogHalf.setTitle("Half way there");
+            alertDialogHalf.setPositiveButton("Okay", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    // Dismiss
+                }
+            });
+            alertDialogHalf.show();
         }
     }
 }
