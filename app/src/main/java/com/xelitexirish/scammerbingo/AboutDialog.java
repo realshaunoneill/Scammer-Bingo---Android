@@ -21,6 +21,7 @@ public class AboutDialog extends AlertDialog{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dialog_about);
+        this.getActionBar().setDisplayHomeAsUpEnabled(true);
 
         this.textViewAbout = (TextView) findViewById(R.id.textViewAbout);
         this.textViewCredits = (TextView) findViewById(R.id.textViewCredits);

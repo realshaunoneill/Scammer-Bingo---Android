@@ -25,7 +25,7 @@ public class DialogScammerList extends AppCompatActivity {
     public final String IP_TAG = "ipAddresses";
 
     public final String NUMBERS_TITLE = "Numbers";
-    public final String WEBSITES_TITLE = "WebsitesTab";
+    public final String WEBSITES_TITLE = "Websites";
     public final String IP_TITLE = "IPs";
 
     @Override
@@ -37,8 +37,8 @@ public class DialogScammerList extends AppCompatActivity {
         this.tabLayout = (TabLayout) findViewById(R.id.tabLayout);
 
         tabLayout.addTab(tabLayout.newTab().setTag(NUMBERS_TAG).setText(NUMBERS_TITLE));
-        //tabLayout.addTab(tabLayout.newTab().setTag(WEBSITES_TAG).setText(WEBSITES_TITLE));
-        //tabLayout.addTab(tabLayout.newTab().setTag(IP_TAG).setText(IP_TITLE));
+        tabLayout.addTab(tabLayout.newTab().setTag(WEBSITES_TAG).setText(WEBSITES_TITLE));
+        tabLayout.addTab(tabLayout.newTab().setTag(IP_TAG).setText(IP_TITLE));
 
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
@@ -112,7 +112,7 @@ public class DialogScammerList extends AppCompatActivity {
         @Nullable
         @Override
         public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-            return inflater.inflate(R.layout.dialog_scammer_list_view, container);
+            return inflater.inflate(R.layout.dialog_scammer_list_view, container, false);
         }
 
         @Override
@@ -120,7 +120,7 @@ public class DialogScammerList extends AppCompatActivity {
             super.onViewCreated(view, savedInstanceState);
             this.listViewScammers = (ListView) view.findViewById(R.id.listViewScammers);
 
-            ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(getContext(), android.R.layout.activity_list_item, DataHelper.numbersList);
+            ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_dropdown_item_1line, DataHelper.numbersList);
             this.listViewScammers.setAdapter(arrayAdapter);
         }
 
@@ -137,7 +137,7 @@ public class DialogScammerList extends AppCompatActivity {
         @Nullable
         @Override
         public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-            return inflater.inflate(R.layout.dialog_scammer_list_view, container);
+            return inflater.inflate(R.layout.dialog_scammer_list_view, container, false);
         }
 
         @Override
@@ -145,7 +145,7 @@ public class DialogScammerList extends AppCompatActivity {
             super.onViewCreated(view, savedInstanceState);
             this.listViewScammers = (ListView) view.findViewById(R.id.listViewScammers);
 
-            ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(getContext(), android.R.layout.activity_list_item, DataHelper.websitesList);
+            ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_dropdown_item_1line, DataHelper.websitesList);
             this.listViewScammers.setAdapter(arrayAdapter);
         }
 
@@ -162,7 +162,7 @@ public class DialogScammerList extends AppCompatActivity {
         @Nullable
         @Override
         public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-            return inflater.inflate(R.layout.dialog_scammer_list_view, container);
+            return inflater.inflate(R.layout.dialog_scammer_list_view, container, false);
         }
 
         @Override
@@ -170,7 +170,7 @@ public class DialogScammerList extends AppCompatActivity {
             super.onViewCreated(view, savedInstanceState);
             this.listViewScammers = (ListView) view.findViewById(R.id.listViewScammers);
 
-            ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(getContext(), android.R.layout.activity_list_item, DataHelper.ipsList);
+            ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_dropdown_item_1line, DataHelper.ipsList);
             this.listViewScammers.setAdapter(arrayAdapter);
         }
 
