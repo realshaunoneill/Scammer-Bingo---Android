@@ -1,6 +1,9 @@
 package com.xelitexirish.scammerbingo;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
@@ -8,12 +11,15 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 public class DialogScammerList extends AppCompatActivity {
 
@@ -107,6 +113,7 @@ public class DialogScammerList extends AppCompatActivity {
 
     public static class NumbersTab extends Fragment {
 
+        TextView textViewHeader;
         ListView listViewScammers;
 
         @Nullable
@@ -118,9 +125,12 @@ public class DialogScammerList extends AppCompatActivity {
         @Override
         public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
             super.onViewCreated(view, savedInstanceState);
+            this.textViewHeader = (TextView) view.findViewById(R.id.textViewHeader);
             this.listViewScammers = (ListView) view.findViewById(R.id.listViewScammers);
 
-            ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_dropdown_item_1line, DataHelper.numbersList);
+            this.textViewHeader.setText("Known phone numbers for scammers.");
+
+            ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(getContext(), R.layout.item_list_bullet, DataHelper.numbersList);
             this.listViewScammers.setAdapter(arrayAdapter);
         }
 
@@ -132,6 +142,7 @@ public class DialogScammerList extends AppCompatActivity {
 
     public static class WebsitesTab extends Fragment {
 
+        TextView textViewHeader;
         ListView listViewScammers;
 
         @Nullable
@@ -143,10 +154,43 @@ public class DialogScammerList extends AppCompatActivity {
         @Override
         public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
             super.onViewCreated(view, savedInstanceState);
+            this.textViewHeader = (TextView) view.findViewById(R.id.textViewHeader);
             this.listViewScammers = (ListView) view.findViewById(R.id.listViewScammers);
 
-            ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_dropdown_item_1line, DataHelper.websitesList);
+            this.textViewHeader.setText("Known scammer websites, be careful!");
+
+            ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(getContext(), R.layout.item_list_bullet, DataHelper.websitesList);
             this.listViewScammers.setAdapter(arrayAdapter);
+
+            this.listViewScammers.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    final String url = DataHelper.websitesList.get(position);
+
+                    final AlertDialog.Builder alertDialogConfirm = new AlertDialog.Builder(getContext());
+                    alertDialogConfirm.setTitle("Are you sure you want to open this URL?");
+                    alertDialogConfirm.setMessage("This website is known for advertising scammers, are you sure you want to open it?");
+                    alertDialogConfirm.setPositiveButton("Open", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            if (!url.startsWith("http://") && !url.startsWith("https://")) {
+                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://" + url));
+                                getContext().startActivity(intent);
+                            }else{
+                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                                getContext().startActivity(intent);
+                            }
+                        }
+                    });
+                    alertDialogConfirm.setNegativeButton("Dismiss", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            // dismiss
+                        }
+                    });
+                    alertDialogConfirm.show();
+                }
+            });
         }
 
         public static WebsitesTab newInstance() {
@@ -157,6 +201,7 @@ public class DialogScammerList extends AppCompatActivity {
 
     public static class IpTab extends Fragment {
 
+        TextView textViewHeader;
         ListView listViewScammers;
 
         @Nullable
@@ -168,9 +213,12 @@ public class DialogScammerList extends AppCompatActivity {
         @Override
         public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
             super.onViewCreated(view, savedInstanceState);
+            this.textViewHeader = (TextView) view.findViewById(R.id.textViewHeader);
             this.listViewScammers = (ListView) view.findViewById(R.id.listViewScammers);
 
-            ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_dropdown_item_1line, DataHelper.ipsList);
+            this.textViewHeader.setText("Know IP address's for scammers.");
+
+            ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(getContext(), R.layout.item_list_bullet, DataHelper.ipsList);
             this.listViewScammers.setAdapter(arrayAdapter);
         }
 

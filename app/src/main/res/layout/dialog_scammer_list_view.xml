@@ -3,10 +3,22 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Header"
+        android:id="@+id/textViewHeader"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:textStyle="bold|italic"
+        android:layout_marginBottom="5dp" />
+
     <ListView
         android:id="@+id/listViewScammers"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:paddingLeft="10dp">
 
     </ListView>
 

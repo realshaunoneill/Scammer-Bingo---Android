@@ -9,14 +9,20 @@
         android:title="Share your score!"/>
 
     <item
-        android:id="@+id/action_reset"
+        android:id="@+id/action_report"
         android:orderInCategory="101"
-        android:title="Reset score"
+        android:title="Submit scammer details"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_reset"
+        android:orderInCategory="102"
+        android:title="Reset my score"
         app:showAsAction="never" />
 
     <item
         android:id="@+id/action_about"
-        android:orderInCategory="102"
+        android:orderInCategory="103"
         android:title="About"
         app:showAsAction="never" />
 

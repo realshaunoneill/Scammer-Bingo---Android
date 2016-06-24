@@ -101,6 +101,9 @@ public class MainActivity extends AppCompatActivity {
             intent.setType("text/plain");
             startActivity(intent);
 
+        }else if(id == R.id.action_report){
+            Toast.makeText(this, "Coming soon, I promise!", Toast.LENGTH_SHORT).show();
+
         } else if (id == R.id.action_reset) {
             score = 0;
             Toast.makeText(this, "Score reset", Toast.LENGTH_SHORT).show();

@@ -8,7 +8,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/textViewAbout"
         android:layout_gravity="center_horizontal"
-        android:layout_margin="20dp"/>
+        android:layout_margin="5dp"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -16,7 +16,7 @@
         android:id="@+id/textViewCredits"
         android:layout_gravity="center_horizontal"
         android:layout_below="@+id/textViewAbout"
-        android:layout_margin="20dp" />
+        android:layout_margin="5dp" />
 
     <TextView
         android:layout_width="match_parent"
@@ -24,6 +24,6 @@
         android:id="@+id/textViewAuthor"
         android:layout_gravity="center_horizontal"
         android:layout_below="@+id/textViewCredits"
-        android:layout_margin="20dp" />
+        android:layout_margin="5dp" />
 
 </RelativeLayout>
