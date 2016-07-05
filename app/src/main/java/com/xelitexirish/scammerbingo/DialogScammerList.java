@@ -20,6 +20,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class DialogScammerList extends AppCompatActivity {
 
@@ -132,6 +133,36 @@ public class DialogScammerList extends AppCompatActivity {
 
             ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(getContext(), R.layout.item_list_bullet, DataHelper.numbersList);
             this.listViewScammers.setAdapter(arrayAdapter);
+
+            this.listViewScammers.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    final String phoneNumber = DataHelper.numbersList.get(position);
+
+                    final AlertDialog.Builder alertDialogConfirm = new AlertDialog.Builder(getContext());
+                    alertDialogConfirm.setTitle("Are you sure you want to call this phone number?");
+                    alertDialogConfirm.setMessage("This number is known for contacting scammers, are you sure you want to call?");
+                    alertDialogConfirm.setPositiveButton("Call", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            try{
+                                Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + phoneNumber));
+                                startActivity(intent);
+                            }catch (Exception e){
+                                Toast.makeText(getContext(), "Unable to call phone number", Toast.LENGTH_SHORT).show();
+                                e.printStackTrace();
+                            }
+                        }
+                    });
+                    alertDialogConfirm.setNegativeButton("Dismiss", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            // dismiss
+                        }
+                    });
+                    alertDialogConfirm.show();
+                }
+            });
         }
 
         public static NumbersTab newInstance() {
@@ -176,7 +207,7 @@ public class DialogScammerList extends AppCompatActivity {
                             if (!url.startsWith("http://") && !url.startsWith("https://")) {
                                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://" + url));
                                 getContext().startActivity(intent);
-                            }else{
+                            } else {
                                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
                                 getContext().startActivity(intent);
                             }

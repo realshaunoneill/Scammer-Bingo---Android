@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        DataHelper.inflateLists(this);
+        DataHelper.inflateLists();
     }
 
     @Override
