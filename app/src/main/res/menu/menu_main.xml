@@ -15,14 +15,20 @@
         app:showAsAction="never" />
 
     <item
-        android:id="@+id/action_reset"
+        android:id="@+id/action_sub_lounge"
         android:orderInCategory="102"
+        android:title="Scammer Sub Lounge"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_reset"
+        android:orderInCategory="103"
         android:title="Reset my score"
         app:showAsAction="never" />
 
     <item
         android:id="@+id/action_about"
-        android:orderInCategory="103"
+        android:orderInCategory="104"
         android:title="About"
         app:showAsAction="never" />
 
