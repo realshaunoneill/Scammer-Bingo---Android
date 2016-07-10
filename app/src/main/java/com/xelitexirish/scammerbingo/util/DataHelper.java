@@ -1,4 +1,4 @@
-package com.xelitexirish.scammerbingo;
+package com.xelitexirish.scammerbingo.util;
 
 import android.content.Context;
 import android.os.AsyncTask;

@@ -1,4 +1,4 @@
-package com.xelitexirish.scammerbingo;
+package com.xelitexirish.scammerbingo.ui;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -6,6 +6,9 @@ import android.support.v7.app.AlertDialog;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
 import android.widget.TextView;
+
+import com.xelitexirish.scammerbingo.BuildConfig;
+import com.xelitexirish.scammerbingo.R;
 
 public class AboutDialog extends AlertDialog{
 

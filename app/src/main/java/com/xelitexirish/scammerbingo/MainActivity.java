@@ -14,6 +14,10 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.xelitexirish.scammerbingo.ui.AboutDialog;
+import com.xelitexirish.scammerbingo.ui.DialogScammerList;
+import com.xelitexirish.scammerbingo.util.DataHelper;
+
 public class MainActivity extends AppCompatActivity {
 
     TextView textViewScore;

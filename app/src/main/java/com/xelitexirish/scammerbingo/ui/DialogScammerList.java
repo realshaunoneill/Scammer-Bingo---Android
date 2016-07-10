@@ -1,4 +1,4 @@
-package com.xelitexirish.scammerbingo;
+package com.xelitexirish.scammerbingo.ui;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -21,6 +21,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.xelitexirish.scammerbingo.R;
+import com.xelitexirish.scammerbingo.util.DataHelper;
 
 public class DialogScammerList extends AppCompatActivity {
 
