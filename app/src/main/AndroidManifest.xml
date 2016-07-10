@@ -29,8 +29,14 @@
 
         <activity
             android:name=".ui.DialogScammerList"
-            android:parentActivityName=".MainActivity"
             android:label="Known Scammer Information"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme" />
+
+        <activity
+            android:name=".ui.SettingsActivity"
+            android:label="Settings"
+            android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme" />
 
     </application>

@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.xelitexirish.scammerbingo.prefs.PreferenceHandler;
 import com.xelitexirish.scammerbingo.ui.AboutDialog;
 import com.xelitexirish.scammerbingo.ui.DialogScammerList;
+import com.xelitexirish.scammerbingo.ui.SettingsActivity;
 import com.xelitexirish.scammerbingo.util.DataHelper;
 
 public class MainActivity extends AppCompatActivity {
@@ -120,6 +121,11 @@ public class MainActivity extends AppCompatActivity {
             updateScore();
             setButtonsEnabled();
             return true;
+
+        }else if(id == R.id.action_settings){
+            Intent intent = new Intent(this, SettingsActivity.class);
+            startActivity(intent);
+
         } else if (id == R.id.action_about) {
             AboutDialog aboutDialog = new AboutDialog(this);
             aboutDialog.show();

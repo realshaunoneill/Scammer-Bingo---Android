@@ -42,7 +42,7 @@ public class SettingsActivity extends AppCompatPreferenceActivity{
         findPreference("CACHE_ONLINE_LIST").setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
             @Override
             public boolean onPreferenceClick(Preference preference) {
-
+                Toast.makeText(SettingsActivity.this, "Coming soon, I promise", Toast.LENGTH_SHORT).show();
                 return false;
             }
         });
@@ -50,8 +50,12 @@ public class SettingsActivity extends AppCompatPreferenceActivity{
         findPreference("ENABLE_SOUNDS").setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
             @Override
             public boolean onPreferenceChange(Preference preference, Object newValue) {
-                Toast.makeText(SettingsActivity.this, "Sounds: " + newValue.toString(), Toast.LENGTH_SHORT).show();
-                return false;
+                if((boolean)newValue){
+                    Toast.makeText(SettingsActivity.this, "Sounds: ENABLED", Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(SettingsActivity.this, "Sounds: DISABLED", Toast.LENGTH_SHORT).show();
+                }
+                return true;
             }
         });
     }
