@@ -131,6 +131,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Play Sound
         final MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.button_click);
+        mediaPlayer.seekTo(300);
         mediaPlayer.start();
     }
 
