@@ -2,6 +2,7 @@ package com.xelitexirish.scammerbingo;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
@@ -127,6 +128,10 @@ public class MainActivity extends AppCompatActivity {
         score++;
         pressedButton.setEnabled(false);
         updateScore();
+
+        // Play Sound
+        final MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.button_click);
+        mediaPlayer.start();
     }
 
     public void setButtonsEnabled() {
