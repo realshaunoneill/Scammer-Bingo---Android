@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.xelitexirish.scammerbingo.prefs.PreferenceHandler;
 import com.xelitexirish.scammerbingo.ui.AboutDialog;
 import com.xelitexirish.scammerbingo.ui.DialogScammerList;
 import com.xelitexirish.scammerbingo.util.DataHelper;
@@ -133,10 +134,12 @@ public class MainActivity extends AppCompatActivity {
         pressedButton.setEnabled(false);
         updateScore();
 
-        // Play Sound
-        final MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.button_click);
-        mediaPlayer.seekTo(300);
-        mediaPlayer.start();
+        // Play Sound if enabled
+        if(PreferenceHandler.areSoundsEnabled(this)) {
+            final MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.button_click);
+            mediaPlayer.seekTo(300);
+            mediaPlayer.start();
+        }
     }
 
     public void setButtonsEnabled() {

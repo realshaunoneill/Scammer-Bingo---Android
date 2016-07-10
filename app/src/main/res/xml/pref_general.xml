@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title="General" />
+
+    <Preference
+        android:key="CACHE_ONLINE_LIST"
+        android:title="Cache Online Lists"
+        android:summary="Cache the known scammer list details to local storage" />
+
+    <SwitchPreference
+        android:defaultValue="true"
+        android:key="ENABLE_SOUNDS"
+        android:title="Enable sounds"
+        android:summary="Play sounds when ever a button is checked" />
+</PreferenceScreen>
