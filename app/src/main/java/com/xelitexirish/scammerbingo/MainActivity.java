@@ -64,6 +64,10 @@ public class MainActivity extends AppCompatActivity {
 
         this.allButtons = new Button[]{button1, button2, button3, button4, button5, button6, button7, button8, button9, button10, button11, button12};
 
+        if(savedInstanceState != null){
+            score = savedInstanceState.getInt("KEY_CURRENT_SCORE");
+        }
+
         for (int x = 0; x < allButtons.length; x++) {
             final Button button = allButtons[x];
             button.setOnClickListener(new View.OnClickListener() {
@@ -84,6 +88,13 @@ public class MainActivity extends AppCompatActivity {
         });
 
         DataHelper.inflateLists();
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        outState.putInt("KEY_CURRENT_SCORE", score);
     }
 
     @Override
