@@ -1,6 +1,7 @@
 package com.xelitexirish.scammerbingo.ui;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.Preference;

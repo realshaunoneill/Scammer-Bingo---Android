@@ -39,5 +39,11 @@
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme" />
 
+        <activity
+            android:name=".ui.ButtonChangeTextActivity"
+            android:label="Button Texts"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme"  />
+
     </application>
 </manifest>

@@ -10,4 +10,9 @@ public class PreferenceHandler {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
         return preferences.getBoolean("ENABLE_SOUNDS", true);
     }
+
+    public static boolean enableAutoReset(Context context){
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        return preferences.getBoolean("ENABLE_AUTO_RESET", false);
+    }
 }

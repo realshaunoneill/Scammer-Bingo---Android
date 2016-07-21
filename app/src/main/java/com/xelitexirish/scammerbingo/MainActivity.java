@@ -16,9 +16,12 @@ import android.widget.Toast;
 
 import com.xelitexirish.scammerbingo.prefs.PreferenceHandler;
 import com.xelitexirish.scammerbingo.ui.AboutDialog;
+import com.xelitexirish.scammerbingo.ui.ButtonChangeTextActivity;
 import com.xelitexirish.scammerbingo.ui.DialogScammerList;
 import com.xelitexirish.scammerbingo.ui.SettingsActivity;
 import com.xelitexirish.scammerbingo.util.DataHelper;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -37,9 +40,17 @@ public class MainActivity extends AppCompatActivity {
     Button button10;
     Button button11;
     Button button12;
+    Button button13;
+    Button button14;
+    Button button15;
+    Button button16;
+    Button button17;
+    Button button18;
+    Button button19;
+    Button button20;
 
     public static int score = 0;
-    public Button[] allButtons;
+    public static Button[] allButtons;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,8 +72,18 @@ public class MainActivity extends AppCompatActivity {
         this.button10 = (Button) findViewById(R.id.button10);
         this.button11 = (Button) findViewById(R.id.button11);
         this.button12 = (Button) findViewById(R.id.button12);
+        this.button13 = (Button) findViewById(R.id.button13);
+        this.button14 = (Button) findViewById(R.id.button14);
+        this.button15 = (Button) findViewById(R.id.button15);
+        this.button16 = (Button) findViewById(R.id.button16);
+        this.button17 = (Button) findViewById(R.id.button17);
+        this.button18 = (Button) findViewById(R.id.button18);
+        this.button19 = (Button) findViewById(R.id.button19);
+        this.button20 = (Button) findViewById(R.id.button20);
 
-        this.allButtons = new Button[]{button1, button2, button3, button4, button5, button6, button7, button8, button9, button10, button11, button12};
+        this.allButtons = new Button[]{button1, button2, button3, button4, button5, button6, button7, button8, button9, button10, button11, button12, button13, button14, button15, button16, button17, button18, button19, button20};
+
+        this.textViewScore.setText("0/" + allButtons.length);
 
         if(savedInstanceState != null){
             score = savedInstanceState.getInt("KEY_CURRENT_SCORE");
@@ -127,11 +148,12 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "Coming soon, I promise!", Toast.LENGTH_SHORT).show();
 
         } else if (id == R.id.action_reset) {
-            score = 0;
-            Toast.makeText(this, "Score reset", Toast.LENGTH_SHORT).show();
-            updateScore();
-            setButtonsEnabled();
+            resetScore();
             return true;
+
+        }else if (id == R.id.action_button_text){
+            Intent intent = new Intent(this, ButtonChangeTextActivity.class);
+            startActivity(intent);
 
         }else if(id == R.id.action_settings){
             Intent intent = new Intent(this, SettingsActivity.class);
@@ -182,6 +204,10 @@ public class MainActivity extends AppCompatActivity {
             });
             alertDialogComplete.show();
 
+            if(PreferenceHandler.enableAutoReset(this)){
+                resetScore();
+            }
+
         } else if (score == allButtons.length / 2) {
             AlertDialog.Builder alertDialogHalf = new AboutDialog.Builder(this);
             alertDialogHalf.setMessage("You're half way there! You can rat out the scammer now if it's taking too long but still make sure to report them!.");
@@ -189,10 +215,30 @@ public class MainActivity extends AppCompatActivity {
             alertDialogHalf.setPositiveButton("Okay", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-                    // Dismiss
+                    dialog.dismiss();
                 }
             });
             alertDialogHalf.show();
         }
+    }
+
+    public void resetScore(){
+        score = 0;
+        Toast.makeText(this, "Score reset", Toast.LENGTH_SHORT).show();
+        updateScore();
+        setButtonsEnabled();
+    }
+
+    public static ArrayList<String> getCurrentButtonTexts() {
+        ArrayList<String> currentButtonTexts = new ArrayList<>();
+
+        if(currentButtonTexts.isEmpty()) {
+            for (int x = 0; x < allButtons.length; x++) {
+                Button button = allButtons[x];
+                String buttonText = button.getText().toString();
+                currentButtonTexts.add(buttonText);
+            }
+        }
+        return currentButtonTexts;
     }
 }

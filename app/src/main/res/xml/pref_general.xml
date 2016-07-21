@@ -13,4 +13,11 @@
         android:key="ENABLE_SOUNDS"
         android:title="Enable sounds"
         android:summary="Play sounds when ever a button is checked" />
+
+    <SwitchPreference
+        android:defaultValue="false"
+        android:key="ENABLE_AUTO_RESET"
+        android:title="Automatically reset score"
+        android:summary="Automatically reset score to 0 once you finish" />
+
 </PreferenceScreen>

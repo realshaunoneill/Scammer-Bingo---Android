@@ -27,14 +27,20 @@
         app:showAsAction="never" />
 
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/action_button_text"
         android:orderInCategory="104"
+        android:title="Change button texts"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="105"
         android:title="Settings"
         app:showAsAction="never" />
 
     <item
         android:id="@+id/action_about"
-        android:orderInCategory="105"
+        android:orderInCategory="106"
         android:title="About"
         app:showAsAction="never" />
 

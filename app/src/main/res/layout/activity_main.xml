@@ -66,7 +66,7 @@
 
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="30dp" />
+                    android:layout_height="10dp" />
 
                 <Button
                     android:layout_width="match_parent"
@@ -79,7 +79,7 @@
 
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="30dp" />
+                    android:layout_height="10dp" />
 
                 <Button
                     android:layout_width="match_parent"
@@ -92,7 +92,7 @@
 
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="30dp" />
+                    android:layout_height="10dp" />
 
                 <Button
                     android:id="@+id/button4"
@@ -106,7 +106,7 @@
 
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="30dp" />
+                    android:layout_height="10dp" />
 
                 <Button
                     android:id="@+id/button5"
@@ -120,13 +120,65 @@
 
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="30dp" />
+                    android:layout_height="10dp" />
 
                 <Button
                     android:id="@+id/button6"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Microsoft Certified"
+                    android:onClick="onButtonPressed"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp" />
+
+                <Button
+                    android:id="@+id/button7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="$$$"
+                    android:onClick="onButtonPressed"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp" />
+
+                <Button
+                    android:id="@+id/button8"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Trying to stick to the script"
+                    android:onClick="onButtonPressed"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp" />
+
+                <Button
+                    android:id="@+id/button9"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Corrupted Drives"
+                    android:onClick="onButtonPressed"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp" />
+
+                <Button
+                    android:id="@+id/button10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Support.me"
                     android:onClick="onButtonPressed"
                     android:textSize="12sp"
                     android:textStyle="bold" />
@@ -143,7 +195,7 @@
                 android:layout_marginRight="10dp">
 
                 <Button
-                    android:id="@+id/button7"
+                    android:id="@+id/button11"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -154,11 +206,10 @@
 
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:layout_gravity="center_horizontal" />
+                    android:layout_height="10dp" />
 
                 <Button
-                    android:id="@+id/button8"
+                    android:id="@+id/button12"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -169,10 +220,10 @@
 
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="30dp" />
+                    android:layout_height="10dp" />
 
                 <Button
-                    android:id="@+id/button9"
+                    android:id="@+id/button13"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="CMD.exe"
@@ -182,10 +233,10 @@
 
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="30dp" />
+                    android:layout_height="10dp" />
 
                 <Button
-                    android:id="@+id/button10"
+                    android:id="@+id/button14"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Secure Server"
@@ -195,10 +246,10 @@
 
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="30dp" />
+                    android:layout_height="10dp" />
 
                 <Button
-                    android:id="@+id/button11"
+                    android:id="@+id/button15"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="C:\>Tree"
@@ -208,13 +259,65 @@
 
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="30dp" />
+                    android:layout_height="10dp" />
 
                 <Button
-                    android:id="@+id/button12"
+                    android:id="@+id/button16"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Event Viewer"
+                    android:onClick="onButtonPressed"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp" />
+
+                <Button
+                    android:id="@+id/button17"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Stopped Services"
+                    android:onClick="onButtonPressed"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp" />
+
+                <Button
+                    android:id="@+id/button18"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Netstat"
+                    android:onClick="onButtonPressed"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp" />
+
+                <Button
+                    android:id="@+id/button19"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="I can't understand you sir"
+                    android:onClick="onButtonPressed"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp" />
+
+                <Button
+                    android:id="@+id/button20"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Bad Language"
                     android:onClick="onButtonPressed"
                     android:textSize="12sp"
                     android:textStyle="bold" />
@@ -227,6 +330,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/scrollLayout"
+        android:gravity="bottom"
         android:layout_alignParentBottom="true">
 
         <TextView
