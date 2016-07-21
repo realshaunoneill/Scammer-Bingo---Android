@@ -14,6 +14,9 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 import com.xelitexirish.scammerbingo.prefs.PreferenceHandler;
 import com.xelitexirish.scammerbingo.ui.AboutDialog;
 import com.xelitexirish.scammerbingo.ui.ButtonChangeTextActivity;
@@ -49,6 +52,8 @@ public class MainActivity extends AppCompatActivity {
     Button button19;
     Button button20;
 
+    AdView footerAdview;
+
     public static int score = 0;
     public static Button[] allButtons;
 
@@ -81,6 +86,8 @@ public class MainActivity extends AppCompatActivity {
         this.button19 = (Button) findViewById(R.id.button19);
         this.button20 = (Button) findViewById(R.id.button20);
 
+        this.footerAdview = (AdView) findViewById(R.id.footerAdview);
+
         this.allButtons = new Button[]{button1, button2, button3, button4, button5, button6, button7, button8, button9, button10, button11, button12, button13, button14, button15, button16, button17, button18, button19, button20};
 
         this.textViewScore.setText("0/" + allButtons.length);
@@ -88,6 +95,10 @@ public class MainActivity extends AppCompatActivity {
         if(savedInstanceState != null){
             score = savedInstanceState.getInt("KEY_CURRENT_SCORE");
         }
+
+        MobileAds.initialize(getApplicationContext(), getString(R.string.ad_footer_id));
+        AdRequest adRequest = new AdRequest.Builder().build();
+        footerAdview.loadAd(adRequest);
 
         for (int x = 0; x < allButtons.length; x++) {
             final Button button = allButtons[x];
