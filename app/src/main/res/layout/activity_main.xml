@@ -350,6 +350,7 @@
                 <TextView
                     android:id="@+id/textViewCredits"
                     android:layout_width="match_parent"
+                    android:layout_below="@+id/footerAdview"
                     android:layout_height="wrap_content"
                     android:text="-Developed by XeliteXirish-"
                     android:gravity="center"/>

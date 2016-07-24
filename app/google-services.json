@@ -1,0 +1,35 @@
+{
+  "project_info": {
+    "project_number": "595731654551",
+    "project_id": "scammer-bingo"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:595731654551:android:16feb1bdbb4590d0",
+        "android_client_info": {
+          "package_name": "com.xelitexirish.scammerbingo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBRMVoJ8kWG018QuKExt5zXnT5eeKW8Cs8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
