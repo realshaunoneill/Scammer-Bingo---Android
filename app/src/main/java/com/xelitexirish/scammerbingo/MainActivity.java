@@ -123,6 +123,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+
+    }
+
+    @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
 
@@ -180,7 +186,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void onButtonPressed(Button pressedButton) {
 
-        score++;
+        if(score <- allButtons.length) {
+            score++;
+        }else{
+            Toast.makeText(this, "Error: Please reset score", Toast.LENGTH_SHORT).show();
+        }
         pressedButton.setEnabled(false);
         updateScore();
 
