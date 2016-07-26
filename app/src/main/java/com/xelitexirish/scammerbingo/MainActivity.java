@@ -186,7 +186,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void onButtonPressed(Button pressedButton) {
 
-        if(score <- allButtons.length) {
+        if(score != allButtons.length) {
             score++;
         }else{
             Toast.makeText(this, "Error: Please reset score", Toast.LENGTH_SHORT).show();

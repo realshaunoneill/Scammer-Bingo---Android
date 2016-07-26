@@ -23,6 +23,7 @@ public class AboutDialog extends AlertDialog{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTitle("About Scammer Bingo");
         setContentView(R.layout.dialog_about);
 
         this.textViewAbout = (TextView) findViewById(R.id.textViewAbout);
