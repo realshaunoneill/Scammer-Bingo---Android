@@ -5,8 +5,10 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -14,6 +16,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.afollestad.materialdialogs.DialogAction;
+import com.afollestad.materialdialogs.MaterialDialog;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
@@ -28,29 +32,30 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    TextView textViewScore;
     TextView textViewCredits;
 
-    Button button1;
-    Button button2;
-    Button button3;
-    Button button4;
-    Button button5;
-    Button button6;
-    Button button7;
-    Button button8;
-    Button button9;
-    Button button10;
-    Button button11;
-    Button button12;
-    Button button13;
-    Button button14;
-    Button button15;
-    Button button16;
-    Button button17;
-    Button button18;
-    Button button19;
-    Button button20;
+    Button button1,
+           button2,
+           button3,
+           button4,
+           button5,
+           button6,
+           button7,
+           button8,
+           button9,
+           button10,
+           button11,
+           button12,
+           button13,
+           button14,
+           button15,
+           button16,
+           button17,
+           button18,
+           button19,
+           button20;
+
+    private Toolbar mToolbar;
 
     AdView footerAdview;
 
@@ -62,35 +67,37 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        this.textViewScore = (TextView) findViewById(R.id.textViewScore);
-        this.textViewCredits = (TextView) findViewById(R.id.textViewCredits);
+        mToolbar = (Toolbar) findViewById(R.id.toolbar_main);
+        setSupportActionBar(mToolbar);
 
-        this.button1 = (Button) findViewById(R.id.button1);
-        this.button2 = (Button) findViewById(R.id.button2);
-        this.button3 = (Button) findViewById(R.id.button3);
-        this.button4 = (Button) findViewById(R.id.button4);
-        this.button5 = (Button) findViewById(R.id.button5);
-        this.button6 = (Button) findViewById(R.id.button6);
-        this.button7 = (Button) findViewById(R.id.button7);
-        this.button8 = (Button) findViewById(R.id.button8);
-        this.button9 = (Button) findViewById(R.id.button9);
-        this.button10 = (Button) findViewById(R.id.button10);
-        this.button11 = (Button) findViewById(R.id.button11);
-        this.button12 = (Button) findViewById(R.id.button12);
-        this.button13 = (Button) findViewById(R.id.button13);
-        this.button14 = (Button) findViewById(R.id.button14);
-        this.button15 = (Button) findViewById(R.id.button15);
-        this.button16 = (Button) findViewById(R.id.button16);
-        this.button17 = (Button) findViewById(R.id.button17);
-        this.button18 = (Button) findViewById(R.id.button18);
-        this.button19 = (Button) findViewById(R.id.button19);
-        this.button20 = (Button) findViewById(R.id.button20);
+        textViewCredits = (TextView) findViewById(R.id.textViewCredits);
+
+        button1 = (Button) findViewById(R.id.button1);
+        button2 = (Button) findViewById(R.id.button2);
+        button3 = (Button) findViewById(R.id.button3);
+        button4 = (Button) findViewById(R.id.button4);
+        button5 = (Button) findViewById(R.id.button5);
+        button6 = (Button) findViewById(R.id.button6);
+        button7 = (Button) findViewById(R.id.button7);
+        button8 = (Button) findViewById(R.id.button8);
+        button9 = (Button) findViewById(R.id.button9);
+        button10 = (Button) findViewById(R.id.button10);
+        button11 = (Button) findViewById(R.id.button11);
+        button12 = (Button) findViewById(R.id.button12);
+        button13 = (Button) findViewById(R.id.button13);
+        button14 = (Button) findViewById(R.id.button14);
+        button15 = (Button) findViewById(R.id.button15);
+        button16 = (Button) findViewById(R.id.button16);
+        button17 = (Button) findViewById(R.id.button17);
+        button18 = (Button) findViewById(R.id.button18);
+        button19 = (Button) findViewById(R.id.button19);
+        button20 = (Button) findViewById(R.id.button20);
 
         this.footerAdview = (AdView) findViewById(R.id.footerAdview);
 
         this.allButtons = new Button[]{button1, button2, button3, button4, button5, button6, button7, button8, button9, button10, button11, button12, button13, button14, button15, button16, button17, button18, button19, button20};
 
-        this.textViewScore.setText("0/" + allButtons.length);
+        getSupportActionBar().setSubtitle("Score: " + score + "/" + allButtons.length);
 
         if(savedInstanceState != null){
             score = savedInstanceState.getInt("KEY_CURRENT_SCORE");
@@ -211,16 +218,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void updateScore() {
-        this.textViewScore.setText(score + " / " + allButtons.length);
+        getSupportActionBar().setSubtitle("Score: " + score + "/" + allButtons.length);
 
         if (score == allButtons.length) {
-            AlertDialog.Builder alertDialogComplete = new AlertDialog.Builder(this);
-            alertDialogComplete.setMessage("Well done, you played the scammer for a really long time! Make sure to report them!");
-            alertDialogComplete.setTitle("Bingo!");
-            alertDialogComplete.setPositiveButton("Okay", new DialogInterface.OnClickListener() {
+            MaterialDialog.Builder alertDialogComplete = new MaterialDialog.Builder(this);
+            alertDialogComplete.title("Bingo!");
+            alertDialogComplete.content("Well done, you played the scammer for a really long time! Make sure to report them!");
+            alertDialogComplete.positiveText("Okay");
+            alertDialogComplete.onPositive(new MaterialDialog.SingleButtonCallback() {
                 @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    // Dismiss
+                public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                    dialog.dismiss();
                 }
             });
             alertDialogComplete.show();
@@ -230,12 +238,13 @@ public class MainActivity extends AppCompatActivity {
             }
 
         } else if (score == allButtons.length / 2) {
-            AlertDialog.Builder alertDialogHalf = new AboutDialog.Builder(this);
-            alertDialogHalf.setMessage("You're half way there! You can rat out the scammer now if it's taking too long but still make sure to report them!.");
-            alertDialogHalf.setTitle("Half way there");
-            alertDialogHalf.setPositiveButton("Okay", new DialogInterface.OnClickListener() {
+            MaterialDialog.Builder alertDialogHalf = new MaterialDialog.Builder(this);
+            alertDialogHalf.title("Half way there");
+            alertDialogHalf.content("You're half way there! You can rat out the scammer now if it's taking too long but still make sure to report them!.");
+            alertDialogHalf.positiveText("Okay");
+            alertDialogHalf.onPositive(new MaterialDialog.SingleButtonCallback() {
                 @Override
-                public void onClick(DialogInterface dialog, int which) {
+                public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
                     dialog.dismiss();
                 }
             });

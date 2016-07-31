@@ -11,8 +11,8 @@
     <permission
         android:name="com.xelitexirish.scammerbingo.permission.C2D_MESSAGE"
         android:protectionLevel="signature" />
-    <uses-permission android:name="com.xelitexirish.scammerbingo.permission.C2D_MESSAGE" />
 
+    <uses-permission android:name="com.xelitexirish.scammerbingo.permission.C2D_MESSAGE" />
 
     <application
         android:allowBackup="true"
@@ -20,47 +20,61 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.IntroStepperActivity"
+            android:alwaysRetainTaskState="true"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme"
-            android:alwaysRetainTaskState="true">
-
+            android:theme="@style/IntroTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
+        <activity
+            android:name=".MainActivity"
+            android:alwaysRetainTaskState="true"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
         <activity
             android:name=".ui.DialogScammerList"
             android:label="Known Scammer Information"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme" />
-
+            android:theme="@style/WarnTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
         <activity
             android:name=".ui.SettingsActivity"
             android:label="Settings"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme" />
-
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
         <activity
             android:name=".ui.ButtonChangeTextActivity"
             android:label="Button Texts"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme"  />
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
 
         <receiver
             android:name="com.google.android.gms.gcm.GcmReceiver"
             android:exported="true"
-            android:permission="com.google.android.c2dm.permission.SEND" >
+            android:permission="com.google.android.c2dm.permission.SEND">
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+
                 <category android:name="com.example.gcm" />
             </intent-filter>
         </receiver>
-
     </application>
+
 </manifest>

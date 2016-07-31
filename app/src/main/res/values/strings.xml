@@ -41,4 +41,8 @@
         <p>This app is created by XeliteXirish. Visit my website to view my other projects.</p>
         ]]>
     </string>
+
+
+    <string name="appbar_scrolling_view_behavior">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
+    <string name="title_activity_main2">Main2Activity</string>
 </resources>
