@@ -19,11 +19,9 @@ import com.xelitexirish.scammerbingo.R;
 public class AboutActivity extends AppCompatActivity {
 
     private Button mAuthorGithub,
-                   mAuthorGoogle,
                    mAuthorTwitter,
                    mAuthorWebsite,
                    mDesignerGithub,
-                   mDesignerGoogle,
                    mDesignerTwitter,
                    mDesignerWebsite,
                    mPromo1Github,
@@ -32,7 +30,6 @@ public class AboutActivity extends AppCompatActivity {
                    mPromo2Github,
                    mPromo2YouTube,
                    mPromo2Twitter,
-                   mPromo2Website,
                    mPromo3YouTube,
                    mPromo3Twitter,
                    mPromo4YouTube,
@@ -61,14 +58,6 @@ public class AboutActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        mAuthorGoogle = (Button) findViewById(R.id.author_gplus);
-        mAuthorGoogle.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://plus.google.com/u/0/105573662882311673479"));
-                startActivity(intent);
-            }
-        });
         mAuthorTwitter = (Button) findViewById(R.id.author_twitter);
         mAuthorTwitter.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -92,14 +81,6 @@ public class AboutActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.github.com/Newtsrock"));
-                startActivity(intent);
-            }
-        });
-        mDesignerGoogle = (Button) findViewById(R.id.designer_gplus);
-        mDesignerGoogle.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://plus.google.com/u/0/117229146396831493239"));
                 startActivity(intent);
             }
         });
@@ -174,15 +155,6 @@ public class AboutActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://twitter.com/HexxiumGaming"));
-                startActivity(intent);
-            }
-        });
-
-        mPromo2Website = (Button) findViewById(R.id.promo_2_site);
-        mPromo2Website.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://hexxiumcreations.com/"));
                 startActivity(intent);
             }
         });
