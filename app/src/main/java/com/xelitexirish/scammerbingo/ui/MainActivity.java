@@ -29,26 +29,26 @@ public class MainActivity extends AppCompatActivity {
 
     CoordinatorLayout mCoordinatorLayout;
     TextView mTextViewCredits;
-    Button mButton1,
-            mButton2,
-            mButton3,
-            mButton4,
-            mButton5,
-            mButton6,
-            mButton7,
-            mButton8,
-            mButton9,
-            mButton10,
-            mButton11,
-            mButton12,
-            mButton13,
-            mButton14,
-            mButton15,
-            mButton16,
-            mButton17,
-            mButton18,
-            mButton19,
-            mButton20;
+    Button button1,
+            button2,
+            button3,
+            button4,
+            button5,
+            button6,
+            button7,
+            button8,
+            button9,
+            button10,
+            button11,
+            button12,
+            button13,
+            button14,
+            button15,
+            button16,
+            button17,
+            button18,
+            button19,
+            button20;
 
     private Toolbar mToolbar;
 
@@ -69,49 +69,30 @@ public class MainActivity extends AppCompatActivity {
 
         mCoordinatorLayout = (CoordinatorLayout) findViewById(R.id.coordinator_layout_main);
 
-        mButton1 = (Button) findViewById(R.id.button1);
-        mButton2 = (Button) findViewById(R.id.button2);
-        mButton3 = (Button) findViewById(R.id.button3);
-        mButton4 = (Button) findViewById(R.id.button4);
-        mButton5 = (Button) findViewById(R.id.button5);
-        mButton6 = (Button) findViewById(R.id.button6);
-        mButton7 = (Button) findViewById(R.id.button7);
-        mButton8 = (Button) findViewById(R.id.button8);
-        mButton9 = (Button) findViewById(R.id.button9);
-        mButton10 = (Button) findViewById(R.id.button10);
-        mButton11 = (Button) findViewById(R.id.button11);
-        mButton12 = (Button) findViewById(R.id.button12);
-        mButton13 = (Button) findViewById(R.id.button13);
-        mButton14 = (Button) findViewById(R.id.button14);
-        mButton15 = (Button) findViewById(R.id.button15);
-        mButton16 = (Button) findViewById(R.id.button16);
-        mButton17 = (Button) findViewById(R.id.button17);
-        mButton18 = (Button) findViewById(R.id.button18);
-        mButton19 = (Button) findViewById(R.id.button19);
-        mButton20 = (Button) findViewById(R.id.button20);
+        button1 = (Button) findViewById(R.id.button1);
+        button2 = (Button) findViewById(R.id.button2);
+        button3 = (Button) findViewById(R.id.button3);
+        button4 = (Button) findViewById(R.id.button4);
+        button5 = (Button) findViewById(R.id.button5);
+        button6 = (Button) findViewById(R.id.button6);
+        button7 = (Button) findViewById(R.id.button7);
+        button8 = (Button) findViewById(R.id.button8);
+        button9 = (Button) findViewById(R.id.button9);
+        button10 = (Button) findViewById(R.id.button10);
+        button11 = (Button) findViewById(R.id.button11);
+        button12 = (Button) findViewById(R.id.button12);
+        button13 = (Button) findViewById(R.id.button13);
+        button14 = (Button) findViewById(R.id.button14);
+        button15 = (Button) findViewById(R.id.button15);
+        button16 = (Button) findViewById(R.id.button16);
+        button17 = (Button) findViewById(R.id.button17);
+        button18 = (Button) findViewById(R.id.button18);
+        button19 = (Button) findViewById(R.id.button19);
+        button20 = (Button) findViewById(R.id.button20);
 
         footerAdview = (AdView) findViewById(R.id.footerAdview);
 
-        allButtons = new Button[]{mButton1,
-                mButton2,
-                mButton3,
-                mButton4,
-                mButton5,
-                mButton6,
-                mButton7,
-                mButton8,
-                mButton9,
-                mButton10,
-                mButton11,
-                mButton12,
-                mButton13,
-                mButton14,
-                mButton15,
-                mButton16,
-                mButton17,
-                mButton18,
-                mButton19,
-                mButton20};
+        this.allButtons = new Button[]{button1, button2, button3, button4, button5, button6, button7, button8, button9, button10, button11, button12, button13, button14, button15, button16, button17, button18, button19, button20};
 
         getSupportActionBar().setSubtitle("Score: " + score + "/" + allButtons.length);
 
