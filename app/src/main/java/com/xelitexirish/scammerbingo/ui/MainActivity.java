@@ -104,6 +104,8 @@ public class MainActivity extends AppCompatActivity {
                 mButton8,
                 mButton9,
                 mButton10,
+                mButton11,
+                mButton12,
                 mButton13,
                 mButton14,
                 mButton15,
