@@ -1,22 +1,19 @@
 package com.xelitexirish.scammerbingo.ui;
 
-import android.content.DialogInterface;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.app.NavUtils;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.text.InputType;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 
-import com.xelitexirish.scammerbingo.MainActivity;
+import com.afollestad.materialdialogs.DialogAction;
+import com.afollestad.materialdialogs.MaterialDialog;
 import com.xelitexirish.scammerbingo.R;
 
 import java.util.ArrayList;
@@ -43,32 +40,25 @@ public class ButtonChangeTextActivity extends AppCompatActivity {
                 // Get clicked button
                 final Button button = MainActivity.allButtons[position];
 
-                AlertDialog.Builder alertDialog = new AlertDialog.Builder(ButtonChangeTextActivity.this);
-                alertDialog.setTitle("Change button text");
-                alertDialog.setMessage("Enter the text you wish to appear on the button");
-
-                final EditText editTextInput = new EditText(ButtonChangeTextActivity.this);
-                LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
-                editTextInput.setLayoutParams(layoutParams);
-                editTextInput.setHint("Enter the text you wish to appear on the button");
-                alertDialog.setView(editTextInput);
-
-                alertDialog.setPositiveButton("Accept", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        String inputText = editTextInput.getText().toString();
-                        button.setText(inputText);
-                    }
-                });
-
-                alertDialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                new MaterialDialog.Builder(ButtonChangeTextActivity.this)
+                        .title("Change button text")
+                        .content("Enter the text you wish to appear on the button")
+                        .positiveText("Okay")
+                        .onPositive(new MaterialDialog.SingleButtonCallback() {
                             @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                dialog.dismiss();
+                            public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                                finish();
                             }
-                        }
-                );
-                alertDialog.show();
+                        })
+                        .negativeText("Cancel")
+                        .inputType(InputType.TYPE_CLASS_TEXT)
+                        .input(null, null, new MaterialDialog.InputCallback() {
+                            @Override
+                            public void onInput(MaterialDialog dialog, CharSequence input) {
+                                button.setText(input.toString());
+                            }
+                        })
+                        .show();
             }
         });
     }
@@ -78,7 +68,7 @@ public class ButtonChangeTextActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case android.R.id.home:
                 finish();
-                return true;
+                break;
         }
         return super.onOptionsItemSelected(item);
     }

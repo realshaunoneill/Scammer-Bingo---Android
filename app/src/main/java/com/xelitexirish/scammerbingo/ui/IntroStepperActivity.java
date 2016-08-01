@@ -1,7 +1,5 @@
 package com.xelitexirish.scammerbingo.ui;
 
-import android.animation.ArgbEvaluator;
-import android.animation.ValueAnimator;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
@@ -17,7 +15,6 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Button;
 
-import com.xelitexirish.scammerbingo.MainActivity;
 import com.xelitexirish.scammerbingo.R;
 import com.xelitexirish.scammerbingo.ui.widget.InkPageIndicator;
 import com.xelitexirish.scammerbingo.util.IntroManager;
@@ -43,14 +40,9 @@ public class IntroStepperActivity extends AppCompatActivity {
      */
     private ViewPager mViewPager;
 
-    private ValueAnimator mColorAnimation;
-
     private int[] layouts = {R.layout.fragment_intro_first_page,
             R.layout.fragment_intro_second_page,
             R.layout.fragment_intro_third_page};
-
-    private Integer[] colors = null;
-    private ArgbEvaluator argbEvaluator = new ArgbEvaluator();
 
     private int page = -1;
     private Timer timer;
@@ -81,18 +73,6 @@ public class IntroStepperActivity extends AppCompatActivity {
 
         InkPageIndicator indicator = (InkPageIndicator) findViewById(R.id.indicator);
         indicator.setViewPager(mViewPager);
-
-        mColorAnimation = ValueAnimator.ofObject(new ArgbEvaluator(),
-                R.color.colorIntroBackground1,
-                R.color.colorIntroBackground2,
-                R.color.colorIntroBackground3);
-        mColorAnimation.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animator) {
-                mViewPager.setBackgroundColor((Integer) animator.getAnimatedValue());
-            }
-        });
-        mColorAnimation.setDuration((3 - 1) * 10000000000L);
 
         final Button mGetStarted = (Button) findViewById(R.id.get_started);
 

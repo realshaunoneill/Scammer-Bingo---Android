@@ -1,17 +1,20 @@
 package com.xelitexirish.scammerbingo.ui;
 
-import android.content.DialogInterface;
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
@@ -21,10 +24,8 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.afollestad.materialdialogs.AlertDialogWrapper;
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.xelitexirish.scammerbingo.R;
@@ -35,6 +36,7 @@ public class DialogScammerList extends AppCompatActivity {
     public ViewPager viewPager;
     public TabLayout tabLayout;
     private Toolbar mToolbar;
+    private CoordinatorLayout mCoordinatorLayout;
 
     public final String NUMBERS_TAG = "numbers";
     public final String WEBSITES_TAG = "websites";
@@ -51,12 +53,12 @@ public class DialogScammerList extends AppCompatActivity {
 
         mToolbar = (Toolbar) findViewById(R.id.toolbar_search);
         setSupportActionBar(mToolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_arrow_back);
+
+        mCoordinatorLayout = (CoordinatorLayout) findViewById(R.id.coordinator_layout_search);
 
         new MaterialDialog.Builder(this)
                 .title("Warning")
-                .content("The information you see here is scammer information such as phone numbers, websites, and ip addresses. Please be careful.")
+                .content("The information you see here is scammer information such as phone numbers, websites, and IP addresses. Please be careful.")
                 .positiveText("I Understand")
                 .onPositive(new MaterialDialog.SingleButtonCallback() {
                     public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
@@ -69,8 +71,7 @@ public class DialogScammerList extends AppCompatActivity {
                         //Go Back
                         finish();
                     }
-                })
-                .show();
+                }).show();
 
         viewPager = (ViewPager) findViewById(R.id.viewPager);
         tabLayout = (TabLayout) findViewById(R.id.tabLayout);
@@ -101,6 +102,17 @@ public class DialogScammerList extends AppCompatActivity {
         final PageAdapter pageAdapter = new PageAdapter(getSupportFragmentManager(), tabLayout.getTabCount());
         viewPager.setAdapter(pageAdapter);
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+
+        if(!isNetworkConnected()) {
+            Snackbar.make(mCoordinatorLayout, "No Internet", Snackbar.LENGTH_SHORT).show();
+        }
+    }
+
+    private boolean isNetworkConnected(){
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 
     @Override
@@ -143,7 +155,6 @@ public class DialogScammerList extends AppCompatActivity {
 
     public static class NumbersTab extends Fragment {
 
-        TextView textViewHeader;
         ListView listViewScammers;
 
         @Nullable
@@ -175,7 +186,7 @@ public class DialogScammerList extends AppCompatActivity {
                             try {
                                 Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + phoneNumber));
                                 startActivity(intent);
-                            } catch (Exception e){
+                            } catch (Exception e) {
                                 Toast.makeText(getContext(), "Unable to call phone number", Toast.LENGTH_SHORT).show();
                                 e.printStackTrace();
                             }
@@ -201,7 +212,6 @@ public class DialogScammerList extends AppCompatActivity {
 
     public static class WebsitesTab extends Fragment {
 
-        TextView textViewHeader;
         ListView listViewScammers;
 
         @Nullable
@@ -240,7 +250,7 @@ public class DialogScammerList extends AppCompatActivity {
                         }
                     });
                     alertDialogConfirm.negativeText("Dismiss");
-                    alertDialogConfirm.onNegative(new MaterialDialog.SingleButtonCallback()  {
+                    alertDialogConfirm.onNegative(new MaterialDialog.SingleButtonCallback() {
                         @Override
                         public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
                             // dismiss
