@@ -20,10 +20,6 @@ import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 import com.xelitexirish.scammerbingo.R;
 import com.xelitexirish.scammerbingo.prefs.PreferenceHandler;
-import com.xelitexirish.scammerbingo.ui.AboutDialog;
-import com.xelitexirish.scammerbingo.ui.ButtonChangeTextActivity;
-import com.xelitexirish.scammerbingo.ui.DialogScammerList;
-import com.xelitexirish.scammerbingo.ui.SettingsActivity;
 import com.xelitexirish.scammerbingo.util.DataHelper;
 
 import java.util.ArrayList;
@@ -215,8 +211,8 @@ public class MainActivity extends AppCompatActivity {
                 break;
 
             case R.id.action_about:
-                AboutDialog aboutDialog = new AboutDialog(this);
-                aboutDialog.show();
+                Intent aboutIntent = new Intent(this, AboutActivity.class);
+                startActivity(aboutIntent);
                 break;
         }
 

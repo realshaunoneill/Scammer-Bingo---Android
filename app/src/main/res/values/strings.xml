@@ -1,48 +1,17 @@
 <resources>
-    <string name="app_name">Scammer Bingo!</string>
+    <string name="app_name">Scammer Bingo</string>
     <string name="ad_footer_id">ca-app-pub-9817254026781393/3724159668</string>
 
-    <!-- About Fragment Text -->
-    <string name="about_fragment_title">About</string>
-    <!-- HTML text for the About dialog box -->
-    <!-- Note: please keep the <![CDATA[...]]> section -->
-    <string name="about_fragment_msg_description">
-        <![CDATA[
-        <p>Version: %s</p>
-
-        <p><a href="http://www.xelitexirish.com">http://www.xelitexirish.com</a></p>
-
-        <p>Scammer bingo is a quick and simple game you can play when a scammer calls you or you call them first.  Test them secretly to see how stupid they really are!<p>
-
-        ]]>
+    <string name="about_msg_credits">
+        Scammer bingo was designed from the windows community version created by JoeTheHuman. Both HexxiumGamingYT, Lewis Tech
+        and Dazzas Gone Mad have amazing videos where they talk to scammers, check them all out!
     </string>
-
-    <string name="about_fragment_msg_credits_title">
-        <![CDATA[
-        <strong>Credits:</strong>
-        ]]>
-    </string>
-    <string name="about_fragment_msg_credits">
-        <![CDATA[
-        <p>Scammer bingo was designed from the windows community version created by <a href="https://github.com/JoeTheHuman">JoeTheHuman.</a></p>
-        <p>Both <a href="https://www.youtube.com/user/HexxiumGamingYT">HexxiumGamingYT</a>, <a href="https://www.youtube.com/user/LewissTech">Lewis Tech</a>
-        and <a href="https://www.youtube.com/channel/UCzVm0R21dxt8wM2mrZNwOZw">Dazzas Gone Mad </a> have amazing videos where they talk to scammers, check them all out!
-        ]]>
-    </string>
-
-    <string name="about_fragment_author_title">
-        <![CDATA[
-        <strong>Author:</strong>
-        ]]>
-    </string>
-
-    <string name="about_fragment_author">
-        <![CDATA[
-        <p>This app is created by XeliteXirish. Visit my website to view my other projects.</p>
-        ]]>
-    </string>
-
 
     <string name="appbar_scrolling_view_behavior">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
-    <string name="title_activity_main2">Main2Activity</string>
+    <string name="pref_header_general">General</string>
+    <string name="title_activity_about">About</string>
+    <string name="youtube">YouTube</string>
+    <string name="github">GitHub</string>
+    <string name="twitter">Twitter</string>
+    <string name="website">Website</string>
 </resources>

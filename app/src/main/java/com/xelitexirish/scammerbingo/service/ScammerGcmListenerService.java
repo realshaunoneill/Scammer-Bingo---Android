@@ -10,7 +10,7 @@ import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
 
 import com.google.android.gms.gcm.GcmListenerService;
-import com.xelitexirish.scammerbingo.MainActivity;
+import com.xelitexirish.scammerbingo.ui.MainActivity;
 
 public class ScammerGcmListenerService extends GcmListenerService{
 

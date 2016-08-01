@@ -6,6 +6,7 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:activatedBackgroundIndicator">@drawable/pref_selected_drawable</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
@@ -17,18 +18,30 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
-    <style name="WarnTheme" parent="Theme.AppCompat.Light.NoActionBar" >
+    <style name="WarnTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorAccent">@color/warnColorAccent</item>
         <item name="colorPrimaryDark">@color/warnColorPrimaryDark</item>
         <item name="colorPrimary">@color/warnColorPrimary</item>
     </style>
 
-    <style name="WarnTheme.NoActionBar" parent="WarnTheme" />
+    <style name="WarnTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="WarnTheme.PopupOverlay" parent="Theme.AppCompat.Light" />
+
+    <style name="WarnTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
 
     <style name="IntroTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@android:color/white</item>
         <item name="colorPrimaryDark">@android:color/white</item>
         <item name="colorAccent">@android:color/white</item>
+    </style>
+
+    <style name="IntroTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
     </style>
 
 </resources>

@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:id="@+id/coordinator_layout_search"
+    android:orientation="vertical">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -15,16 +16,16 @@
             android:id="@+id/toolbar_search"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:title="Known Scammer Information"
+            app:navigationIcon="@drawable/ic_close"
             app:popupTheme="@style/AppTheme.PopupOverlay"
-            app:layout_collapseMode="pin"
-            app:layout_scrollFlags="scroll|enterAlways"/>
+            app:title="Known Scammer Information"/>
 
         <android.support.design.widget.TabLayout
             android:id="@+id/tabLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:height="48dp"/>
+            android:height="48dp"
+            app:tabGravity="fill" />
 
     </android.support.design.widget.AppBarLayout>
 
