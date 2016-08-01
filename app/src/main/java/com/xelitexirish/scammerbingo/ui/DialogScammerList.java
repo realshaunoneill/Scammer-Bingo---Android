@@ -2,9 +2,9 @@ package com.xelitexirish.scammerbingo.ui;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -13,6 +13,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -23,6 +24,9 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.afollestad.materialdialogs.AlertDialogWrapper;
+import com.afollestad.materialdialogs.DialogAction;
+import com.afollestad.materialdialogs.MaterialDialog;
 import com.xelitexirish.scammerbingo.R;
 import com.xelitexirish.scammerbingo.util.DataHelper;
 
@@ -30,6 +34,7 @@ public class DialogScammerList extends AppCompatActivity {
 
     public ViewPager viewPager;
     public TabLayout tabLayout;
+    private Toolbar mToolbar;
 
     public final String NUMBERS_TAG = "numbers";
     public final String WEBSITES_TAG = "websites";
@@ -44,8 +49,31 @@ public class DialogScammerList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dialog_scammer_list);
 
-        this.viewPager = (ViewPager) findViewById(R.id.viewPager);
-        this.tabLayout = (TabLayout) findViewById(R.id.tabLayout);
+        mToolbar = (Toolbar) findViewById(R.id.toolbar_search);
+        setSupportActionBar(mToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_arrow_back);
+
+        new MaterialDialog.Builder(this)
+                .title("Warning")
+                .content("The information you see here is scammer information such as phone numbers, websites, and ip addresses. Please be careful.")
+                .positiveText("I Understand")
+                .onPositive(new MaterialDialog.SingleButtonCallback() {
+                    public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                        //Dismiss Dialog
+                    }
+                })
+                .negativeText("Go Back")
+                .onNegative(new MaterialDialog.SingleButtonCallback() {
+                    public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                        //Go Back
+                        finish();
+                    }
+                })
+                .show();
+
+        viewPager = (ViewPager) findViewById(R.id.viewPager);
+        tabLayout = (TabLayout) findViewById(R.id.tabLayout);
 
         tabLayout.addTab(tabLayout.newTab().setTag(NUMBERS_TAG).setText(NUMBERS_TITLE));
         tabLayout.addTab(tabLayout.newTab().setTag(WEBSITES_TAG).setText(WEBSITES_TITLE));
@@ -57,7 +85,6 @@ public class DialogScammerList extends AppCompatActivity {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 viewPager.setCurrentItem(tab.getPosition());
-                setTabIndicatorColour(tabLayout);
             }
 
             @Override
@@ -74,8 +101,6 @@ public class DialogScammerList extends AppCompatActivity {
         final PageAdapter pageAdapter = new PageAdapter(getSupportFragmentManager(), tabLayout.getTabCount());
         viewPager.setAdapter(pageAdapter);
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
-
-        setTabIndicatorColour(tabLayout);
     }
 
     @Override
@@ -86,16 +111,6 @@ public class DialogScammerList extends AppCompatActivity {
                 return true;
         }
         return super.onOptionsItemSelected(item);
-    }
-
-    public void setTabIndicatorColour(TabLayout tabLayout) {
-        if (tabLayout.getSelectedTabPosition() == 0) {
-            tabLayout.setSelectedTabIndicatorColor(Color.RED);
-        } else if (tabLayout.getSelectedTabPosition() == 1) {
-            tabLayout.setSelectedTabIndicatorColor(Color.GREEN);
-        } else if (tabLayout.getSelectedTabPosition() == 2) {
-            tabLayout.setSelectedTabIndicatorColor(Color.BLUE);
-        }
     }
 
     public class PageAdapter extends FragmentPagerAdapter {
@@ -140,10 +155,7 @@ public class DialogScammerList extends AppCompatActivity {
         @Override
         public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
             super.onViewCreated(view, savedInstanceState);
-            this.textViewHeader = (TextView) view.findViewById(R.id.textViewHeader);
             this.listViewScammers = (ListView) view.findViewById(R.id.listViewScammers);
-
-            this.textViewHeader.setText("Known phone numbers for scammers.");
 
             ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(getContext(), R.layout.item_list_bullet, DataHelper.numbersList);
             this.listViewScammers.setAdapter(arrayAdapter);
@@ -153,24 +165,26 @@ public class DialogScammerList extends AppCompatActivity {
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                     final String phoneNumber = DataHelper.numbersList.get(position);
 
-                    final AlertDialog.Builder alertDialogConfirm = new AlertDialog.Builder(getContext());
-                    alertDialogConfirm.setTitle("Are you sure you want to call this phone number?");
-                    alertDialogConfirm.setMessage("This number is known for contacting scammers, are you sure you want to call?");
-                    alertDialogConfirm.setPositiveButton("Call", new DialogInterface.OnClickListener() {
+                    final MaterialDialog.Builder alertDialogConfirm = new MaterialDialog.Builder(getContext());
+                    alertDialogConfirm.title("Are you sure you want to call this phone number?");
+                    alertDialogConfirm.content("This number is known for contacting scammers, are you sure you want to call?");
+                    alertDialogConfirm.positiveText("Call");
+                    alertDialogConfirm.onPositive(new MaterialDialog.SingleButtonCallback() {
                         @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            try{
+                        public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                            try {
                                 Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + phoneNumber));
                                 startActivity(intent);
-                            }catch (Exception e){
+                            } catch (Exception e){
                                 Toast.makeText(getContext(), "Unable to call phone number", Toast.LENGTH_SHORT).show();
                                 e.printStackTrace();
                             }
                         }
                     });
-                    alertDialogConfirm.setNegativeButton("Dismiss", new DialogInterface.OnClickListener() {
+                    alertDialogConfirm.negativeText("Dismiss");
+                    alertDialogConfirm.onNegative(new MaterialDialog.SingleButtonCallback() {
                         @Override
-                        public void onClick(DialogInterface dialog, int which) {
+                        public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
                             // dismiss
                         }
                     });
@@ -199,10 +213,7 @@ public class DialogScammerList extends AppCompatActivity {
         @Override
         public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
             super.onViewCreated(view, savedInstanceState);
-            this.textViewHeader = (TextView) view.findViewById(R.id.textViewHeader);
             this.listViewScammers = (ListView) view.findViewById(R.id.listViewScammers);
-
-            this.textViewHeader.setText("Known scammer websites, be careful!");
 
             ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(getContext(), R.layout.item_list_bullet, DataHelper.websitesList);
             this.listViewScammers.setAdapter(arrayAdapter);
@@ -212,12 +223,13 @@ public class DialogScammerList extends AppCompatActivity {
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                     final String url = DataHelper.websitesList.get(position);
 
-                    final AlertDialog.Builder alertDialogConfirm = new AlertDialog.Builder(getContext());
-                    alertDialogConfirm.setTitle("Are you sure you want to open this URL?");
-                    alertDialogConfirm.setMessage("This website is known for advertising scammers, are you sure you want to open it?");
-                    alertDialogConfirm.setPositiveButton("Open", new DialogInterface.OnClickListener() {
+                    final MaterialDialog.Builder alertDialogConfirm = new MaterialDialog.Builder(getContext());
+                    alertDialogConfirm.title("Are you sure you want to open this URL?");
+                    alertDialogConfirm.content("This website is known for advertising scammers, are you sure you want to open it?");
+                    alertDialogConfirm.positiveText("Open");
+                    alertDialogConfirm.onPositive(new MaterialDialog.SingleButtonCallback() {
                         @Override
-                        public void onClick(DialogInterface dialog, int which) {
+                        public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
                             if (!url.startsWith("http://") && !url.startsWith("https://")) {
                                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://" + url));
                                 getContext().startActivity(intent);
@@ -227,9 +239,10 @@ public class DialogScammerList extends AppCompatActivity {
                             }
                         }
                     });
-                    alertDialogConfirm.setNegativeButton("Dismiss", new DialogInterface.OnClickListener() {
+                    alertDialogConfirm.negativeText("Dismiss");
+                    alertDialogConfirm.onNegative(new MaterialDialog.SingleButtonCallback()  {
                         @Override
-                        public void onClick(DialogInterface dialog, int which) {
+                        public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
                             // dismiss
                         }
                     });
@@ -246,7 +259,6 @@ public class DialogScammerList extends AppCompatActivity {
 
     public static class IpTab extends Fragment {
 
-        TextView textViewHeader;
         ListView listViewScammers;
 
         @Nullable
@@ -258,13 +270,10 @@ public class DialogScammerList extends AppCompatActivity {
         @Override
         public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
             super.onViewCreated(view, savedInstanceState);
-            this.textViewHeader = (TextView) view.findViewById(R.id.textViewHeader);
-            this.listViewScammers = (ListView) view.findViewById(R.id.listViewScammers);
-
-            this.textViewHeader.setText("Know IP address's for scammers.");
+            listViewScammers = (ListView) view.findViewById(R.id.listViewScammers);
 
             ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(getContext(), R.layout.item_list_bullet, DataHelper.ipsList);
-            this.listViewScammers.setAdapter(arrayAdapter);
+            listViewScammers.setAdapter(arrayAdapter);
         }
 
         public static IpTab newInstance() {
