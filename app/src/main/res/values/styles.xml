@@ -14,23 +14,15 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+    </style>
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
-    <style name="WarnTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="colorAccent">@color/warnColorAccent</item>
-        <item name="colorPrimaryDark">@color/warnColorPrimaryDark</item>
-        <item name="colorPrimary">@color/warnColorPrimary</item>
-    </style>
-
-    <style name="WarnTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
-
-    <style name="WarnTheme.PopupOverlay" parent="Theme.AppCompat.Light" />
-
-    <style name="WarnTheme.NoActionBar">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
+    <style name="SearchTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
     </style>
 
     <style name="IntroTheme" parent="Theme.AppCompat.Light.NoActionBar">

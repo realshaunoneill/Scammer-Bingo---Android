@@ -44,4 +44,11 @@
         android:title="About"
         app:showAsAction="never" />
 
+    <item
+        android:id="@+id/action_scammer_details"
+        android:title="Scammer Details"
+        android:icon="@drawable/ic_search"
+        android:orderInCategory="100"
+        app:showAsAction="always"/>
+
 </menu>
