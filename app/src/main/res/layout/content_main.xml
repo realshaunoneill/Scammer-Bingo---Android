@@ -3,321 +3,326 @@
     xmlns:ads="http://schemas.android.com/apk/res-auto"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scrollLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/scrollLayout"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".ui.MainActivity"
     tools:showIn="@layout/activity_main">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="16dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="24dp"
+        android:orientation="vertical">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="horizontal">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
 
-                <LinearLayout
+                <Button
+                    android:id="@+id/button1"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
+                    android:layout_height="wrap_content"
+                    android:onClick="onButtonPressed"
+                    android:text="Foreign Addresses"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
 
-                    <Button
-                        android:id="@+id/button1"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:onClick="onButtonPressed"
-                        android:text="Foreign Addresses"
-                        android:textSize="12sp"
-                        android:textStyle="bold" />
-
-                    <Space
-                        android:layout_width="match_parent"
-                        android:layout_height="10dp" />
-
-                    <Button
-                        android:id="@+id/button2"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:onClick="onButtonPressed"
-                        android:text="Scan"
-                        android:textSize="12sp"
-                        android:textStyle="bold" />
-
-                    <Space
-                        android:layout_width="match_parent"
-                        android:layout_height="10dp" />
-
-                    <Button
-                        android:id="@+id/button3"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:onClick="onButtonPressed"
-                        android:text="Windows Key + R"
-                        android:textSize="12sp"
-                        android:textStyle="bold" />
-
-                    <Space
-                        android:layout_width="match_parent"
-                        android:layout_height="10dp" />
-
-                    <Button
-                        android:id="@+id/button4"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:onClick="onButtonPressed"
-                        android:text="One Time Charge"
-                        android:textSize="12sp"
-                        android:textStyle="bold" />
-
-                    <Space
-                        android:layout_width="match_parent"
-                        android:layout_height="10dp" />
-
-                    <Button
-                        android:id="@+id/button5"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:onClick="onButtonPressed"
-                        android:text="Viruses"
-                        android:textSize="12sp"
-                        android:textStyle="bold" />
-
-                    <Space
-                        android:layout_width="match_parent"
-                        android:layout_height="10dp" />
-
-                    <Button
-                        android:id="@+id/button6"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:onClick="onButtonPressed"
-                        android:text="Microsoft Certified"
-                        android:textSize="12sp"
-                        android:textStyle="bold" />
-
-                    <Space
-                        android:layout_width="match_parent"
-                        android:layout_height="10dp" />
-
-                    <Button
-                        android:id="@+id/button7"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:onClick="onButtonPressed"
-                        android:text="$$$"
-                        android:textSize="12sp"
-                        android:textStyle="bold" />
-
-                    <Space
-                        android:layout_width="match_parent"
-                        android:layout_height="10dp" />
-
-                    <Button
-                        android:id="@+id/button8"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:onClick="onButtonPressed"
-                        android:text="Trying to stick to the script"
-                        android:textSize="12sp"
-                        android:textStyle="bold" />
-
-                    <Space
-                        android:layout_width="match_parent"
-                        android:layout_height="10dp" />
-
-                    <Button
-                        android:id="@+id/button9"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:onClick="onButtonPressed"
-                        android:text="Corrupted Drives"
-                        android:textSize="12sp"
-                        android:textStyle="bold" />
-
-                    <Space
-                        android:layout_width="match_parent"
-                        android:layout_height="10dp" />
-
-                    <Button
-                        android:id="@+id/button10"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:onClick="onButtonPressed"
-                        android:text="Support.me"
-                        android:textSize="12sp"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
-
-                <LinearLayout
+                <Space
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
+                    android:layout_height="10dp" />
 
-                    <Button
-                        android:id="@+id/button11"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:onClick="onButtonPressed"
-                        android:text="Network Security"
-                        android:textSize="12sp"
-                        android:textStyle="bold" />
+                <Button
+                    android:id="@+id/button2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="onButtonPressed"
+                    android:text="Scan"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
 
-                    <Space
-                        android:layout_width="match_parent"
-                        android:layout_height="10dp" />
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp" />
 
-                    <Button
-                        android:id="@+id/button12"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:onClick="onButtonPressed"
-                        android:text="Do One Thing"
-                        android:textSize="12sp"
-                        android:textStyle="bold" />
+                <Button
+                    android:id="@+id/button3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="onButtonPressed"
+                    android:text="Windows Key + R"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
 
-                    <Space
-                        android:layout_width="match_parent"
-                        android:layout_height="10dp" />
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp" />
 
-                    <Button
-                        android:id="@+id/button13"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:onClick="onButtonPressed"
-                        android:text="CMD.exe"
-                        android:textSize="12sp"
-                        android:textStyle="bold" />
+                <Button
+                    android:id="@+id/button4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:onClick="onButtonPressed"
+                    android:text="One Time Charge"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
 
-                    <Space
-                        android:layout_width="match_parent"
-                        android:layout_height="10dp" />
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp" />
 
-                    <Button
-                        android:id="@+id/button14"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:onClick="onButtonPressed"
-                        android:text="Secure Server"
-                        android:textSize="12sp"
-                        android:textStyle="bold" />
+                <Button
+                    android:id="@+id/button5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:onClick="onButtonPressed"
+                    android:text="Viruses"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
 
-                    <Space
-                        android:layout_width="match_parent"
-                        android:layout_height="10dp" />
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp" />
 
-                    <Button
-                        android:id="@+id/button15"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:onClick="onButtonPressed"
-                        android:text="C:\\>Tree"
-                        android:textSize="12sp"
-                        android:textStyle="bold" />
-                    <!--Use 2 backslashes because 1 is used as an escape character -->
+                <Button
+                    android:id="@+id/button6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="onButtonPressed"
+                    android:text="Microsoft Certified"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
 
-                    <Space
-                        android:layout_width="match_parent"
-                        android:layout_height="10dp" />
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp" />
 
-                    <Button
-                        android:id="@+id/button16"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:onClick="onButtonPressed"
-                        android:text="Event Viewer"
-                        android:textSize="12sp"
-                        android:textStyle="bold" />
+                <Button
+                    android:id="@+id/button7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="onButtonPressed"
+                    android:text="$$$"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
 
-                    <Space
-                        android:layout_width="match_parent"
-                        android:layout_height="10dp" />
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp" />
 
-                    <Button
-                        android:id="@+id/button17"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:onClick="onButtonPressed"
-                        android:text="Stopped Services"
-                        android:textSize="12sp"
-                        android:textStyle="bold" />
+                <Button
+                    android:id="@+id/button8"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="onButtonPressed"
+                    android:text="Trying to stick to the script"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
 
-                    <Space
-                        android:layout_width="match_parent"
-                        android:layout_height="10dp" />
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp" />
 
-                    <Button
-                        android:id="@+id/button18"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:onClick="onButtonPressed"
-                        android:text="Netstat"
-                        android:textSize="12sp"
-                        android:textStyle="bold" />
+                <Button
+                    android:id="@+id/button9"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="onButtonPressed"
+                    android:text="Corrupted Drives"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
 
-                    <Space
-                        android:layout_width="match_parent"
-                        android:layout_height="10dp" />
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp" />
 
-                    <Button
-                        android:id="@+id/button19"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:onClick="onButtonPressed"
-                        android:text="I can't understand you sir"
-                        android:textSize="12sp"
-                        android:textStyle="bold" />
-
-                    <Space
-                        android:layout_width="match_parent"
-                        android:layout_height="10dp" />
-
-                    <Button
-                        android:id="@+id/button20"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:onClick="onButtonPressed"
-                        android:text="Bad Language"
-                        android:textSize="12sp"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
+                <Button
+                    android:id="@+id/button10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="onButtonPressed"
+                    android:text="Support.me"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
 
             </LinearLayout>
 
-            <RelativeLayout
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_below="@id/scrollLayout"
-                android:gravity="bottom">
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
 
-                <com.google.android.gms.ads.AdView
-                    android:id="@+id/footerAdview"
+                <Button
+                    android:id="@+id/button11"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    ads:adSize="BANNER"
-                    ads:adUnitId="@string/ad_footer_id">
+                    android:layout_gravity="center"
+                    android:onClick="onButtonPressed"
+                    android:text="Network Security"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
 
-                </com.google.android.gms.ads.AdView>
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp" />
 
-            </RelativeLayout>
+                <Button
+                    android:id="@+id/button12"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:onClick="onButtonPressed"
+                    android:text="Do One Thing"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp" />
+
+                <Button
+                    android:id="@+id/button13"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="onButtonPressed"
+                    android:text="CMD.exe"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp" />
+
+                <Button
+                    android:id="@+id/button14"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="onButtonPressed"
+                    android:text="Secure Server"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp" />
+
+                <Button
+                    android:id="@+id/button15"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="onButtonPressed"
+                    android:text="C:\\>Tree"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+                <!--Use 2 backslashes because 1 is used as an escape character -->
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp" />
+
+                <Button
+                    android:id="@+id/button16"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="onButtonPressed"
+                    android:text="Event Viewer"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp" />
+
+                <Button
+                    android:id="@+id/button17"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="onButtonPressed"
+                    android:text="Stopped Services"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp" />
+
+                <Button
+                    android:id="@+id/button18"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="onButtonPressed"
+                    android:text="Netstat"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp" />
+
+                <Button
+                    android:id="@+id/button19"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="onButtonPressed"
+                    android:text="I can't understand you sir"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp" />
+
+                <Button
+                    android:id="@+id/button20"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="onButtonPressed"
+                    android:text="Bad Language"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
 
         </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_below="@id/scrollLayout"
+            android:gravity="bottom">
+
+            <com.google.android.gms.ads.AdView
+                android:id="@+id/footerAdview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                ads:adSize="BANNER"
+                ads:adUnitId="@string/ad_footer_id">
+
+            </com.google.android.gms.ads.AdView>
+
+        </RelativeLayout>
+
+    </LinearLayout>
 
 </android.support.v4.widget.NestedScrollView>

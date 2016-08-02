@@ -8,7 +8,7 @@
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="128dp"
         android:background="?colorPrimary"
         android:theme="@style/AppTheme.AppBarOverlay"
         app:expanded="true">
@@ -51,12 +51,12 @@
                 <LinearLayout
                     android:id="@+id/linearLayout_search"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="?attr/actionBarSize">
 
                     <ImageView
                         android:id="@+id/image_search_back"
                         android:layout_width="@dimen/searchbar_icon_width"
-                        android:layout_height="match_parent"
+                        android:layout_height="?attr/actionBarSize"
                         android:background="?selectableItemBackgroundBorderless"
                         android:clickable="true"
                         android:padding="12dp"
@@ -64,9 +64,10 @@
                         android:src="@drawable/ic_arrow_back_search" />
 
                     <EditText
+                        android:fontFamily="sans-serif-medium"
                         android:id="@+id/edit_text_search"
                         android:layout_width="0dp"
-                        android:layout_height="match_parent"
+                        android:layout_height="?attr/actionBarSize"
                         android:layout_weight="1"
                         android:background="@android:color/transparent"
                         android:gravity="center_vertical"
@@ -80,7 +81,7 @@
                     <ImageView
                         android:id="@+id/clearSearch"
                         android:layout_width="@dimen/searchbar_icon_width"
-                        android:layout_height="match_parent"
+                        android:layout_height="?attr/actionBarSize"
                         android:background="?selectableItemBackgroundBorderless"
                         android:clickable="true"
                         android:padding="12dp"
@@ -108,11 +109,12 @@
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="64dp"
         android:layout_marginLeft="64dp"
         android:layout_marginRight="64dp"
         android:layout_marginTop="?attr/actionBarSize"
-        app:cardElevation="5dp">
+        app:cardElevation="4dp">
 
         <include layout="@layout/content_main" />
 

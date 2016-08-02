@@ -247,22 +247,6 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.action_scammer_details:
                 initiateSearch.handleSearchBar(MainActivity.this, card_search, mToolbar, view_search, edit_text_search, image_search_back, clearSearch, mSearchToolbar, tabLayout);
-                new MaterialDialog.Builder(this)
-                        .title("Warning")
-                        .content("The information you see here is scammer information such as phone numbers, websites, and IP addresses. Please be careful.")
-                        .positiveText("I Understand")
-                        .onPositive(new MaterialDialog.SingleButtonCallback() {
-                            public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
-                                //Dismiss Dialog
-                            }
-                        })
-                        .negativeText("Go Back")
-                        .onNegative(new MaterialDialog.SingleButtonCallback() {
-                            public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
-                                //Go Back
-                                finish();
-                            }
-                        }).show();
                 break;
 
             case R.id.action_share:
