@@ -28,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     CoordinatorLayout mCoordinatorLayout;
-    TextView mTextViewCredits;
     Button button1,
             button2,
             button3,
@@ -64,8 +63,6 @@ public class MainActivity extends AppCompatActivity {
 
         mToolbar = (Toolbar) findViewById(R.id.toolbar_main);
         setSupportActionBar(mToolbar);
-
-        mTextViewCredits = (TextView) findViewById(R.id.textViewCredits);
 
         mCoordinatorLayout = (CoordinatorLayout) findViewById(R.id.coordinator_layout_main);
 
@@ -114,14 +111,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
         }
-
-        mTextViewCredits.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://xelitexirish.com"));
-                startActivity(intent);
-            }
-        });
 
         DataHelper.inflateLists();
     }

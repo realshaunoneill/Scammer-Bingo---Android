@@ -8,7 +8,7 @@ android {
         applicationId "com.xelitexirish.scammerbingo"
         minSdkVersion 14
         targetSdkVersion 24
-        versionCode 8
+        versionCode 9
         versionName "1.4.0"
     }
     buildTypes {
