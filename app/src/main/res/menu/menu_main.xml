@@ -8,8 +8,13 @@
         android:title="@string/action_search"
         app:showAsAction="always" />
     <item
-        android:orderInCategory="100"
+        android:orderInCategory="101"
         android:title="@string/action_settings"
         android:id="@+id/action_settings"
+        app:showAsAction="never" />
+    <item
+        android:orderInCategory="102"
+        android:title="@string/action_about"
+        android:id="@+id/action_about"
         app:showAsAction="never" />
 </menu>
