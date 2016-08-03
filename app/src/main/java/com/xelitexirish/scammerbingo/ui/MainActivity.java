@@ -3,6 +3,7 @@ package com.xelitexirish.scammerbingo.ui;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.widget.Button;
 
 import com.afollestad.materialdialogs.MaterialDialog;
@@ -10,12 +11,18 @@ import com.xelitexirish.scammerbingo.R;
 
 public class MainActivity extends AppCompatActivity {
 
+    private Toolbar mToolbar;
+
     public static int score = 0;
     public static Button[] allButtons;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        mToolbar = (Toolbar) findViewById(R.id.toolbar_main);
+        setSupportActionBar(mToolbar);
     }
 
     public void onButtonPressed(Button pressedButton){

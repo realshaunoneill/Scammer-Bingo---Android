@@ -11,7 +11,7 @@
     <string name="bingo_complete_title">Bingo!</string>
     <string name="bingo_complete_msg">Well done, you played the scammer for a really long time! Make sure to report them!</string>
     <string name="bingo_half_title">Half way there</string>
-    <string name="bingo_half_msg">You're half way there! You can rat out the scammer now if it's taking too long but still make sure to report them!</string>
+    <string name="bingo_half_msg">You\'re half way there! You can rat out the scammer now if it\'s taking too long but still make sure to report them!</string>
 
     <string name="call_dialog_title">Are you sure you want to call this phone number?</string>
     <string name="call_dialog_msg">This number is known for contacting scammers, are you sure you want to call?</string>
