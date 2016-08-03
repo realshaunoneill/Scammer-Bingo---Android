@@ -5,6 +5,9 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
 
+import com.afollestad.materialdialogs.MaterialDialog;
+import com.xelitexirish.scammerbingo.R;
+
 public class MainActivity extends AppCompatActivity {
 
     public static int score = 0;
@@ -26,12 +29,20 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void updateScore(){
-        getSupportActionBar().setSubtitle("Score: " + score + "/" + allButtons.length);
+        getSupportActionBar().setSubtitle(getString(R.string.score) + ": " + score + "/" + allButtons.length);
 
         if(score == allButtons.length){
-
+            MaterialDialog.Builder alertDialogComplete = new MaterialDialog.Builder(this);
+            alertDialogComplete.title(getString(R.string.bingo_complete_title));
+            alertDialogComplete.content(getString(R.string.bingo_complete_msg));
+            alertDialogComplete.positiveText(getString(R.string.action_okay));
+            alertDialogComplete.show();
         }else if(score == allButtons.length / 2){
-
+            MaterialDialog.Builder alertDialogHalf = new MaterialDialog.Builder(this);
+            alertDialogHalf.title(getString(R.string.bingo_half_title));
+            alertDialogHalf.content(getString(R.string.bingo_half_msg));
+            alertDialogHalf.positiveText(getString(R.string.action_okay));
+            alertDialogHalf.show();
         }
     }
 

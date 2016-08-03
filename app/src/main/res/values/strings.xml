@@ -7,6 +7,19 @@
         and Dazzas Gone Mad have amazing videos where they talk to scammers, check them all out!
     </string>
 
+    <string name="score">Score</string>
+    <string name="bingo_complete_title">Bingo!</string>
+    <string name="bingo_complete_msg">Well done, you played the scammer for a really long time! Make sure to report them!</string>
+    <string name="bingo_half_title">Half way there</string>
+    <string name="bingo_half_msg">You're half way there! You can rat out the scammer now if it's taking too long but still make sure to report them!</string>
+
+    <string name="call_dialog_title">Are you sure you want to call this phone number?</string>
+    <string name="call_dialog_msg">This number is known for contacting scammers, are you sure you want to call?</string>
+    <string name="call_dialog_unable">Unable to call phone number</string>
+
+    <string name="website_dialog_title">Are you sure you want to open this URL?</string>
+    <string name="website_dialog_message">This website is known for advertising scammers, are you sure you want to open it?</string>
+
     <string name="appbar_scrolling_view_behavior">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
     <string name="pref_header_general">General</string>
     <string name="title_activity_about">About</string>
@@ -14,4 +27,11 @@
     <string name="github">GitHub</string>
     <string name="twitter">Twitter</string>
     <string name="website">Website</string>
+
+    <string name="action_okay">Okay</string>
+    <string name="action_reset">Reset Score</string>
+    <string name="action_call">Call</string>
+    <string name="action_dismiss">Dismiss</string>
+    <string name="action_open">Open</string>
+
 </resources>
