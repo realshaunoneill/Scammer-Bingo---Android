@@ -25,6 +25,7 @@
         </android.support.design.widget.AppBarLayout>
 
         <include layout="@layout/include_search" />
+        <include layout="@layout/content_main" />
 
     </android.support.design.widget.CoordinatorLayout>
 
