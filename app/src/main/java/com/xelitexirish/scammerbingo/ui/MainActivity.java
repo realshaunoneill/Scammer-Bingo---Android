@@ -55,6 +55,27 @@ public class MainActivity extends AppCompatActivity {
     private Toolbar mToolbar;
     private ViewPager mViewPager;
 
+    Button button1,
+            button2,
+            button3,
+            button4,
+            button5,
+            button6,
+            button7,
+            button8,
+            button9,
+            button10,
+            button11,
+            button12,
+            button13,
+            button14,
+            button15,
+            button16,
+            button17,
+            button18,
+            button19,
+            button20;
+
     public static int score = 0;
     public static Button[] allButtons;
 
@@ -72,6 +93,29 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         mToolbar = (Toolbar) findViewById(R.id.toolbar_main);
         setSupportActionBar(mToolbar);
+
+        button1 = (Button) findViewById(R.id.button1);
+        button2 = (Button) findViewById(R.id.button2);
+        button3 = (Button) findViewById(R.id.button3);
+        button4 = (Button) findViewById(R.id.button4);
+        button5 = (Button) findViewById(R.id.button5);
+        button6 = (Button) findViewById(R.id.button6);
+        button7 = (Button) findViewById(R.id.button7);
+        button8 = (Button) findViewById(R.id.button8);
+        button9 = (Button) findViewById(R.id.button9);
+        button10 = (Button) findViewById(R.id.button10);
+        button11 = (Button) findViewById(R.id.button11);
+        button12 = (Button) findViewById(R.id.button12);
+        button13 = (Button) findViewById(R.id.button13);
+        button14 = (Button) findViewById(R.id.button14);
+        button15 = (Button) findViewById(R.id.button15);
+        button16 = (Button) findViewById(R.id.button16);
+        button17 = (Button) findViewById(R.id.button17);
+        button18 = (Button) findViewById(R.id.button18);
+        button19 = (Button) findViewById(R.id.button19);
+        button20 = (Button) findViewById(R.id.button20);
+
+        this.allButtons = new Button[]{button1, button2, button3, button4, button5, button6, button7, button8, button9, button10, button11, button12, button13, button14, button15, button16, button17, button18, button19, button20};
 
         mSearchCardView = (CardView) findViewById(R.id.card_search);
         mSearchContainer = (RelativeLayout) findViewById(R.id.view_search);
@@ -126,6 +170,17 @@ public class MainActivity extends AppCompatActivity {
         final PageAdapter pageAdapter = new PageAdapter(getSupportFragmentManager(), mSearchTabs.getTabCount());
         mViewPager.setAdapter(pageAdapter);
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(mSearchTabs));
+
+        for (int x = 0; x < allButtons.length; x++) {
+            final Button button = allButtons[x];
+            button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    onButtonPressed(button);
+
+                }
+            });
+        }
 
         DataHelper.inflateLists();
     }
