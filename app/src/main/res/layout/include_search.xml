@@ -8,7 +8,7 @@
     android:layout_marginLeft="@dimen/searchbar_margin"
     android:layout_marginRight="@dimen/searchbar_margin"
     android:layout_marginTop="4dp"
-    android:visibility="visible"
+    android:visibility="invisible"
     app:cardCornerRadius="2dp"
     app:cardElevation="8dp">
 
