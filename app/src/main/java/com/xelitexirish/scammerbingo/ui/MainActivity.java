@@ -1,6 +1,7 @@
 package com.xelitexirish.scammerbingo.ui;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
@@ -14,6 +15,9 @@ import android.widget.Button;
 
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.xelitexirish.scammerbingo.R;
+import com.xelitexirish.scammerbingo.prefs.PreferenceHandler;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -70,10 +74,16 @@ public class MainActivity extends AppCompatActivity {
         if (score != allButtons.length) {
             score++;
         } else {
-
+            //Snackbar.make(mCoordinatorLayout, "Error: Please reset score", Snackbar.LENGTH_SHORT).show();
         }
         pressedButton.setEnabled(false);
         updateScore();
+
+        if (PreferenceHandler.areSoundsEnabled(this)) {
+            final MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.button_click);
+            mediaPlayer.seekTo(300);
+            mediaPlayer.start();
+        }
     }
 
     public void updateScore() {
@@ -105,5 +115,18 @@ public class MainActivity extends AppCompatActivity {
             Button button = allButtons[x];
             button.setEnabled(true);
         }
+    }
+
+    public static ArrayList<String> getCurrentButtonTexts() {
+        ArrayList<String> currentButtonTexts = new ArrayList<>();
+
+        if (currentButtonTexts.isEmpty()) {
+            for (int x = 0; x < allButtons.length; x++) {
+                Button button = allButtons[x];
+                String buttonText = button.getText().toString();
+                currentButtonTexts.add(buttonText);
+            }
+        }
+        return currentButtonTexts;
     }
 }
