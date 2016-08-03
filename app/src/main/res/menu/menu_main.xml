@@ -8,12 +8,17 @@
         android:title="@string/action_search"
         app:showAsAction="always" />
     <item
+        android:id="@+id/action_reset"
+        android:title="@string/action_reset"
         android:orderInCategory="101"
+        app:showAsAction="never" />
+    <item
+        android:orderInCategory="102"
         android:title="@string/action_settings"
         android:id="@+id/action_settings"
         app:showAsAction="never" />
     <item
-        android:orderInCategory="102"
+        android:orderInCategory="103"
         android:title="@string/action_about"
         android:id="@+id/action_about"
         app:showAsAction="never" />

@@ -210,6 +210,9 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(searchIntent);
                 }
                 return true;
+            case R.id.action_reset:
+                resetScore();
+                return true;
             case R.id.action_settings:
                 Intent settingsIntent = new Intent(MainActivity.this, SettingsActivity.class);
                 startActivity(settingsIntent);
