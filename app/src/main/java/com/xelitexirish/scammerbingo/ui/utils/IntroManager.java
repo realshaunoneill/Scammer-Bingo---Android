@@ -1,7 +1,13 @@
 package com.xelitexirish.scammerbingo.ui.utils;
 
-/**
- * Created by Shaun on 03/08/2016.
- */
+import android.content.Context;
+import android.content.SharedPreferences;
+
 public class IntroManager {
+
+    SharedPreferences preferences;
+    SharedPreferences.Editor editor;
+    Context _context;
+
+
 }
