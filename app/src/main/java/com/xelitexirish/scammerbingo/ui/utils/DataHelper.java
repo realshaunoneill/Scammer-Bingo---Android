@@ -54,6 +54,7 @@ public class DataHelper {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+            return null;
         }
     }
 }
