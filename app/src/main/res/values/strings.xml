@@ -33,5 +33,6 @@
     <string name="action_call">Call</string>
     <string name="action_dismiss">Dismiss</string>
     <string name="action_open">Open</string>
+    <string name="action_search">Search</string>
 
 </resources>
