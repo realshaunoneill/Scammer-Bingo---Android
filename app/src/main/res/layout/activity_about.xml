@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/coordinator_layout_about"
-    android:fitsSystemWindows="true"
+    android:fitsSystemWindows="false"
     tools:context="com.xelitexirish.scammerbingo.ui.AboutActivity">
 
     <android.support.design.widget.AppBarLayout
