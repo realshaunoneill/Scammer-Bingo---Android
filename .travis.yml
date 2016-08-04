@@ -4,7 +4,7 @@ before_install:
     - chmod +x gradlew
  
 script:
-    ./gradlew connectedInstrumentTest
+    ./gradle connectedInstrumentTest
  
 android:
   components:
