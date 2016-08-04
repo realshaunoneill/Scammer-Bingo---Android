@@ -115,7 +115,8 @@ public class MainActivity extends AppCompatActivity {
         button19 = (Button) findViewById(R.id.button19);
         button20 = (Button) findViewById(R.id.button20);
 
-        this.allButtons = new Button[]{button1, button2, button3, button4, button5, button6, button7, button8, button9, button10, button11, button12, button13, button14, button15, button16, button17, button18, button19, button20};
+        allButtons = new Button[]{button1, button2, button3, button4, button5, button6, button7, button8, button9, button10, button11, button12, button13, button14, button15, button16, button17, button18, button19, button20};
+        getSupportActionBar().setSubtitle(getString(R.string.score) + ": " + score + "/" + allButtons.length);
 
         mSearchCardView = (CardView) findViewById(R.id.card_search);
         mSearchContainer = (RelativeLayout) findViewById(R.id.view_search);
