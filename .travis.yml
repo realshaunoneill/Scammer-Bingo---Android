@@ -3,6 +3,9 @@ language: android
 before_install:
     - chmod +x gradlew
  
+script:
+     - ./gradlew assembleDebug
+ 
 android:
   components:
     # Uncomment the lines below if you want to
