@@ -24,14 +24,17 @@
             android:paddingBottom="15dp"
             android:text="@string/app_name"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-            android:textSize="15dp"/>
+            android:textSize="15dp"
+            android:textColor="@color/colorAccent"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/textViewNameEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="www.xelitexirish.com"
-            android:textStyle="bold" />
+            android:textColor="@color/colorAccent"
+            android:text="@string/app_description"
+            android:textStyle="italic" />
     </LinearLayout>
 
     <LinearLayout
