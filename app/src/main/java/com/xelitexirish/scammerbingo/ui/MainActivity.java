@@ -45,7 +45,7 @@ import com.xelitexirish.scammerbingo.utils.InitiateSearch;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private CardView mSearchCardView;
     private DrawerLayout mDrawerLayout;
@@ -150,6 +150,7 @@ public class MainActivity extends AppCompatActivity {
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawerlayout_main);
         mNavigationView = (NavigationView) findViewById(R.id.navigationview_main);
+        mNavigationView.setNavigationItemSelectedListener(this);
 
         mViewPager = (ViewPager) findViewById(R.id.viewPager);
         mSearchTabs = (TabLayout) findViewById(R.id.search_tabs);
@@ -321,6 +322,33 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         return currentButtonTexts;
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == android.R.id.home) {
+            mDrawerLayout.openDrawer(GravityCompat.START);
+        } else if (id == R.id.nav_search) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                InitiateSearch.handleSearchBar(MainActivity.this, mSearchCardView, mToolbar, mSearchContainer, mSearchText, mSearchBack, mSearchClear, mSearchTabs, mDrawerLayout);
+            } else {
+                Intent searchIntent = new Intent(MainActivity.this, SearchActivity.class);
+                startActivity(searchIntent);
+            }
+        } else if (id == R.id.nav_reset) {
+            resetScore();
+        } else if (id == R.id.nav_settings) {
+            Intent settingsIntent = new Intent(MainActivity.this, SettingsActivity.class);
+            startActivity(settingsIntent);
+        } else if (id == R.id.nav_about) {
+            Intent aboutIntent = new Intent(MainActivity.this, AboutActivity.class);
+            startActivity(aboutIntent);
+        }
+
+        mDrawerLayout.closeDrawer(GravityCompat.START);
+        return true;
     }
 
     public class PageAdapter extends FragmentPagerAdapter {
