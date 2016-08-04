@@ -1,7 +1,10 @@
 language: android
 
 before_install:
- - chmod +x gradlew
+    - chmod +x gradlew
+ 
+script:
+    ./gradlew connectedInstrumentTest
  
 android:
   components:
