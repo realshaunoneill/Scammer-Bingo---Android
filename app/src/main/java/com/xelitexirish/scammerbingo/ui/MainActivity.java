@@ -268,6 +268,10 @@ public class MainActivity extends AppCompatActivity {
             alertDialogHalf.content(getString(R.string.bingo_half_msg));
             alertDialogHalf.positiveText(getString(R.string.action_okay));
             alertDialogHalf.show();
+
+            if(PreferenceHandler.enableAutoReset(this)){
+                resetScore();
+            }
         }
     }
 
