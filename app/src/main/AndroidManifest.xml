@@ -33,7 +33,7 @@
         <activity
             android:name=".ui.SettingsActivity"
             android:configChanges="orientation|keyboard"
-            android:label="@string/title_activity_about"
+            android:label="@string/title_activity_settings"
             android:parentActivityName=".ui.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
