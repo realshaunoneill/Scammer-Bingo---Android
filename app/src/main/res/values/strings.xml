@@ -98,4 +98,21 @@
     <string name="action_about">About</string>
     <string name="title_activity_search">SearchActivity</string>
 
+    <string-array name="periphArray">
+        <item name="periph01">Do you need technical suppowt?</item>
+        <item name="periph02">Press the Windows Key and the Letter R, R as in Romeo. You got that?</item>
+        <item name="periph03">Your Windows dextop is wirused sir.</item>
+        <item name="periph04">I see lots of malware and infections on your computer sir.</item>
+        <item name="periph05">DABLU DABLU DABLU DOT SUPPOWT DOT ME SIR, 3 DABLUS NOT 4!!!</item>
+        <item name="periph06">That will be a one time charge of $199.99 sir.</item>
+        <item name="periph07">There are tons of junk files on this computer sir.</item>
+        <item name="periph08">All these stopped services are bad sir.</item>
+        <item name="periph09">Oh my gosh sir!!! All these errors and warnings are Chinese hackers sir!!!</item>
+        <item name="periph10">DONTOUCHTHEKEYBOWDORMOUSESIR!!!</item>
+        <item name="periph11">BRIT MONKAY&#8230;</item>
+        <item name="periph12">I\'m not a scam sir.</item>
+        <item name="periph13">I will show you each and everything sir.</item>
+        <item name="periph14">#PRAYFORSID.</item>
+    </string-array>
+
 </resources>

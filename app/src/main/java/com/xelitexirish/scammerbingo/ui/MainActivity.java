@@ -30,6 +30,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
@@ -42,6 +43,7 @@ import com.xelitexirish.scammerbingo.utils.DataHelper;
 import com.xelitexirish.scammerbingo.utils.InitiateSearch;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -49,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
     private DrawerLayout mDrawerLayout;
     private EditText mSearchText;
     private ImageButton mSearchBack, mSearchClear;
+    private ImageView mRandPeripheral;
     private NavigationView mNavigationView;
     private RelativeLayout mSearchContainer;
     private TabLayout mSearchTabs;
@@ -78,6 +81,8 @@ public class MainActivity extends AppCompatActivity {
 
     public static int score = 0;
     public static Button[] allButtons;
+    private static int[] randPeripherals;
+    private static String[] randPeripheralsStrings;
 
     private final String NUMBERS_TAG = "numbers";
     private final String WEBSITES_TAG = "websites";
@@ -116,6 +121,8 @@ public class MainActivity extends AppCompatActivity {
         button20 = (Button) findViewById(R.id.button20);
 
         allButtons = new Button[]{button1, button2, button3, button4, button5, button6, button7, button8, button9, button10, button11, button12, button13, button14, button15, button16, button17, button18, button19, button20};
+        randPeripherals = new int[]{R.drawable.ic_peripheral_01, R.drawable.ic_peripheral_02, R.drawable.ic_peripheral_03, R.drawable.ic_peripheral_04, R.drawable.ic_peripheral_05, R.drawable.ic_peripheral_06};
+        randPeripheralsStrings = getResources().getStringArray(R.array.periphArray);
         getSupportActionBar().setSubtitle(getString(R.string.score) + ": " + score + "/" + allButtons.length);
 
         mSearchCardView = (CardView) findViewById(R.id.card_search);
@@ -184,6 +191,20 @@ public class MainActivity extends AppCompatActivity {
         }
 
         DataHelper.inflateLists();
+
+        mRandPeripheral = (ImageView) findViewById(R.id.rand_peripheral);
+        int peripheralId = (int) (Math.random() * randPeripherals.length);
+        mRandPeripheral.setBackgroundResource(randPeripherals[peripheralId]);
+        mRandPeripheral.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int peripheralId = (int) (Math.random() * randPeripherals.length);
+                mRandPeripheral.setBackgroundResource(randPeripherals[peripheralId]);
+
+                String peripheralStringId = randPeripheralsStrings[new Random().nextInt(randPeripheralsStrings.length)];
+                Toast.makeText(MainActivity.this, peripheralStringId, Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override
@@ -270,7 +291,7 @@ public class MainActivity extends AppCompatActivity {
             alertDialogHalf.positiveText(getString(R.string.action_okay));
             alertDialogHalf.show();
 
-            if(PreferenceHandler.enableAutoReset(this)){
+            if (PreferenceHandler.enableAutoReset(this)) {
                 resetScore();
             }
         }
