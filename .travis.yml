@@ -3,9 +3,10 @@ language: android
 before_install:
     - chmod +x gradlew
  
-script:
-     - ./gradlew assembleDebug
- 
+script: 
+  - TERM=dumb ./gradlew build
+  - TERM=dumb ./gradlew connectedInstrumentTest
+  
 android:
   components:
     # Uncomment the lines below if you want to
