@@ -57,7 +57,6 @@ public class InitiateSearch {
                     @Override
                     public void onAnimationStart(Animator animation) {
                         drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
-                        drawerLayout.setVisibility(View.VISIBLE);
                         editText.startAnimation(fade_out);
                         tablayout.startAnimation(fade_out);
                         clear.startAnimation(fade_out);
@@ -106,7 +105,6 @@ public class InitiateSearch {
                 animator.addListener(new Animator.AnimatorListener() {
                     @Override
                     public void onAnimationStart(Animator animation) {
-                        drawerLayout.setVisibility(View.GONE);
                         drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
                         toolbarMain.getMenu().clear();
                         view.setVisibility(View.VISIBLE);
