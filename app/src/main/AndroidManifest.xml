@@ -32,6 +32,11 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".ui.IntroStepperActivity"
+            android:label="@string/title_activity_settings"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
             android:name=".ui.SettingsActivity"
             android:label="@string/title_activity_settings"
             android:parentActivityName=".ui.MainActivity"

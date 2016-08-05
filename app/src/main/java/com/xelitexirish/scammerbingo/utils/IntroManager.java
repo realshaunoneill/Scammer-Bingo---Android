@@ -5,9 +5,9 @@ import android.content.SharedPreferences;
 
 public class IntroManager {
 
-    SharedPreferences preferences;
-    SharedPreferences.Editor editor;
-    Context _context;
+    private SharedPreferences preferences;
+    private SharedPreferences.Editor editor;
+    private Context _context;
 
     private static final String KEY_IS_FIRST_LAUNCH = "KEY_IS_FIRST_LAUNCH";
 

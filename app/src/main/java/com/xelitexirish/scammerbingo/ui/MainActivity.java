@@ -42,6 +42,7 @@ import com.xelitexirish.scammerbingo.R;
 import com.xelitexirish.scammerbingo.prefs.PreferenceHandler;
 import com.xelitexirish.scammerbingo.utils.DataHelper;
 import com.xelitexirish.scammerbingo.utils.InitiateSearch;
+import com.xelitexirish.scammerbingo.utils.IntroManager;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -53,6 +54,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private EditText mSearchText;
     private ImageButton mSearchBack, mSearchClear;
     private ImageView mRandPeripheral;
+    private IntroManager mIntroManager;
     private NavigationView mNavigationView;
     private RelativeLayout mSearchContainer;
     private TabLayout mSearchTabs;
@@ -97,6 +99,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        mIntroManager = new IntroManager(this);
+        if (mIntroManager.isFirstTimeLaunch()) {
+            startActivity(new Intent(MainActivity.this, IntroStepperActivity.class));
+            finish();
+        }
+
+
         mToolbar = (Toolbar) findViewById(R.id.toolbar_main);
         setSupportActionBar(mToolbar);
 
