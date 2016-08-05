@@ -275,7 +275,7 @@ public class MainActivity extends ATEActivity implements NavigationView.OnNaviga
         if (score != allButtons.length) {
             score++;
         } else {
-            //Snackbar.make(mCoordinatorLayout, "Error: Please reset score", Snackbar.LENGTH_SHORT).show();
+            Snackbar.make(mDrawerLayout, "Error: Please reset score", Snackbar.LENGTH_SHORT).show();
         }
         pressedButton.setEnabled(false);
         updateScore();
