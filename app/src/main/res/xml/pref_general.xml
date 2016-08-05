@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <android.support.v7.preference.PreferenceCategory android:title="General">
+    <com.afollestad.appthemeengine.prefs.ATEPreferenceCategory android:title="General">
 
-        <android.support.v7.preference.SwitchPreferenceCompat
+        <com.afollestad.appthemeengine.prefs.ATEPreferenceCategory
             android:key="CACHE_ONLINE_LIST"
             android:summary="Cache the known scammer list details to local storage"
             android:title="Cache Online Lists" />
 
-        <android.support.v7.preference.SwitchPreferenceCompat
+        <com.afollestad.appthemeengine.prefs.ATESwitchPreference
             android:defaultValue="true"
             android:key="ENABLE_SOUNDS"
             android:summary="Play sounds when ever a button is checked"
             android:title="Enable sounds" />
 
-        <android.support.v7.preference.SwitchPreferenceCompat
+        <com.afollestad.appthemeengine.prefs.ATESwitchPreference
             android:defaultValue="false"
             android:key="ENABLE_AUTO_RESET"
             android:summary="Automatically reset score to 0 once you finish"
             android:title="Automatically reset score" />
 
-    </android.support.v7.preference.PreferenceCategory>
+    </com.afollestad.appthemeengine.prefs.ATEPreferenceCategory>
 
-</android.support.v7.preference.PreferenceScreen>
+</PreferenceScreen>

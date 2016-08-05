@@ -36,6 +36,8 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.afollestad.appthemeengine.ATE;
+import com.afollestad.appthemeengine.ATEActivity;
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.xelitexirish.scammerbingo.R;
@@ -47,7 +49,7 @@ import com.xelitexirish.scammerbingo.utils.IntroManager;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends ATEActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private CardView mSearchCardView;
     private DrawerLayout mDrawerLayout;
