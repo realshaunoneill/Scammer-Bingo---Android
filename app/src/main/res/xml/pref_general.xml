@@ -1,23 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+<android.support.v7.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <PreferenceCategory android:title="General" />
+    <android.support.v7.preference.PreferenceCategory android:title="General">
 
-    <Preference
-        android:key="CACHE_ONLINE_LIST"
-        android:title="Cache Online Lists"
-        android:summary="Cache the known scammer list details to local storage" />
+        <android.support.v7.preference.SwitchPreferenceCompat
+            android:key="CACHE_ONLINE_LIST"
+            android:summary="Cache the known scammer list details to local storage"
+            android:title="Cache Online Lists" />
 
-    <SwitchPreference
-        android:defaultValue="true"
-        android:key="ENABLE_SOUNDS"
-        android:title="Enable sounds"
-        android:summary="Play sounds when ever a button is checked" />
+        <android.support.v7.preference.SwitchPreferenceCompat
+            android:defaultValue="true"
+            android:key="ENABLE_SOUNDS"
+            android:summary="Play sounds when ever a button is checked"
+            android:title="Enable sounds" />
 
-    <SwitchPreference
-        android:defaultValue="false"
-        android:key="ENABLE_AUTO_RESET"
-        android:title="Automatically reset score"
-        android:summary="Automatically reset score to 0 once you finish" />
+        <android.support.v7.preference.SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="ENABLE_AUTO_RESET"
+            android:summary="Automatically reset score to 0 once you finish"
+            android:title="Automatically reset score" />
 
-</PreferenceScreen>
+    </android.support.v7.preference.PreferenceCategory>
+
+</android.support.v7.preference.PreferenceScreen>

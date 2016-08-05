@@ -15,4 +15,9 @@ public class PreferenceHandler {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
         return preferences.getBoolean("ENABLE_AUTO_RESET", false);
     }
+
+    public static boolean cacheOnlineList(Context context){
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        return preferences.getBoolean("CACHE_ONLINE_LIST", false);
+    }
 }

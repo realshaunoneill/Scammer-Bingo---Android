@@ -145,6 +145,7 @@ public class SearchActivity extends AppCompatActivity {
 
             ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(getContext(), R.layout.list_item, DataHelper.numbersList);
             this.listViewScammers.setAdapter(arrayAdapter);
+            arrayAdapter.notifyDataSetChanged();
 
             this.listViewScammers.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
@@ -202,6 +203,7 @@ public class SearchActivity extends AppCompatActivity {
 
             ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(getContext(), R.layout.list_item, DataHelper.websitesList);
             this.listViewScammers.setAdapter(arrayAdapter);
+            arrayAdapter.notifyDataSetChanged();
 
             this.listViewScammers.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
