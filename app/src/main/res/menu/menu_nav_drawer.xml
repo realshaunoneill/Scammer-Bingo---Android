@@ -3,19 +3,21 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_search"
-            android:icon="@drawable/ic_search"
-            android:title="@string/action_search" />
+            android:checked="true"
+            android:icon="@drawable/ic_home_nav"
+            android:id="@+id/nav_home"
+            android:title="@string/action_home" />
+    </group>
+
+    <group android:checkableBehavior="none">
         <item
+            android:icon="@drawable/ic_settings_nav"
             android:id="@+id/nav_settings"
             android:title="@string/action_settings" />
         <item
+            android:icon="@drawable/ic_about_nav"
             android:id="@+id/nav_about"
             android:title="@string/action_about" />
     </group>
-
-    <item
-        android:id="@+id/nav_reset"
-        android:title="@string/action_reset" />
 
 </menu>

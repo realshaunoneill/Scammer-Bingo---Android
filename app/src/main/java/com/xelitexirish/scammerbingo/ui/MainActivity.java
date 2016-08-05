@@ -326,28 +326,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        int id = item.getItemId();
 
-        if (id == android.R.id.home) {
-            mDrawerLayout.openDrawer(GravityCompat.START);
+        switch (item.getItemId()) {
+            case R.id.nav_home:
+                break;
+            case R.id.nav_settings:
+                Intent settingsIntent = new Intent(MainActivity.this, SettingsActivity.class);
+                startActivity(settingsIntent);
+                break;
+            case R.id.nav_about:
+                Intent aboutIntent = new Intent(MainActivity.this, AboutActivity.class);
+                startActivity(aboutIntent);
+                break;
 
-        } else if (id == R.id.nav_search) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                InitiateSearch.handleSearchBar(MainActivity.this, mSearchCardView, mToolbar, mSearchContainer, mSearchText, mSearchBack, mSearchClear, mSearchTabs, mDrawerLayout);
-            } else {
-                Intent searchIntent = new Intent(MainActivity.this, SearchActivity.class);
-                startActivity(searchIntent);
-            }
-        } else if (id == R.id.nav_reset) {
-            resetScore();
-
-        } else if (id == R.id.nav_settings) {
-            Intent settingsIntent = new Intent(MainActivity.this, SettingsActivity.class);
-            startActivity(settingsIntent);
-
-        } else if (id == R.id.nav_about) {
-            Intent aboutIntent = new Intent(MainActivity.this, AboutActivity.class);
-            startActivity(aboutIntent);
         }
 
         mDrawerLayout.closeDrawer(GravityCompat.START);
