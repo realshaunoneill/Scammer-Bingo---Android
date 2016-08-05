@@ -285,6 +285,12 @@ public class MainActivity extends ATEActivity implements NavigationView.OnNaviga
             mediaPlayer.seekTo(300);
             mediaPlayer.start();
         }
+
+        if(PreferenceHandler.enableEasterEgg(this)){
+            if(score == 13 && pressedButton.getText().toString().equals(button13.getText().toString())){
+                // TODO show easter egg (some photo of a scammer)
+            }
+        }
     }
 
     public void updateScore() {
