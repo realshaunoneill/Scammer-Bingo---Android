@@ -19,6 +19,8 @@ import com.xelitexirish.scammerbingo.R;
 import com.xelitexirish.scammerbingo.prefs.PreferenceHandler;
 import com.xelitexirish.scammerbingo.utils.BaseThemedActivity;
 
+import java.util.Random;
+
 public class NumberGameActivity extends BaseThemedActivity {
 
     private CoordinatorLayout mCoordinatorLayout;
@@ -84,6 +86,7 @@ public class NumberGameActivity extends BaseThemedActivity {
         allButtons = new Button[]{button1, button2, button3, button4, button5, button6, button7, button8, button9, button10};
         getSupportActionBar().setSubtitle(getString(R.string.score) + ": " + score + "/" + allButtons.length);
 
+        Random randomButtonTitle = new Random();
         for (int x = 0; x < allButtons.length; x++) {
             final Button button = allButtons[x];
             button.setOnClickListener(new View.OnClickListener() {
@@ -93,8 +96,10 @@ public class NumberGameActivity extends BaseThemedActivity {
 
                 }
             });
+            button.setText(randomButtonTitle.nextInt(50));
         }
 
+        mButtonNumbersHelp.setBackgroundResource(R.drawable.ic_about_nav);
         mButtonNumbersHelp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
