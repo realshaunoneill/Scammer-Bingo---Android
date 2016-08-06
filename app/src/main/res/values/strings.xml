@@ -25,6 +25,9 @@
     <string name="website_dialog_title">Are you sure you want to open this URL?</string>
     <string name="website_dialog_message">This website is known for advertising scammers, are you sure you want to open it?</string>
 
+    <string name="numbers_dialog_title">How to play Scammer bingo - Numbers</string>
+    <string name="numbers_dialog_message">Try to get the scammer to say any of the numbers and mark them off as you go!</string>
+
     <string name="appbar_scrolling_view_behavior">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
     <string name="pref_header_general">General</string>
     <string name="youtube">YouTube</string>

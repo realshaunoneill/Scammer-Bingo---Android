@@ -2,6 +2,7 @@ package com.xelitexirish.scammerbingo.ui;
 
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
 import android.support.v7.widget.Toolbar;
@@ -9,8 +10,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import com.afollestad.appthemeengine.ATE;
+import com.afollestad.materialdialogs.DialogAction;
+import com.afollestad.materialdialogs.MaterialDialog;
 import com.xelitexirish.scammerbingo.R;
 import com.xelitexirish.scammerbingo.prefs.PreferenceHandler;
 import com.xelitexirish.scammerbingo.utils.BaseThemedActivity;
@@ -29,6 +33,7 @@ public class NumberGameActivity extends BaseThemedActivity {
             button8,
             button9,
             button10;
+    ImageView mButtonNumbersHelp;
 
     public static int score = 0;
     public static Button[] allButtons;
@@ -74,6 +79,7 @@ public class NumberGameActivity extends BaseThemedActivity {
         button8 = (Button) findViewById(R.id.button8);
         button9 = (Button) findViewById(R.id.button9);
         button10 = (Button) findViewById(R.id.button10);
+        mButtonNumbersHelp = (ImageView) findViewById(R.id.imageViewHelp);
 
         allButtons = new Button[]{button1, button2, button3, button4, button5, button6, button7, button8, button9, button10};
         getSupportActionBar().setSubtitle(getString(R.string.score) + ": " + score + "/" + allButtons.length);
@@ -88,6 +94,13 @@ public class NumberGameActivity extends BaseThemedActivity {
                 }
             });
         }
+
+        mButtonNumbersHelp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showHelpMessage();
+            }
+        });
     }
 
     @Override
@@ -144,5 +157,18 @@ public class NumberGameActivity extends BaseThemedActivity {
             Button button = allButtons[x];
             button.setEnabled(true);
         }
+    }
+
+    public void showHelpMessage(){
+        MaterialDialog.Builder helpDialog = new MaterialDialog.Builder(this);
+        helpDialog.title(R.string.numbers_dialog_title);
+        helpDialog.content(R.string.numbers_dialog_message);
+        helpDialog.positiveText(R.string.action_okay);
+        helpDialog.onPositive(new MaterialDialog.SingleButtonCallback() {
+            @Override
+            public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                dialog.dismiss();
+            }
+        });
     }
 }
