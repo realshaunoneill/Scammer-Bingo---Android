@@ -96,7 +96,7 @@ public class NumberGameActivity extends BaseThemedActivity {
 
                 }
             });
-            button.setText(randomButtonTitle.nextInt(50));
+            button.setText(Integer.toString(randomButtonTitle.nextInt(50)));
         }
 
         mButtonNumbersHelp.setBackgroundResource(R.drawable.ic_about_nav);
