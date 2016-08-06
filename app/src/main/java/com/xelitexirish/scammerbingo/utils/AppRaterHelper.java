@@ -16,10 +16,10 @@ public class AppRaterHelper {
     private final static int DAYS_UNTIL_PROMPT = 3;
     private final static int LAUNCHES_UNTIL_PROMPT = 7;
 
-    public static void appLaunched(Context context){
+    public static void appLaunched(Context context) {
         SharedPreferences prefs = context.getSharedPreferences("apprater", 0);
         SharedPreferences.Editor editor = prefs.edit();
-        if(!neverDisplayDialog(context)) {
+        if (!neverDisplayDialog(context)) {
             // Increment launch counter
             long launch_count = prefs.getLong("launch_count", 0) + 1;
             editor.putLong("launch_count", launch_count);
@@ -42,7 +42,7 @@ public class AppRaterHelper {
         }
     }
 
-    private static void showRateDialog(final Context context){
+    private static void showRateDialog(final Context context) {
         final MaterialDialog.Builder rateDialog = new MaterialDialog.Builder(context);
         rateDialog.title("Rate Scammer Bingo?");
         rateDialog.content("If you enjoy using Scammer Bingo, would you like to take the time to rate this app on the Google Play Store? Thank you!");
@@ -52,9 +52,9 @@ public class AppRaterHelper {
             public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
                 Intent intent = new Intent(Intent.ACTION_VIEW);
                 intent.setData(Uri.parse("market://details?id=com.xelitexirish.scammerbingo"));
-                try{
+                try {
                     context.startActivity(intent);
-                }catch (Exception e){
+                } catch (Exception e) {
                     intent.setData(Uri.parse("https://play.google.com/store/apps/details?id=com.xelitexirish.scammerbingo"));
                     context.startActivity(intent);
                 }
@@ -80,7 +80,7 @@ public class AppRaterHelper {
         });
     }
 
-    private static boolean neverDisplayDialog(Context context){
+    private static boolean neverDisplayDialog(Context context) {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
         return preferences.getBoolean("NEVER_SHOW_RATE_DIALOG", false);
     }
