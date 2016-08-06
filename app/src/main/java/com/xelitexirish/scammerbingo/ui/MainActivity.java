@@ -387,7 +387,7 @@ public class MainActivity extends BaseThemedActivity implements NavigationView.O
     }
 
     private void showRateDialog(){
-        AppRaterHelper.appLaunched(this)urn true;
+        AppRaterHelper.appLaunched(this);
     }
 
     public class PageAdapter extends FragmentPagerAdapter {
