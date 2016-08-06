@@ -78,11 +78,13 @@ public class NumberGameActivity extends BaseThemedActivity {
         allButtons = new Button[]{button1, button2, button3, button4, button5, button6, button7, button8, button9, button10};
         getSupportActionBar().setSubtitle(getString(R.string.score) + ": " + score + "/" + allButtons.length);
 
-        for(final Button button : allButtons){
+        for (int x = 0; x < allButtons.length; x++) {
+            final Button button = allButtons[x];
             button.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View view) {
+                public void onClick(View v) {
                     onButtonPressed(button);
+
                 }
             });
         }
