@@ -371,6 +371,10 @@ public class MainActivity extends BaseThemedActivity implements NavigationView.O
         switch (item.getItemId()) {
             case R.id.nav_home:
                 break;
+            case R.id.nav_numbers_game:
+                Intent numbersIntent = new Intent(MainActivity.this, NumberGameActivity.class);
+                startActivity(numbersIntent);
+                break;
             case R.id.nav_settings:
                 Intent settingsIntent = new Intent(MainActivity.this, SettingsActivity.class);
                 startActivity(settingsIntent);

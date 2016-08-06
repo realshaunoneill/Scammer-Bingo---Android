@@ -4,6 +4,7 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -58,6 +59,10 @@ public class NumberGameActivity extends BaseThemedActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_number_game);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_numbers);
+        setSupportActionBar(toolbar);
+
+        mCoordinatorLayout = (CoordinatorLayout) findViewById(R.id.coordinator_layout_numbers);
 
         button1 = (Button) findViewById(R.id.button1);
         button2 = (Button) findViewById(R.id.button2);
@@ -91,6 +96,19 @@ public class NumberGameActivity extends BaseThemedActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch (item.getItemId()){
+            case R.id.action_reset:
+                Snackbar.make(mCoordinatorLayout, "Are you sure you want to reset your score of " + score + "?", Snackbar.LENGTH_INDEFINITE)
+                        .setAction("Yes", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                resetScore();
+                            }
+                        }).show();
+                break;
+        }
+
         return super.onOptionsItemSelected(item);
     }
 
@@ -116,7 +134,7 @@ public class NumberGameActivity extends BaseThemedActivity {
         score = 0;
         updateScore();
         setButtonsEnabled();
-        Snackbar.make(mDrawerLayout, "Reset", Snackbar.LENGTH_SHORT).show();
+        Snackbar.make(mCoordinatorLayout, "Reset", Snackbar.LENGTH_SHORT).show();
     }
 
     public void setButtonsEnabled() {

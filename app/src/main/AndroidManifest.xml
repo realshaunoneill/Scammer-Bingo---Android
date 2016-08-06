@@ -64,6 +64,13 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.xelitexirish.scammerbingo.ui.MainActivity" />
         </activity>
+        <activity android:name=".ui.NumberGameActivity"
+            android:label="@string/title_activity_numbers"
+            android:parentActivityName=".ui.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.MainActivity" />
+        </activity>
     </application>
 
 </manifest>
