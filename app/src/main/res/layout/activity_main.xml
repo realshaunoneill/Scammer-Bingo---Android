@@ -16,11 +16,11 @@
             android:layout_height="wrap_content">
 
             <android.support.v7.widget.Toolbar
-                app:subtitle="Score 0/20"
                 android:id="@+id/toolbar_main"
                 android:layout_width="match_parent"
                 android:layout_height="?actionBarSize"
                 app:navigationIcon="@drawable/ic_menu"
+                app:subtitle="Score 0/20"
                 app:title="@string/app_name" />
 
         </android.support.design.widget.AppBarLayout>

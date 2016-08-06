@@ -11,7 +11,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,12 +22,14 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.afollestad.appthemeengine.ATE;
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.xelitexirish.scammerbingo.R;
+import com.xelitexirish.scammerbingo.utils.BaseThemedActivity;
 import com.xelitexirish.scammerbingo.utils.DataHelper;
 
-public class SearchActivity extends AppCompatActivity {
+public class SearchActivity extends BaseThemedActivity {
 
     private ImageButton mClear, mBack;
     private TabLayout mTabLayout;
@@ -45,6 +46,27 @@ public class SearchActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        if (!ATE.config(this, "light_theme").isConfigured(4)) {
+            ATE.config(this, "light_theme")
+                    .activityTheme(R.style.AppTheme)
+                    .primaryColorRes(R.color.colorPrimaryLightDefault)
+                    .accentColorRes(R.color.colorAccentLightDefault)
+                    .coloredNavigationBar(false)
+                    .navigationViewSelectedIconRes(R.color.colorAccentLightDefault)
+                    .navigationViewSelectedTextRes(R.color.colorAccentLightDefault)
+                    .commit();
+        }
+        if (!ATE.config(this, "dark_theme").isConfigured(4)) {
+            ATE.config(this, "dark_theme")
+                    .activityTheme(R.style.AppThemeDark)
+                    .primaryColorRes(R.color.colorPrimaryDarkDefault)
+                    .accentColorRes(R.color.colorAccentDarkDefault)
+                    .coloredNavigationBar(true)
+                    .navigationViewSelectedIconRes(R.color.colorAccentDarkDefault)
+                    .navigationViewSelectedTextRes(R.color.colorAccentDarkDefault)
+                    .commit();
+        }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
 

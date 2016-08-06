@@ -17,7 +17,6 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
@@ -37,11 +36,11 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.afollestad.appthemeengine.ATE;
-import com.afollestad.appthemeengine.ATEActivity;
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.xelitexirish.scammerbingo.R;
 import com.xelitexirish.scammerbingo.prefs.PreferenceHandler;
+import com.xelitexirish.scammerbingo.utils.BaseThemedActivity;
 import com.xelitexirish.scammerbingo.utils.DataHelper;
 import com.xelitexirish.scammerbingo.utils.InitiateSearch;
 import com.xelitexirish.scammerbingo.utils.IntroManager;
@@ -49,7 +48,7 @@ import com.xelitexirish.scammerbingo.utils.IntroManager;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class MainActivity extends ATEActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends BaseThemedActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private CardView mSearchCardView;
     private DrawerLayout mDrawerLayout;
@@ -99,6 +98,27 @@ public class MainActivity extends ATEActivity implements NavigationView.OnNaviga
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+        if (!ATE.config(this, "light_theme").isConfigured(4)) {
+            ATE.config(this, "light_theme")
+                    .activityTheme(R.style.AppTheme)
+                    .primaryColorRes(R.color.colorPrimaryLightDefault)
+                    .accentColorRes(R.color.colorAccentLightDefault)
+                    .coloredNavigationBar(false)
+                    .navigationViewSelectedIconRes(R.color.colorAccentLightDefault)
+                    .navigationViewSelectedTextRes(R.color.colorAccentLightDefault)
+                    .commit();
+        }
+        if (!ATE.config(this, "dark_theme").isConfigured(4)) {
+            ATE.config(this, "dark_theme")
+                    .activityTheme(R.style.AppThemeDark)
+                    .primaryColorRes(R.color.colorPrimaryDarkDefault)
+                    .accentColorRes(R.color.colorAccentDarkDefault)
+                    .coloredNavigationBar(true)
+                    .navigationViewSelectedIconRes(R.color.colorAccentDarkDefault)
+                    .navigationViewSelectedTextRes(R.color.colorAccentDarkDefault)
+                    .commit();
+        }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -296,16 +316,15 @@ public class MainActivity extends ATEActivity implements NavigationView.OnNaviga
             alertDialogComplete.content(getString(R.string.bingo_complete_msg));
             alertDialogComplete.positiveText(getString(R.string.action_okay));
             alertDialogComplete.show();
+            if (PreferenceHandler.enableAutoReset(this)) {
+                resetScore();
+            }
         } else if (score == allButtons.length / 2) {
             MaterialDialog.Builder alertDialogHalf = new MaterialDialog.Builder(this);
             alertDialogHalf.title(getString(R.string.bingo_half_title));
             alertDialogHalf.content(getString(R.string.bingo_half_msg));
             alertDialogHalf.positiveText(getString(R.string.action_okay));
             alertDialogHalf.show();
-
-            if (PreferenceHandler.enableAutoReset(this)) {
-                resetScore();
-            }
         }
     }
 
