@@ -42,6 +42,7 @@ import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.xelitexirish.scammerbingo.R;
 import com.xelitexirish.scammerbingo.prefs.PreferenceHandler;
+import com.xelitexirish.scammerbingo.utils.AppRaterHelper;
 import com.xelitexirish.scammerbingo.utils.DataHelper;
 import com.xelitexirish.scammerbingo.utils.InitiateSearch;
 import com.xelitexirish.scammerbingo.utils.IntroManager;
@@ -219,6 +220,9 @@ public class MainActivity extends ATEActivity implements NavigationView.OnNaviga
                 Toast.makeText(MainActivity.this, peripheralStringId, Toast.LENGTH_SHORT).show();
             }
         });
+
+        showRateDialog();
+
     }
 
     @Override
@@ -287,7 +291,7 @@ public class MainActivity extends ATEActivity implements NavigationView.OnNaviga
         }
 
         if(PreferenceHandler.enableEasterEgg(this)){
-            if(score == 13 && pressedButton.getText().toString().equals(button13.getText().toString())){
+            if(score == new Random().nextInt(allButtons.length + 1) && pressedButton.getText().toString().equals(button13.getText().toString())){
                 // TODO show easter egg (some photo of a scammer)
             }
         }
@@ -361,6 +365,10 @@ public class MainActivity extends ATEActivity implements NavigationView.OnNaviga
 
         mDrawerLayout.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private void showRateDialog(){
+        AppRaterHelper.appLaunched(this);
     }
 
     public class PageAdapter extends FragmentPagerAdapter {
