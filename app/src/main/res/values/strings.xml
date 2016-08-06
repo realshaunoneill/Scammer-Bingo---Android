@@ -32,6 +32,8 @@
     <string name="website">Website</string>
 
     <string name="action_okay">Okay</string>
+    <string name="action_no">No thanks</string>
+    <string name="action_never">Dont show this again</string>
     <string name="action_reset">Reset Score</string>
     <string name="action_call">Call</string>
     <string name="action_dismiss">Dismiss</string>

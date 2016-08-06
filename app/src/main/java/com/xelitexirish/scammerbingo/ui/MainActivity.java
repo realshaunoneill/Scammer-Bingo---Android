@@ -41,6 +41,7 @@ import com.afollestad.materialdialogs.MaterialDialog;
 import com.xelitexirish.scammerbingo.R;
 import com.xelitexirish.scammerbingo.prefs.PreferenceHandler;
 import com.xelitexirish.scammerbingo.utils.BaseThemedActivity;
+import com.xelitexirish.scammerbingo.utils.AppRaterHelper;
 import com.xelitexirish.scammerbingo.utils.DataHelper;
 import com.xelitexirish.scammerbingo.utils.InitiateSearch;
 import com.xelitexirish.scammerbingo.utils.IntroManager;
@@ -239,6 +240,9 @@ public class MainActivity extends BaseThemedActivity implements NavigationView.O
                 Toast.makeText(MainActivity.this, peripheralStringId, Toast.LENGTH_SHORT).show();
             }
         });
+
+        showRateDialog();
+
     }
 
     @Override
@@ -295,7 +299,7 @@ public class MainActivity extends BaseThemedActivity implements NavigationView.O
         if (score != allButtons.length) {
             score++;
         } else {
-            //Snackbar.make(mCoordinatorLayout, "Error: Please reset score", Snackbar.LENGTH_SHORT).show();
+            Snackbar.make(mDrawerLayout, "Error: Please reset score", Snackbar.LENGTH_SHORT).show();
         }
         pressedButton.setEnabled(false);
         updateScore();
@@ -304,6 +308,12 @@ public class MainActivity extends BaseThemedActivity implements NavigationView.O
             final MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.button_click);
             mediaPlayer.seekTo(300);
             mediaPlayer.start();
+        }
+
+        if(PreferenceHandler.enableEasterEgg(this)){
+            if(score == new Random().nextInt(allButtons.length + 1) && pressedButton.getText().toString().equals(button13.getText().toString())){
+                // TODO show easter egg (some photo of a scammer)
+            }
         }
     }
 
@@ -374,6 +384,10 @@ public class MainActivity extends BaseThemedActivity implements NavigationView.O
 
         mDrawerLayout.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private void showRateDialog(){
+        AppRaterHelper.appLaunched(this)urn true;
     }
 
     public class PageAdapter extends FragmentPagerAdapter {

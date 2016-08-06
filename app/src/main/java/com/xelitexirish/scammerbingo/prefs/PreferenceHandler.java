@@ -20,4 +20,9 @@ public class PreferenceHandler {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
         return preferences.getBoolean("CACHE_ONLINE_LIST", false);
     }
+
+    public static boolean enableEasterEgg(Context context){
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        return preferences.getBoolean("ENABLE_EASTER_EGG", true);
+    }
 }
