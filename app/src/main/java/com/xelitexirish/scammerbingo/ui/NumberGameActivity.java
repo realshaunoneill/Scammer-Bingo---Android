@@ -96,7 +96,8 @@ public class NumberGameActivity extends BaseThemedActivity {
 
                 }
             });
-            button.setText(Integer.toString(randomButtonTitle.nextInt(50)));
+            int number = randomButtonTitle.nextInt(50);
+            button.setText(Integer.toString(number * randomButtonTitle.nextInt(5)));
         }
 
         mButtonNumbersHelp.setBackgroundResource(R.drawable.ic_about_nav);
@@ -147,7 +148,7 @@ public class NumberGameActivity extends BaseThemedActivity {
     }
 
     public void updateScore(){
-
+        getSupportActionBar().setSubtitle(getString(R.string.score) + ": " + score + "/" + allButtons.length);
     }
 
     public void resetScore(){
@@ -175,5 +176,6 @@ public class NumberGameActivity extends BaseThemedActivity {
                 dialog.dismiss();
             }
         });
+        helpDialog.show();
     }
 }
