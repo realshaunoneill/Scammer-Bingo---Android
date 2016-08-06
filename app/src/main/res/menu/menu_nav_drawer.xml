@@ -7,14 +7,13 @@
             android:icon="@drawable/ic_home_nav"
             android:id="@+id/nav_home"
             android:title="@string/action_home" />
+    </group>
 
+    <group android:checkableBehavior="none">
         <item
             android:icon="@android:drawable/ic_dialog_map"
             android:id="@+id/nav_numbers_game"
             android:title="@string/action_numbers" />
-    </group>
-
-    <group android:checkableBehavior="none">
         <item
             android:icon="@drawable/ic_settings_nav"
             android:id="@+id/nav_settings"
