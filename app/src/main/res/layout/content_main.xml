@@ -259,7 +259,6 @@
                     android:text="C:\\>Tree"
                     android:textSize="12sp"
                     android:textStyle="bold" />
-                <!--Use 2 backslashes because 1 is used as an escape character -->
 
                 <Space
                     android:layout_width="match_parent"
