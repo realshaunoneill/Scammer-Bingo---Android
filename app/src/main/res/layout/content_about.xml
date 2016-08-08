@@ -1,0 +1,560 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.xelitexirish.scammerbingo.ui.AboutActivity"
+    tools:showIn="@layout/activity_about">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:paddingBottom="8dp"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:paddingTop="8dp">
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/about_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:visibility="visible">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="16dp"
+                android:layout_marginTop="24dp">
+
+                <RelativeLayout
+                    android:id="@+id/about_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp">
+
+                    <ImageView
+                        android:id="@+id/logo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/ic_launcher" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_toEndOf="@+id/logo"
+                        android:layout_toRightOf="@+id/logo"
+                        android:gravity="center_vertical"
+                        android:text="@string/app_name"
+                        android:textColor="@android:color/black"
+                        android:textSize="24sp" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/version_text_contain"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/about_title"
+                    android:background="?attr/selectableItemBackground">
+
+                    <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                        android:id="@+id/version_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp"
+                        android:drawableLeft="@drawable/ic_version"
+                        android:drawablePadding="24dp"
+                        android:drawableStart="@drawable/ic_version"
+                        android:ellipsize="marquee"
+                        android:gravity="center_vertical"
+                        android:padding="5dp"
+                        android:paddingLeft="32dp"
+                        android:paddingStart="32dp"
+                        android:singleLine="true"
+                        android:text="Version: 0.0.0"
+                        android:textSize="16sp" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/license_text_contain"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/version_text_contain"
+                    android:background="?attr/selectableItemBackground">
+
+                    <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                        android:id="@+id/license_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp"
+                        android:drawableLeft="@drawable/ic_license"
+                        android:drawablePadding="24dp"
+                        android:drawableStart="@drawable/ic_license"
+                        android:ellipsize="marquee"
+                        android:gravity="center_vertical"
+                        android:padding="5dp"
+                        android:paddingLeft="32dp"
+                        android:paddingStart="32dp"
+                        android:singleLine="true"
+                        android:text="Licenses"
+                        android:textSize="16sp" />
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/credits_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/about_card"
+            android:layout_marginBottom="8dp"
+            android:visibility="visible">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="24dp">
+
+                <RelativeLayout
+                    android:id="@+id/credits_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Credits"
+                        android:textColor="@android:color/black"
+                        android:textSize="24sp" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/credits_subhead_author"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/credits_title"
+                    android:layout_margin="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Author:"
+                        android:textSize="14sp" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/credits_author_contain"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/credits_subhead_author"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Shaun O'Neill" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/author_button_array"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/credits_author_contain"
+                    android:layout_margin="8dp">
+
+                    <Button
+                        android:id="@+id/author_git"
+                        style="@style/Base.Widget.AppCompat.Button.Borderless"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginRight="8dp"
+                        android:text="@string/github"
+                        android:textColor="#000000" />
+                    <Button
+                        android:id="@+id/author_twitter"
+                        style="@style/Base.Widget.AppCompat.Button.Borderless"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_toEndOf="@id/author_git"
+                        android:layout_toRightOf="@id/author_git"
+                        android:text="@string/twitter"
+                        android:textColor="#2196F3" />
+
+                    <Button
+                        android:id="@+id/author_site"
+                        style="@style/Base.Widget.AppCompat.Button.Borderless"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_toEndOf="@id/author_twitter"
+                        android:layout_toRightOf="@id/author_twitter"
+                        android:text="@string/website"
+                        android:textColor="#4CAF50" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/credits_subhead_designer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/author_button_array"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Designer:"
+                        android:textSize="14sp" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/credits_designer_contain"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/credits_subhead_designer"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Andrew Fluck" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/designer_button_array"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/credits_designer_contain"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginTop="8dp">
+
+                    <Button
+                        android:id="@+id/designer_git"
+                        style="@style/Base.Widget.AppCompat.Button.Borderless"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginRight="8dp"
+                        android:text="@string/github"
+                        android:textColor="#000000" />
+
+                    <Button
+                        android:id="@+id/designer_twitter"
+                        style="@style/Base.Widget.AppCompat.Button.Borderless"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_toEndOf="@id/designer_git"
+                        android:layout_toRightOf="@id/designer_git"
+                        android:text="@string/twitter"
+                        android:textColor="#2196F3" />
+
+                    <Button
+                        android:id="@+id/designer_site"
+                        style="@style/Base.Widget.AppCompat.Button.Borderless"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_toEndOf="@id/designer_twitter"
+                        android:layout_toRightOf="@id/designer_twitter"
+                        android:text="@string/website"
+                        android:textColor="#4CAF50" />
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/thanks_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/credits_card">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="16dp"
+                android:layout_marginTop="24dp">
+
+                <RelativeLayout
+                    android:id="@+id/thanks_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:gravity="center_vertical"
+                        android:text="Special Thanks"
+                        android:textColor="@android:color/black"
+                        android:textSize="24sp" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/thanks_message"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/thanks_title"
+                    android:layout_margin="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/about_msg_credits"
+                        android:textSize="14sp" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/thanks_promo_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/thanks_message"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="JoeTheHuman" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/promo_1_button_array"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/thanks_promo_1"
+                    android:layout_margin="8dp">
+
+                    <Button
+                        android:id="@+id/promo_1_git"
+                        style="@style/Base.Widget.AppCompat.Button.Borderless"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginRight="8dp"
+                        android:text="@string/github"
+                        android:textColor="#000000" />
+
+                    <Button
+                        android:id="@+id/promo_1_youtube"
+                        style="@style/Base.Widget.AppCompat.Button.Borderless"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_toEndOf="@id/promo_1_git"
+                        android:layout_toRightOf="@id/promo_1_git"
+                        android:text="@string/youtube"
+                        android:textColor="#F44336" />
+
+                    <Button
+                        android:id="@+id/promo_1_twitter"
+                        style="@style/Base.Widget.AppCompat.Button.Borderless"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_toEndOf="@id/promo_1_youtube"
+                        android:layout_toRightOf="@id/promo_1_youtube"
+                        android:text="@string/twitter"
+                        android:textColor="#2196F3" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/thanks_promo_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/promo_1_button_array"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Hexxium" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/promo_2_button_array"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/thanks_promo_2"
+                    android:layout_margin="8dp">
+
+                    <Button
+                        android:id="@+id/promo_2_git"
+                        style="@style/Base.Widget.AppCompat.Button.Borderless"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginRight="8dp"
+                        android:text="@string/github"
+                        android:textColor="#000000" />
+
+                    <Button
+                        android:id="@+id/promo_2_youtube"
+                        style="@style/Base.Widget.AppCompat.Button.Borderless"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_toEndOf="@id/promo_2_git"
+                        android:layout_toRightOf="@id/promo_2_git"
+                        android:text="@string/youtube"
+                        android:textColor="#F44336" />
+
+                    <Button
+                        android:id="@+id/promo_2_twitter"
+                        style="@style/Base.Widget.AppCompat.Button.Borderless"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_toEndOf="@id/promo_2_youtube"
+                        android:layout_toRightOf="@id/promo_2_youtube"
+                        android:text="@string/twitter"
+                        android:textColor="#2196F3" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/thanks_promo_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/promo_2_button_array"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Dazza" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/promo_3_button_array"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/thanks_promo_3"
+                    android:layout_margin="8dp">
+
+                    <Button
+                        android:id="@+id/promo_3_youtube"
+                        style="@style/Base.Widget.AppCompat.Button.Borderless"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginRight="8dp"
+                        android:text="@string/youtube"
+                        android:textColor="#F44336" />
+
+                    <Button
+                        android:id="@+id/promo_3_twitter"
+                        style="@style/Base.Widget.AppCompat.Button.Borderless"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_toEndOf="@id/promo_3_youtube"
+                        android:layout_toRightOf="@id/promo_3_youtube"
+                        android:text="@string/twitter"
+                        android:textColor="#2196F3" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/thanks_promo_4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/promo_3_button_array"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Lewis" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/promo_4_button_array"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/thanks_promo_4"
+                    android:layout_margin="8dp">
+
+                    <Button
+                        android:id="@+id/promo_4_youtube"
+                        style="@style/Base.Widget.AppCompat.Button.Borderless"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginRight="8dp"
+                        android:text="@string/youtube"
+                        android:textColor="#F44336" />
+
+                    <Button
+                        android:id="@+id/promo_4_twitter"
+                        style="@style/Base.Widget.AppCompat.Button.Borderless"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_toEndOf="@id/promo_4_youtube"
+                        android:layout_toRightOf="@id/promo_4_youtube"
+                        android:text="@string/twitter"
+                        android:textColor="#2196F3" />
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+        </android.support.v7.widget.CardView>
+
+    </RelativeLayout>
+
+</ScrollView>
