@@ -119,6 +119,9 @@ public class NumberGameActivity extends BaseThemedActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
 
         switch (item.getItemId()){
+            case android.R.id.home:
+                finish();
+                return true;
             case R.id.action_reset:
                 Snackbar.make(mCoordinatorLayout, "Are you sure you want to reset your score of " + score + "?", Snackbar.LENGTH_INDEFINITE)
                         .setAction("Yes", new View.OnClickListener() {
@@ -127,7 +130,7 @@ public class NumberGameActivity extends BaseThemedActivity {
                                 resetScore();
                             }
                         }).show();
-                break;
+                return true;
         }
 
         return super.onOptionsItemSelected(item);

@@ -10,6 +10,7 @@ import android.preference.PreferenceManager;
 import android.support.annotation.ColorInt;
 import android.support.annotation.NonNull;
 import android.support.annotation.StyleRes;
+import android.view.MenuItem;
 import android.view.View;
 
 import com.afollestad.appthemeengine.ATE;
@@ -60,6 +61,17 @@ public class SettingsActivity extends BaseThemedActivity
         }
         config.commit();
         recreate(); // recreation needed to reach the checkboxes in the preferences layout
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     public static class SettingsFragment extends PreferenceFragment {
