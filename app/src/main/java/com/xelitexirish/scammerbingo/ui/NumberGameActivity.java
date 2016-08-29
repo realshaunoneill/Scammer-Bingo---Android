@@ -19,7 +19,10 @@ import com.xelitexirish.scammerbingo.R;
 import com.xelitexirish.scammerbingo.prefs.PreferenceHandler;
 import com.xelitexirish.scammerbingo.utils.BaseThemedActivity;
 
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Random;
+import java.util.Set;
 
 public class NumberGameActivity extends BaseThemedActivity {
 
@@ -39,6 +42,8 @@ public class NumberGameActivity extends BaseThemedActivity {
 
     public static int score = 0;
     public static Button[] allButtons;
+
+    private static int NUMBERS_RANGE = 200;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,17 +92,15 @@ public class NumberGameActivity extends BaseThemedActivity {
         getSupportActionBar().setSubtitle(getString(R.string.score) + ": " + score + "/" + allButtons.length);
 
         Random randomButtonTitle = new Random();
-        for (int x = 0; x < allButtons.length; x++) {
-            final Button button = allButtons[x];
-            button.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    onButtonPressed(button);
+        Set set = new HashSet<Integer>(allButtons.length);
+        while (set.size() < allButtons.length){
+            while (!set.add(randomButtonTitle.nextInt(NUMBERS_RANGE)));
+        }
 
-                }
-            });
-            int number = randomButtonTitle.nextInt(50);
-            button.setText(Integer.toString(number * randomButtonTitle.nextInt(5)));
+        for (int x = 0; x < set.size(); x++){
+            Button button = allButtons[x];
+            Object[] numbers = set.toArray();
+            button.setText(numbers[x].toString());
         }
 
         mButtonNumbersHelp.setBackgroundResource(R.drawable.ic_about_nav);

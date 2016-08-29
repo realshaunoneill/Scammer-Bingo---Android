@@ -14,9 +14,9 @@ public class DataHelper {
     public static ArrayList<String> websitesList = new ArrayList<>();
     public static ArrayList ipsList = new ArrayList();
 
-    public static final String URL_NUMBERS_RAW = "https://raw.githubusercontent.com/HexxiumCreations/spammer-bingo-app/master/data/numbersList.txt";
-    public static final String URL_WEBSITES_RAW = "https://hexxiumcreations.github.io/threat-list/hexxiumthreatlist.txt";
-    public static final String URL_IPS_RAW = "https://raw.githubusercontent.com/HexxiumCreations/spammer-bingo-app/master/data/ipsList.txt";
+    public static final String URL_NUMBERS_RAW = "https://raw.githubusercontent.com/TCDG/Scammer-Bingo---Android/master/data/numbersList.txt";
+    public static final String URL_WEBSITES_RAW = "https://raw.githubusercontent.com/TCDG/Scammer-Bingo---Android/master/data/websiteList.txt";
+    public static final String URL_IPS_RAW = "https://raw.githubusercontent.com/TCDG/Scammer-Bingo---Android/master/data/ipsList.txt";
 
     public static void inflateLists() {
         new inflateOnlineLists().execute();
