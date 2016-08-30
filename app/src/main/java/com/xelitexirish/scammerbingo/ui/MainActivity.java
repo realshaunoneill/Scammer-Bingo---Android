@@ -246,6 +246,20 @@ public class MainActivity extends BaseThemedActivity implements NavigationView.O
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        if (score > 0){
+            for (Button button : allButtons){
+                if(!button.isEnabled()){
+                    resetScore();
+                    Toast.makeText(this, "There was an error with your score, resetting..", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+            }
+        }
+    }
+
+    @Override
     public void onBackPressed() {
         if (mSearchCardView.getVisibility() == View.VISIBLE) {
             InitiateSearch.handleSearchBar(MainActivity.this, mSearchCardView, mToolbar, mSearchContainer, mSearchText, mSearchBack, mSearchClear, mSearchTabs, mDrawerLayout);
