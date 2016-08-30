@@ -15,6 +15,9 @@ import android.widget.ImageView;
 import com.afollestad.appthemeengine.ATE;
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 import com.xelitexirish.scammerbingo.R;
 import com.xelitexirish.scammerbingo.prefs.PreferenceHandler;
 import com.xelitexirish.scammerbingo.utils.BaseThemedActivity;
@@ -39,6 +42,8 @@ public class NumberGameActivity extends BaseThemedActivity {
             button9,
             button10;
     ImageView mButtonNumbersHelp;
+
+    AdView mAdViewFooter;
 
     public static int score = 0;
     public static Button[] allButtons;
@@ -88,6 +93,8 @@ public class NumberGameActivity extends BaseThemedActivity {
         button10 = (Button) findViewById(R.id.button10);
         mButtonNumbersHelp = (ImageView) findViewById(R.id.imageViewHelp);
 
+        mAdViewFooter = (AdView) findViewById(R.id.footerAdViewNumbers);
+
         allButtons = new Button[]{button1, button2, button3, button4, button5, button6, button7, button8, button9, button10};
         getSupportActionBar().setSubtitle(getString(R.string.score) + ": " + score + "/" + allButtons.length);
 
@@ -110,6 +117,8 @@ public class NumberGameActivity extends BaseThemedActivity {
                 showHelpMessage();
             }
         });
+
+        doAppAds();
     }
 
     @Override
@@ -183,5 +192,11 @@ public class NumberGameActivity extends BaseThemedActivity {
             }
         });
         helpDialog.show();
+    }
+
+    private void doAppAds() {
+        MobileAds.initialize(getApplicationContext(), getString(R.string.ad_footer_id));
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdViewFooter.loadAd(adRequest);
     }
 }

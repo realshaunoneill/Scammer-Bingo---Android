@@ -38,6 +38,9 @@ import android.widget.Toast;
 import com.afollestad.appthemeengine.ATE;
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 import com.xelitexirish.scammerbingo.R;
 import com.xelitexirish.scammerbingo.prefs.PreferenceHandler;
 import com.xelitexirish.scammerbingo.utils.BaseThemedActivity;
@@ -83,6 +86,8 @@ public class MainActivity extends BaseThemedActivity implements NavigationView.O
             button18,
             button19,
             button20;
+
+    private AdView mAdViewFooter;
 
     public static int score = 0;
     public static Button[] allButtons;
@@ -153,6 +158,8 @@ public class MainActivity extends BaseThemedActivity implements NavigationView.O
         button18 = (Button) findViewById(R.id.button18);
         button19 = (Button) findViewById(R.id.button19);
         button20 = (Button) findViewById(R.id.button20);
+
+        mAdViewFooter = (AdView) findViewById(R.id.footerAdViewMain);
 
         allButtons = new Button[]{button1, button2, button3, button4, button5, button6, button7, button8, button9, button10, button11, button12, button13, button14, button15, button16, button17, button18, button19, button20};
         randPeripherals = new int[]{R.drawable.ic_peripheral_01, R.drawable.ic_peripheral_02, R.drawable.ic_peripheral_03, R.drawable.ic_peripheral_04, R.drawable.ic_peripheral_05, R.drawable.ic_peripheral_06};
@@ -242,7 +249,7 @@ public class MainActivity extends BaseThemedActivity implements NavigationView.O
         });
 
         showRateDialog();
-
+        doAppAds();
     }
 
     @Override
@@ -406,6 +413,12 @@ public class MainActivity extends BaseThemedActivity implements NavigationView.O
 
     private void showRateDialog(){
         AppRaterHelper.appLaunched(this);
+    }
+
+    private void doAppAds() {
+        MobileAds.initialize(getApplicationContext(), getString(R.string.ad_footer_id));
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdViewFooter.loadAd(adRequest);
     }
 
     public class PageAdapter extends FragmentPagerAdapter {
