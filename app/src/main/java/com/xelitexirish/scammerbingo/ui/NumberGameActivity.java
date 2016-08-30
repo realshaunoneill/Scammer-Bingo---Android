@@ -110,6 +110,15 @@ public class NumberGameActivity extends BaseThemedActivity {
             button.setText(numbers[x].toString());
         }
 
+        for (final Button button : allButtons){
+            button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    onButtonPressed(button);
+                }
+            });
+        }
+
         mButtonNumbersHelp.setBackgroundResource(R.drawable.ic_about_nav);
         mButtonNumbersHelp.setOnClickListener(new View.OnClickListener() {
             @Override
