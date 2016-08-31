@@ -27,7 +27,7 @@ public class RemoveAdsHandler {
     // The helper object
     IabHelper mHelper;
 
-    String base64EncodedPublicKey = activity.getString(R.string.PUBLIC_KEY);
+    String base64EncodedPublicKey = activity.getString(R.string.remove_ads_public_key);
     Boolean isAdsDisabled = false;
     String payload = "ANY_PAYLOAD_STRING";
 
