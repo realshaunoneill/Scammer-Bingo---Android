@@ -42,6 +42,7 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 import com.xelitexirish.scammerbingo.R;
+import com.xelitexirish.scammerbingo.handler.RemoveAdsHandler;
 import com.xelitexirish.scammerbingo.prefs.PreferenceHandler;
 import com.xelitexirish.scammerbingo.utils.BaseThemedActivity;
 import com.xelitexirish.scammerbingo.utils.AppRaterHelper;
@@ -53,6 +54,8 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class MainActivity extends BaseThemedActivity implements NavigationView.OnNavigationItemSelectedListener {
+
+    public RemoveAdsHandler adsHandler = new RemoveAdsHandler(this);
 
     private CardView mSearchCardView;
     private DrawerLayout mDrawerLayout;
@@ -250,6 +253,13 @@ public class MainActivity extends BaseThemedActivity implements NavigationView.O
 
         showRateDialog();
         doAppAds();
+        adsHandler.onCreate();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        adsHandler.onDestroy();
     }
 
     @Override
@@ -264,6 +274,12 @@ public class MainActivity extends BaseThemedActivity implements NavigationView.O
                 }
             }
         }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        adsHandler.onActivityResult(requestCode, resultCode, data);
     }
 
     @Override
