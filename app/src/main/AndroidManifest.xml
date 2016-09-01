@@ -72,6 +72,11 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ui.MainActivity" />
         </activity>
+        <activity android:name=".ui.PremiumActivity"
+            android:label="@string/title_activity_premium"
+            android:parentActivityName=".ui.MainActivity" />
+        <activity android:name=".ui.QrReaderActivity"
+            android:label="@string/title_activity_qr_reader" />
     </application>
 
 </manifest>

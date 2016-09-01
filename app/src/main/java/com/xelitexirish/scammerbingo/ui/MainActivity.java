@@ -416,6 +416,10 @@ public class MainActivity extends BaseThemedActivity implements NavigationView.O
                 Intent settingsIntent = new Intent(MainActivity.this, SettingsActivity.class);
                 startActivity(settingsIntent);
                 break;
+            case R.id.nav_premium:
+                Intent premiumIntent = new Intent(MainActivity.this, PremiumActivity.class);
+                startActivity(premiumIntent);
+                break;
             case R.id.nav_about:
                 Intent aboutIntent = new Intent(MainActivity.this, AboutActivity.class);
                 startActivity(aboutIntent);
@@ -432,9 +436,13 @@ public class MainActivity extends BaseThemedActivity implements NavigationView.O
     }
 
     private void doAppAds() {
-        MobileAds.initialize(getApplicationContext(), getString(R.string.ad_footer_id));
-        AdRequest adRequest = new AdRequest.Builder().build();
-        mAdViewFooter.loadAd(adRequest);
+        if(PreferenceHandler.areAdsEnabled(this)) {
+            MobileAds.initialize(getApplicationContext(), getString(R.string.ad_footer_id));
+            AdRequest adRequest = new AdRequest.Builder().build();
+            mAdViewFooter.loadAd(adRequest);
+        }else {
+            mAdViewFooter.setVisibility(View.GONE);
+        }
     }
 
     public class PageAdapter extends FragmentPagerAdapter {

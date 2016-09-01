@@ -19,6 +19,9 @@
             android:id="@+id/nav_settings"
             android:title="@string/action_settings" />
         <item
+            android:id="@+id/nav_premium"
+            android:title="@string/action_premium" />
+        <item
             android:icon="@drawable/ic_about_nav"
             android:id="@+id/nav_about"
             android:title="@string/action_about" />

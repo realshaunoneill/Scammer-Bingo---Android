@@ -25,4 +25,19 @@ public class PreferenceHandler {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
         return preferences.getBoolean("ENABLE_EASTER_EGG", true);
     }
+
+    /**
+     * Ads
+     */
+    public static void enableAds(Context context, boolean enable){
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putBoolean("ENABLE_APP_ADS", enable);
+        editor.apply();
+    }
+
+    public static boolean areAdsEnabled(Context context){
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        return preferences.getBoolean("ENABLE_APP_ADS", true);
+    }
 }

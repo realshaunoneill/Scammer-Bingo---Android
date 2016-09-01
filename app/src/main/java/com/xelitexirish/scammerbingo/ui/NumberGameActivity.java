@@ -204,8 +204,12 @@ public class NumberGameActivity extends BaseThemedActivity {
     }
 
     private void doAppAds() {
-        MobileAds.initialize(getApplicationContext(), getString(R.string.ad_footer_id));
-        AdRequest adRequest = new AdRequest.Builder().build();
-        mAdViewFooter.loadAd(adRequest);
+        if(PreferenceHandler.areAdsEnabled(this)) {
+            MobileAds.initialize(getApplicationContext(), getString(R.string.ad_footer_id));
+            AdRequest adRequest = new AdRequest.Builder().build();
+            mAdViewFooter.loadAd(adRequest);
+        }else {
+            mAdViewFooter.setVisibility(View.GONE);
+        }
     }
 }
