@@ -135,7 +135,6 @@ public class MainActivity extends BaseThemedActivity implements NavigationView.O
             finish();
         }
 
-
         mToolbar = (Toolbar) findViewById(R.id.toolbar_main);
         setSupportActionBar(mToolbar);
 

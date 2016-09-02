@@ -11,7 +11,7 @@
 
     <group android:checkableBehavior="none">
         <item
-            android:icon="@android:drawable/ic_dialog_map"
+            android:icon="@drawable/ic_numbers"
             android:id="@+id/nav_numbers_game"
             android:title="@string/action_numbers" />
         <item
@@ -19,6 +19,7 @@
             android:id="@+id/nav_settings"
             android:title="@string/action_settings" />
         <item
+            android:icon="@drawable/ic_money"
             android:id="@+id/nav_premium"
             android:title="@string/action_premium" />
         <item
