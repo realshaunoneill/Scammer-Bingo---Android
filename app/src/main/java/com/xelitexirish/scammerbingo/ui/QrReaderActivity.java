@@ -1,7 +1,9 @@
 package com.xelitexirish.scammerbingo.ui;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.v7.widget.Toolbar;
@@ -114,6 +116,8 @@ public class QrReaderActivity extends BaseThemedActivity{
             if(PreferenceHandler.areSoundsEnabled(this)){
                 mBeepManager.playBeepSoundAndVibrate();
             }
+
+            PreferenceHandler.enableAds(this, false);
 
             showNotifyDialog();
 

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- START xml_defaults -->
+<defaultsMap>
+    <entry>
+        <key>url_numbers_raw</key>
+        <value>https://raw.githubusercontent.com/TCDG/Scammer-Bingo---Android/master/data/numbersList.txt</value>
+    </entry>
+    <entry>
+        <key>url_websites_raw</key>
+        <value>https://raw.githubusercontent.com/TCDG/Scammer-Bingo---Android/master/data/websiteList.txt</value>
+    </entry>
+    <entry>
+        <key>url_ips_raw</key>
+        <value>https://raw.githubusercontent.com/TCDG/Scammer-Bingo---Android/master/data/ipsList.txt</value>
+    </entry>
+</defaultsMap>
+    <!-- END xml_defaults -->

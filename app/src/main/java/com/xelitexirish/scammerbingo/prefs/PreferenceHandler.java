@@ -40,4 +40,5 @@ public class PreferenceHandler {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
         return preferences.getBoolean("ENABLE_APP_ADS", true);
     }
+
 }

@@ -144,7 +144,7 @@ public class NumberGameActivity extends BaseThemedActivity {
                 finish();
                 return true;
             case R.id.action_reset:
-                Snackbar.make(mCoordinatorLayout, "Are you sure you want to reset your score of " + score + "?", Snackbar.LENGTH_INDEFINITE)
+                Snackbar.make(mCoordinatorLayout, "Are you sure you want to reset your score of " + score + "?", Snackbar.LENGTH_INDEFINITE).setDuration(Snackbar.LENGTH_SHORT)
                         .setAction("Yes", new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
@@ -179,7 +179,7 @@ public class NumberGameActivity extends BaseThemedActivity {
         score = 0;
         updateScore();
         setButtonsEnabled();
-        Snackbar.make(mCoordinatorLayout, "Reset", Snackbar.LENGTH_SHORT).show();
+        Snackbar.make(mCoordinatorLayout, "Reset", Snackbar.LENGTH_SHORT).setDuration(Snackbar.LENGTH_LONG).show();
     }
 
     public void setButtonsEnabled() {

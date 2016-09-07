@@ -2,6 +2,8 @@ package com.xelitexirish.scammerbingo.utils;
 
 import android.os.AsyncTask;
 
+import com.xelitexirish.scammerbingo.handler.FirebaseUrlHandler;
+
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -14,9 +16,7 @@ public class DataHelper {
     public static ArrayList<String> websitesList = new ArrayList<>();
     public static ArrayList ipsList = new ArrayList();
 
-    public static final String URL_NUMBERS_RAW = "https://raw.githubusercontent.com/TCDG/Scammer-Bingo---Android/master/data/numbersList.txt";
-    public static final String URL_WEBSITES_RAW = "https://raw.githubusercontent.com/TCDG/Scammer-Bingo---Android/master/data/websiteList.txt";
-    public static final String URL_IPS_RAW = "https://raw.githubusercontent.com/TCDG/Scammer-Bingo---Android/master/data/ipsList.txt";
+
 
     public static void inflateLists() {
         new inflateOnlineLists().execute();
@@ -29,9 +29,9 @@ public class DataHelper {
         protected Void doInBackground(Void... params) {
 
             try {
-                Scanner scannerNumbers = new Scanner(new URL(URL_NUMBERS_RAW).openStream());
-                Scanner scannerWebsites = new Scanner(new URL(URL_WEBSITES_RAW).openStream());
-                Scanner scannerIps = new Scanner(new URL(URL_IPS_RAW).openStream());
+                Scanner scannerNumbers = new Scanner(new URL(FirebaseUrlHandler.getUrlNumbers()).openStream());
+                Scanner scannerWebsites = new Scanner(new URL(FirebaseUrlHandler.getUrlWebsites()).openStream());
+                Scanner scannerIps = new Scanner(new URL(FirebaseUrlHandler.getUrlIps()).openStream());
 
                 while (scannerNumbers.hasNextLine()) {
                     String line = scannerNumbers.nextLine();
