@@ -58,8 +58,8 @@ public class PremiumActivity extends BaseThemedActivity {
         mButtonRemoveAds.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //adsHandler.purchaseRemoveAds();
-                Toast.makeText(getApplicationContext(), "Coming soon", Toast.LENGTH_SHORT).show();
+                adsHandler.purchaseRemoveAds();
+                //Toast.makeText(getApplicationContext(), "Coming soon", Toast.LENGTH_SHORT).show();
             }
         });
 
