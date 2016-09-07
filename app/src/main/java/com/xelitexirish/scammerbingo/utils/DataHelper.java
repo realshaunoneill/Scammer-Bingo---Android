@@ -2,7 +2,7 @@ package com.xelitexirish.scammerbingo.utils;
 
 import android.os.AsyncTask;
 
-import com.xelitexirish.scammerbingo.handler.FirebaseUrlHandler;
+import com.xelitexirish.scammerbingo.handler.FirebaseStringHandler;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -29,9 +29,9 @@ public class DataHelper {
         protected Void doInBackground(Void... params) {
 
             try {
-                Scanner scannerNumbers = new Scanner(new URL(FirebaseUrlHandler.getUrlNumbers()).openStream());
-                Scanner scannerWebsites = new Scanner(new URL(FirebaseUrlHandler.getUrlWebsites()).openStream());
-                Scanner scannerIps = new Scanner(new URL(FirebaseUrlHandler.getUrlIps()).openStream());
+                Scanner scannerNumbers = new Scanner(new URL(FirebaseStringHandler.getUrlNumbers()).openStream());
+                Scanner scannerWebsites = new Scanner(new URL(FirebaseStringHandler.getUrlWebsites()).openStream());
+                Scanner scannerIps = new Scanner(new URL(FirebaseStringHandler.getUrlIps()).openStream());
 
                 while (scannerNumbers.hasNextLine()) {
                     String line = scannerNumbers.nextLine();

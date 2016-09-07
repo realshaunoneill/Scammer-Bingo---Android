@@ -15,13 +15,16 @@
             android:id="@+id/nav_numbers_game"
             android:title="@string/action_numbers" />
         <item
-            android:icon="@drawable/ic_settings_nav"
-            android:id="@+id/nav_settings"
-            android:title="@string/action_settings" />
-        <item
             android:icon="@drawable/ic_money"
             android:id="@+id/nav_premium"
             android:title="@string/action_premium" />
+        </group>
+    <group android:checkableBehavior="none">
+
+        <item
+            android:icon="@drawable/ic_settings_nav"
+            android:id="@+id/nav_settings"
+            android:title="@string/action_settings" />
         <item
             android:icon="@drawable/ic_about_nav"
             android:id="@+id/nav_about"

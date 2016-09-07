@@ -10,15 +10,16 @@ import com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings;
 import com.google.zxing.client.android.BuildConfig;
 import com.xelitexirish.scammerbingo.R;
 
-public class FirebaseUrlHandler {
+public class FirebaseStringHandler {
 
-    private static final String TAG = FirebaseUrlHandler.class.getSimpleName();
+    private static final String TAG = FirebaseStringHandler.class.getSimpleName();
 
     private static FirebaseRemoteConfig mFirebaseRemoteConfig;
 
     private static final String KEY_URL_NUMBERS = "url_numbers_raw";
     private static final String KEY_WEBSITES_NUMBERS = "url_websites_raw";
     private static final String KEY_IPS_NUMBERS = "url_ips_raw";
+    private static final String KEY_REMOVE_ADS_SECRET = "key_remove_ads";
 
     private static final String URL_NUMBERS_RAW_DEFAULT = "https://raw.githubusercontent.com/TCDG/Scammer-Bingo---Android/master/data/numbersList.txt";
     private static final String URL_WEBSITES_RAW_DEFAULT = "https://raw.githubusercontent.com/TCDG/Scammer-Bingo---Android/master/data/websiteList.txt";
@@ -70,5 +71,10 @@ public class FirebaseUrlHandler {
         }else {
             return url;
         }
+    }
+
+    public static String getRemoveAdsSecret(){
+        String url = mFirebaseRemoteConfig.getString(KEY_REMOVE_ADS_SECRET);
+        return url;
     }
 }

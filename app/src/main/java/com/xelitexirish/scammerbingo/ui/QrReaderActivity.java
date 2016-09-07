@@ -21,6 +21,7 @@ import com.journeyapps.barcodescanner.BarcodeCallback;
 import com.journeyapps.barcodescanner.BarcodeResult;
 import com.journeyapps.barcodescanner.CompoundBarcodeView;
 import com.xelitexirish.scammerbingo.R;
+import com.xelitexirish.scammerbingo.handler.FirebaseStringHandler;
 import com.xelitexirish.scammerbingo.prefs.PreferenceHandler;
 import com.xelitexirish.scammerbingo.utils.BaseThemedActivity;
 
@@ -43,7 +44,6 @@ public class QrReaderActivity extends BaseThemedActivity{
         public void possibleResultPoints(List<ResultPoint> resultPoints) {
         }
     };
-    private static String SECRET_KEY = "awgawggthsfsefjseolifsifhsefjidfhysehufskfhesfukhsefkbakjdbawdkabwdkawd5322adawd";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -112,7 +112,7 @@ public class QrReaderActivity extends BaseThemedActivity{
         mBarcodeView.pause();
         String rawText = result.getText();
 
-        if (rawText.equals(SECRET_KEY)){
+        if (rawText.equals(FirebaseStringHandler.getRemoveAdsSecret())){
             if(PreferenceHandler.areSoundsEnabled(this)){
                 mBeepManager.playBeepSoundAndVibrate();
             }

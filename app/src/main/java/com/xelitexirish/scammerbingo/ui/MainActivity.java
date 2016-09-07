@@ -43,8 +43,7 @@ import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.xelitexirish.scammerbingo.R;
-import com.xelitexirish.scammerbingo.handler.FirebaseUrlHandler;
-import com.xelitexirish.scammerbingo.handler.RemoveAdsHandler;
+import com.xelitexirish.scammerbingo.handler.FirebaseStringHandler;
 import com.xelitexirish.scammerbingo.prefs.PreferenceHandler;
 import com.xelitexirish.scammerbingo.utils.BaseThemedActivity;
 import com.xelitexirish.scammerbingo.utils.AppRaterHelper;
@@ -237,7 +236,7 @@ public class MainActivity extends BaseThemedActivity implements NavigationView.O
             });
         }
 
-        FirebaseUrlHandler.init();
+        FirebaseStringHandler.init();
         DataHelper.inflateLists();
 
         mRandPeripheral = (ImageView) findViewById(R.id.rand_peripheral);
