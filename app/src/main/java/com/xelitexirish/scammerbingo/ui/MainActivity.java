@@ -295,7 +295,7 @@ public class MainActivity extends BaseThemedActivity implements NavigationView.O
                 }
                 break;
             case R.id.action_reset:
-                Snackbar.make(mDrawerLayout, "Are you sure you want to reset your score of " + score + "?", Snackbar.LENGTH_INDEFINITE)
+                Snackbar.make(mDrawerLayout, "Are you sure you want to reset your score of " + score + "?", Snackbar.LENGTH_INDEFINITE).setDuration(Snackbar.LENGTH_SHORT)
                         .setAction("Yes", new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
@@ -323,7 +323,7 @@ public class MainActivity extends BaseThemedActivity implements NavigationView.O
         if (score != allButtons.length) {
             score++;
         } else {
-            Snackbar.make(mDrawerLayout, "Error: Please reset score", Snackbar.LENGTH_SHORT).show();
+            Snackbar.make(mDrawerLayout, "Error: Please reset score", Snackbar.LENGTH_SHORT).setDuration(Snackbar.LENGTH_LONG).show();
         }
         pressedButton.setEnabled(false);
         updateScore();
