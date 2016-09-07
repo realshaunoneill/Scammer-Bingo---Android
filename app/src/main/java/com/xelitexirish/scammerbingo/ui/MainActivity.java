@@ -41,6 +41,7 @@ import com.afollestad.materialdialogs.MaterialDialog;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.xelitexirish.scammerbingo.R;
 import com.xelitexirish.scammerbingo.handler.FirebaseUrlHandler;
 import com.xelitexirish.scammerbingo.handler.RemoveAdsHandler;
@@ -90,6 +91,7 @@ public class MainActivity extends BaseThemedActivity implements NavigationView.O
             button20;
 
     private AdView mAdViewFooter;
+    private FirebaseAnalytics mFirebaseAnalytics;
 
     public static int score = 0;
     public static Button[] allButtons;
@@ -138,6 +140,8 @@ public class MainActivity extends BaseThemedActivity implements NavigationView.O
 
         mToolbar = (Toolbar) findViewById(R.id.toolbar_main);
         setSupportActionBar(mToolbar);
+
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
         button1 = (Button) findViewById(R.id.button1);
         button2 = (Button) findViewById(R.id.button2);
@@ -341,6 +345,12 @@ public class MainActivity extends BaseThemedActivity implements NavigationView.O
                 // TODO show easter egg (some photo of a scammer)
             }
         }
+
+        Bundle bundle = new Bundle();
+        bundle.putInt(FirebaseAnalytics.Param.ITEM_ID, pressedButton.getId());
+        bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, pressedButton.getText().toString());
+        bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "button");
+        mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
     }
 
     public void updateScore() {
