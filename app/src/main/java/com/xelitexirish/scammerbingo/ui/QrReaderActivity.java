@@ -1,16 +1,17 @@
 package com.xelitexirish.scammerbingo.ui;
 
-import android.content.Intent;
-import android.content.SharedPreferences;
+import android.Manifest;
+import android.app.Activity;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.CoordinatorLayout;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.Toast;
 
 import com.afollestad.appthemeengine.ATE;
 import com.afollestad.materialdialogs.DialogAction;
@@ -27,7 +28,7 @@ import com.xelitexirish.scammerbingo.utils.BaseThemedActivity;
 
 import java.util.List;
 
-public class QrReaderActivity extends BaseThemedActivity{
+public class QrReaderActivity extends BaseThemedActivity {
 
     private CoordinatorLayout mCoordinatorLayout;
     private BeepManager mBeepManager;
@@ -35,7 +36,7 @@ public class QrReaderActivity extends BaseThemedActivity{
     private BarcodeCallback callback = new BarcodeCallback() {
         @Override
         public void barcodeResult(BarcodeResult result) {
-            if(result.getText() != null){
+            if (result.getText() != null) {
                 handleDecode(result);
             }
         }
@@ -44,6 +45,8 @@ public class QrReaderActivity extends BaseThemedActivity{
         public void possibleResultPoints(List<ResultPoint> resultPoints) {
         }
     };
+
+    public static final int MY_PERMISSIONS_REQUEST_CAMERA = 42;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,13 +78,36 @@ public class QrReaderActivity extends BaseThemedActivity{
         setSupportActionBar(toolbar);
 
         mCoordinatorLayout = (CoordinatorLayout) findViewById(R.id.coordinator_layout_premium);
+        mBarcodeView = (CompoundBarcodeView) findViewById(R.id.barcode_scanner);
+        mBarcodeView.setStatusText("Waiting for QR-Code...");
 
         Window window = getWindow();
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
         mBeepManager = new BeepManager(this);
 
-        mBarcodeView = (CompoundBarcodeView) findViewById(R.id.barcode_scanner);
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
+            startScanning();
+        } else {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, MY_PERMISSIONS_REQUEST_CAMERA);
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        switch (requestCode) {
+            case MY_PERMISSIONS_REQUEST_CAMERA: {
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    startScanning();
+                } else {
+                    setResult(Activity.RESULT_CANCELED);
+                    finish();
+                }
+            }
+        }
+    }
+
+    private void startScanning() {
         mBarcodeView.decodeContinuous(callback);
     }
 
@@ -112,21 +138,24 @@ public class QrReaderActivity extends BaseThemedActivity{
         mBarcodeView.pause();
         String rawText = result.getText();
 
-        if (rawText.equals(FirebaseStringHandler.getRemoveAdsSecret())){
-            if(PreferenceHandler.areSoundsEnabled(this)){
+        if (rawText.equals(FirebaseStringHandler.getRemoveAdsSecret())) {
+            if (PreferenceHandler.areSoundsEnabled(this)) {
                 mBeepManager.playBeepSoundAndVibrate();
             }
 
+            if(PreferenceHandler.areAdsEnabled(this)) {
+                showNotifyDialog();
+            }else{
+                showAlreadyActivitedDialog();
+            }
+
             PreferenceHandler.enableAds(this, false);
-
-            showNotifyDialog();
-
-        }else {
+        } else {
             mBarcodeView.resume();
         }
     }
 
-    private void showNotifyDialog(){
+    private void showNotifyDialog() {
         MaterialDialog.Builder dialog = new MaterialDialog.Builder(this);
         dialog.title(getString(R.string.title_activity_premium));
         dialog.content("You have activated some of the premium features for Scammer Bingo! Enjoy!");
@@ -135,6 +164,22 @@ public class QrReaderActivity extends BaseThemedActivity{
             @Override
             public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
                 dialog.dismiss();
+                finish();
+            }
+        });
+        dialog.show();
+    }
+
+    private void showAlreadyActivitedDialog() {
+        MaterialDialog.Builder dialog = new MaterialDialog.Builder(this);
+        dialog.title(getString(R.string.title_activity_premium));
+        dialog.content("You have already activated the features associated with that code.");
+        dialog.positiveText(R.string.action_okay);
+        dialog.onPositive(new MaterialDialog.SingleButtonCallback() {
+            @Override
+            public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                dialog.dismiss();
+                finish();
             }
         });
         dialog.show();
