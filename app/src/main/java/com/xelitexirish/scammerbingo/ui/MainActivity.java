@@ -255,6 +255,9 @@ public class MainActivity extends BaseThemedActivity implements NavigationView.O
     @Override
     protected void onResume() {
         super.onResume();
+
+        doAppAds();
+
         if (score > 0){
             for (Button button : allButtons){
                 if(!button.isEnabled()){
@@ -420,6 +423,7 @@ public class MainActivity extends BaseThemedActivity implements NavigationView.O
     }
 
     private void doAppAds() {
+        MobileAds.initialize(getApplicationContext(), "ca-app-pub-9817254026781393~2247426466");
         if(PreferenceHandler.areAdsEnabled(this)) {
             MobileAds.initialize(getApplicationContext(), getString(R.string.ad_footer_id));
             AdRequest adRequest = new AdRequest.Builder().build();

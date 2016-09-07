@@ -77,6 +77,13 @@
             android:parentActivityName=".ui.MainActivity" />
         <activity android:name=".ui.QrReaderActivity"
             android:label="@string/title_activity_qr_reader" />
+
+        <service android:name=".service.AppMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+
     </application>
 
 </manifest>
