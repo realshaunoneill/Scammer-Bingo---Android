@@ -179,7 +179,8 @@ public class QrReaderActivity extends BaseThemedActivity {
             @Override
             public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
                 dialog.dismiss();
-                finish();
+                mBarcodeView.resume();
+                mBarcodeView.decodeContinuous(callback);
             }
         });
         dialog.show();
