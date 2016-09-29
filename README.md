@@ -1,6 +1,6 @@
-# Project Name
+# Scammer Bingo (Android) [![Awesome](https://travis-ci.org/TCDG/Scammer-Bingo---Android.svg?branch=material-rewrite)](https://travis-ci.org/TCDG/Scammer-Bingo---Android)
 
-TODO: Write a project description
+Scammer Bingo is an Android app created to help exposing phone scammers!
 
 ## Installation
 
