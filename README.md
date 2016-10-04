@@ -1,5 +1,5 @@
 <img src="icon.png" align="right" />
-# Scammer Bingo (Android) [![Awesome](https://travis-ci.org/TCDG/Scammer-Bingo---Android.svg?branch=material-rewrite)](https://travis-ci.org/TCDG/Scammer-Bingo---Android)
+# Scammer Bingo (Android)  Master:[![Awesome](https://travis-ci.org/TCDG/Scammer-Bingo---Android.svg?branch=master)](https://travis-ci.org/TCDG/Scammer-Bingo---Android)
 
 Scammer Bingo is an Android app created to help exposing phone scammers!
 
