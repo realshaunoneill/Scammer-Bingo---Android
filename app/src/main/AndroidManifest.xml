@@ -33,11 +33,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".ui.IntroStepperActivity"
             android:label="@string/title_activity_settings"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
+
         <activity
             android:name=".ui.SettingsActivity"
             android:label="@string/title_activity_settings"
@@ -47,6 +49,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ui.MainActivity" />
         </activity>
+
         <activity
             android:name=".ui.AboutActivity"
             android:label="@string/title_activity_about"
@@ -56,6 +59,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ui.MainActivity" />
         </activity>
+
         <activity
             android:name=".ui.SearchActivity"
             android:configChanges="orientation|keyboard"
@@ -66,6 +70,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.xelitexirish.scammerbingo.ui.MainActivity" />
         </activity>
+
         <activity android:name=".ui.NumberGameActivity"
             android:label="@string/title_activity_numbers"
             android:parentActivityName=".ui.MainActivity">
@@ -73,11 +78,16 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ui.MainActivity" />
         </activity>
+
         <activity android:name=".ui.PremiumActivity"
             android:label="@string/title_activity_premium"
             android:parentActivityName=".ui.MainActivity" />
         <activity android:name=".ui.QrReaderActivity"
             android:label="@string/title_activity_qr_reader" />
+
+        <activity android:name=".ui.ButtonChangeTextActivity"
+            android:label="@string/dialog_change_button_texts_title"
+            android:parentActivityName=".ui.MainActivity" />
 
         <service android:name=".service.AppMessagingService">
             <intent-filter>

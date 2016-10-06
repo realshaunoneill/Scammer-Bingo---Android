@@ -1,6 +1,7 @@
 package com.xelitexirish.scammerbingo.ui;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -82,6 +83,16 @@ public class SettingsActivity extends BaseThemedActivity
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             addPreferencesFromResource(R.xml.pref_general);
+
+            Preference changeButtonTexts = findPreference("CHANGE_BUTTON_TEXTS");
+            changeButtonTexts.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+                @Override
+                public boolean onPreferenceClick(Preference preference) {
+                    Intent intent = new Intent(getContext(), ButtonChangeTextActivity.class);
+                    startActivity(intent);
+                    return true;
+                }
+            });
         }
 
         @Override
