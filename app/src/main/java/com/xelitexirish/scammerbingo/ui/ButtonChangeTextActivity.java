@@ -10,11 +10,13 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.afollestad.appthemeengine.ATE;
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.xelitexirish.scammerbingo.R;
+import com.xelitexirish.scammerbingo.prefs.PreferenceHandler;
 import com.xelitexirish.scammerbingo.utils.BaseThemedActivity;
 
 import java.util.ArrayList;
@@ -82,6 +84,8 @@ public class ButtonChangeTextActivity extends BaseThemedActivity {
                             @Override
                             public void onInput(@NonNull MaterialDialog dialog, CharSequence input) {
                                 button.setText(input.toString());
+                                PreferenceHandler.saveButtonTextsSet(ButtonChangeTextActivity.this, MainActivity.getCurrentButtonTexts());
+                                Toast.makeText(ButtonChangeTextActivity.this, "Now set to: " + input.toString(), Toast.LENGTH_SHORT).show();
                             }
                         })
                         .show();

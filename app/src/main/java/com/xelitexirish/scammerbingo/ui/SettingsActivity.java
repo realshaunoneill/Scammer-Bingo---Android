@@ -13,6 +13,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.StyleRes;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.afollestad.appthemeengine.ATE;
 import com.afollestad.appthemeengine.Config;
@@ -22,6 +23,7 @@ import com.afollestad.appthemeengine.prefs.ATESwitchPreference;
 import com.afollestad.materialdialogs.color.ColorChooserDialog;
 import com.afollestad.materialdialogs.prefs.MaterialListPreference;
 import com.xelitexirish.scammerbingo.R;
+import com.xelitexirish.scammerbingo.prefs.PreferenceHandler;
 import com.xelitexirish.scammerbingo.utils.BaseThemedActivity;
 
 /**
@@ -84,12 +86,21 @@ public class SettingsActivity extends BaseThemedActivity
             super.onCreate(savedInstanceState);
             addPreferencesFromResource(R.xml.pref_general);
 
-            Preference changeButtonTexts = findPreference("CHANGE_BUTTON_TEXTS");
-            changeButtonTexts.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+            findPreference("CHANGE_BUTTON_TEXTS").setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
                 @Override
                 public boolean onPreferenceClick(Preference preference) {
                     Intent intent = new Intent(getContext(), ButtonChangeTextActivity.class);
                     startActivity(intent);
+                    return true;
+                }
+            });
+
+            findPreference("RESET_BUTTON_TEXTS").setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+                @Override
+                public boolean onPreferenceClick(Preference preference) {
+                    PreferenceHandler.resetButtonTexts(getContext());
+                    MainActivity.doButtonTexts(getContext());
+                    Toast.makeText(getContext(), "Successfully reset button texts", Toast.LENGTH_SHORT).show();
                     return true;
                 }
             });

@@ -27,6 +27,12 @@
             android:title="Change button texts"
             app:ateKey_pref="?ate_key" />
 
+        <com.afollestad.appthemeengine.prefs.ATEPreference
+            android:key="RESET_BUTTON_TEXTS"
+            android:summary="Reset the button texts to their defaults"
+            android:title="Restore default button texts"
+            app:ateKey_pref="?ate_key" />
+
     </com.afollestad.appthemeengine.prefs.ATEPreferenceCategory>
 
     <com.afollestad.appthemeengine.prefs.ATEPreferenceCategory

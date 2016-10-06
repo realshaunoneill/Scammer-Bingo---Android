@@ -255,6 +255,7 @@ public class MainActivity extends BaseThemedActivity implements NavigationView.O
 
         showRateDialog();
         doAppAds();
+        doButtonTexts(this);
     }
 
     @Override
@@ -441,6 +442,16 @@ public class MainActivity extends BaseThemedActivity implements NavigationView.O
             mAdViewFooter.loadAd(adRequest);
         }else {
             mAdViewFooter.setVisibility(View.GONE);
+        }
+    }
+
+    public static void doButtonTexts(Context context) {
+
+        if (PreferenceHandler.getButtonTexts(context) != null && PreferenceHandler.getButtonTexts(context).length > 0){
+            for (int x = 0; x < allButtons.length; x++){
+                Button button = allButtons[x];
+                button.setText(PreferenceHandler.getButtonTexts(context)[x]);
+            }
         }
     }
 
