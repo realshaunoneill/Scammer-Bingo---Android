@@ -17,7 +17,7 @@ import android.widget.Button;
 
 import com.xelitexirish.scammerbingo.R;
 import com.xelitexirish.scammerbingo.ui.widget.InkPageIndicator;
-import com.xelitexirish.scammerbingo.util.IntroManager;
+import com.xelitexirish.scammerbingo.utils.IntroManager;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -33,7 +33,7 @@ public class IntroStepperActivity extends AppCompatActivity {
      * {@link android.support.v4.app.FragmentStatePagerAdapter}.
      */
     private SectionsPagerAdapter mSectionsPagerAdapter;
-    private IntroManager introManager;
+    private IntroManager mIntroManager;
 
     /**
      * The {@link ViewPager} that will host the section contents.
@@ -50,18 +50,8 @@ public class IntroStepperActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        introManager = new IntroManager(this);
-        if (!introManager.isFirstTimeLaunch()) {
-            launchHomeScreen();
-            finish();
-        }
-
         setContentView(R.layout.activity_intro_stepper);
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        }
+        mIntroManager = new IntroManager(this);
 
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
@@ -79,7 +69,9 @@ public class IntroStepperActivity extends AppCompatActivity {
         mGetStarted.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                launchHomeScreen();
+                mIntroManager.setFirstTimeLaunch(false);
+                startActivity(new Intent(IntroStepperActivity.this, MainActivity.class));
+                finish();
             }
         });
 
@@ -107,22 +99,16 @@ public class IntroStepperActivity extends AppCompatActivity {
             // to call runOnUiThread to do work on UI thread.
             runOnUiThread(new Runnable() {
                 public void run() {
-                    if( page >= 2){
+                    if (page >= 2) {
                         page = 0;
-                    }else{
-                        page = page+1;
+                    } else {
+                        page = page + 1;
                     }
                     mViewPager.setCurrentItem(page, true);
                 }
             });
 
         }
-    }
-
-    private void launchHomeScreen() {
-        introManager.setFirstTimeLaunch(false);
-        startActivity(new Intent(IntroStepperActivity.this, MainActivity.class));
-        finish();
     }
 
     /**

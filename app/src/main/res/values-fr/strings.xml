@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="app_name">"Scammer Bingo"</string>
+<string name="app_description">"
+Déchets que la plupart du temps des escrocs que vous pouvez!"</string>
+<string name="title_activity_settings">"
+Paramètres"</string>
+<string name="title_activity_about">"Sur"</string>
+<string name="title_activity_numbers">"cammer Bingo - Numbers!"</string>
+<string name="title_activity_premium">"Caractéristiques Premium!"</string>
+<string name="title_activity_qr_reader">"QR-Code Lecteur"</string>
+<string name="ad_footer_id">"ca-app-pub-9817254026781393/3724159668"</string>
+<string name="about_msg_credits">"bingo Scammer a été conçu à partir de la version windows de la communauté créée par JoeTheHuman. HexxiumGamingYT, Lewis Tech
+         et Dazzas devenu fou ont des vidéos étonnantes où ils parlent aux escrocs, vérifiez-les tous!"</string>
+<string name="score">"But"</string>
+<string name="bingo_complete_title">"Bingo!"</string>
+<string name="bingo_complete_msg">"Bien fait, vous avez joué l'escroc pour un temps très long! Assurez-vous de les signaler!"</string>
+<string name="bingo_half_title">"À mi-chemin"</string>
+<string name="bingo_half_msg">"Vous êtes à mi-chemin là! Vous pouvez rat sur l'escroc savoir si elle prend trop de temps, mais encore assurez-vous de les signaler!"</string>
+<string name="call_dialog_title">"Etes-vous sûr que vous voulez appeler ce numéro de téléphone?"</string>
+<string name="call_dialog_msg">"Ce nombre est connu pour mettre en contact les fraudeurs, êtes-vous sûr que vous voulez appeler?"</string>
+<string name="call_dialog_unable">"Impossible d'appeler le numéro de téléphone"</string>
+<string name="website_dialog_title">"Etes-vous sûr que vous voulez ouvrir cette URL?"</string>
+<string name="website_dialog_message">"Ce site est connu pour les fraudeurs de publicité, êtes-vous sûr de vouloir l'ouvrir?"</string>
+<string name="numbers_dialog_title">"Comment jouer Scammer bingo - Numéros"</string>
+<string name="numbers_dialog_message">"Essayez d'obtenir l'escroc-à-dire l'un des numéros et marquez-les comme vous allez!"</string>
+<string name="appbar_scrolling_view_behavior">"android.support.design.widget.AppBarLayout$ScrollingViewBehavior "</string>
+<string name="pref_header_general">"Général"</string>
+<string name="youtube">"YouTube"</string>
+<string name="github">"GitHub"</string>
+<string name="twitter">"Twitter"</string>
+<string name="website">"Site Internet"</string>
+<string name="action_okay">"d'accord"</string>
+<string name="action_no">"Non merci"</string>
+<string name="action_never">"Ne plus afficher ce message"</string>
+<string name="action_reset">"Réinitialiser Score"</string>
+<string name="action_call">"Appel"</string>
+<string name="action_dismiss">"Rejeter"</string>
+<string name="action_open">"Ouvert"</string>
+<string name="action_search">"Chercher"</string>
+<string name="action_settings">"Paramètres"</string>
+<string name="action_numbers">"Numbers Édition"</string>
+<string name="action_premium">"Premium Features"</string>
+<string name="action_about">"Sur"</string>
+<string name="title_activity_search">"Chercher"</string>
+<string name="action_home">"Accueil"</string>
+<string name="not_available_below_m">"Vous devez Marshmallow Android (6.0) ou au-dessus pour utiliser cette fonctionnalité."</string>
+<string name="not_available_below_lollipop">"Vous devez Lollipop Android (5.0) ou au-dessus pour utiliser cette fonctionnalité."</string>
+<string name="primary_color">"Couleur primaire"</string>
+<string name="primary_color_summary">"Changer la couleur du thème principal"</string>
+<string name="accent_color">"Accent Couleur"</string>
+<string name="accent_color_summary">"Changer la couleur du thème d'accent"</string>
+<string name="primary_text_color">"Couleur principale de texte"</string>
+<string name="primary_text_color_summary">"Changer la couleur de texte primaire"</string>
+<string name="secondary_text_color">"Secondaire Couleur texte"</string>
+<string name="secondary_text_color_summary">"Changer la couleur du texte secondaire"</string>
+<string name="colored_status_bar">"Coloré Status Bar"</string>
+<string name="colored_status_bar_summary">"état Basculer bar coloration"</string>
+<string name="colored_nav_bar">"Coloré Barre de navigation"</string>
+<string name="colored_nav_bar_summary">"Navigation Basculer bar coloration"</string>
+<string name="dark_theme">"Thème noir"</string>
+<string name="dark_theme_summary">"Appliquer un thème sombre tout au long de l'application"</string>
+<string name="light_status_bar_mode">"Mode barre d'état Lumière"</string>
+<string name="light_toolbar_mode">"Mode Toolbar Lumière"</string>
+<string name="light_ui_modes">"Modes UI Lumière"</string>
+<string name="system_ui_colors">"UI système Couleurs"</string>
+<string name="base_theme">"base de Thème"</string>
+<string name="ate_colors">"ATE Couleurs"</string>
+<string name="dialog_change_button_texts_title">"Change bouton textes"</string>
+<string name="dialog_change_button_texts_content">"Entrez le texte que vous souhaitez voir apparaître sur le bouton sélectionné"</string>
+<string name="please_select_a_button_to_change_text">"S'il vous plaît sélectionner un bouton pour changer le texte:"</string>
+</resources>

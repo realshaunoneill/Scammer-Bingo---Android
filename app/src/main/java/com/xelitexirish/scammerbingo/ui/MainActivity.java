@@ -4,21 +4,19 @@ import android.content.Context;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.design.widget.AppBarLayout;
-import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.AppCompatImageView;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
@@ -31,28 +29,45 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
+import com.afollestad.appthemeengine.ATE;
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
-import com.xelitexirish.scammerbingo.InitiateSearch;
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.xelitexirish.scammerbingo.R;
+import com.xelitexirish.scammerbingo.handler.FirebaseStringHandler;
 import com.xelitexirish.scammerbingo.prefs.PreferenceHandler;
-import com.xelitexirish.scammerbingo.util.DataHelper;
+import com.xelitexirish.scammerbingo.utils.BaseThemedActivity;
+import com.xelitexirish.scammerbingo.utils.AppRaterHelper;
+import com.xelitexirish.scammerbingo.utils.DataHelper;
+import com.xelitexirish.scammerbingo.utils.InitiateSearch;
+import com.xelitexirish.scammerbingo.utils.IntroManager;
 
 import java.util.ArrayList;
+import java.util.Random;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseThemedActivity implements NavigationView.OnNavigationItemSelectedListener {
 
+    private CardView mSearchCardView;
+    private DrawerLayout mDrawerLayout;
+    private EditText mSearchText;
+    private ImageButton mSearchBack, mSearchClear;
+    private ImageView mRandPeripheral;
+    private IntroManager mIntroManager;
+    private NavigationView mNavigationView;
+    private RelativeLayout mSearchContainer;
+    private TabLayout mSearchTabs;
+    private Toolbar mToolbar;
+    private ViewPager mViewPager;
 
-    CoordinatorLayout mCoordinatorLayout;
     Button button1,
             button2,
             button3,
@@ -74,41 +89,58 @@ public class MainActivity extends AppCompatActivity {
             button19,
             button20;
 
-    private Toolbar mToolbar;
-    public ViewPager viewPager;
-    public TabLayout tabLayout;
-    private InitiateSearch initiateSearch;
-    private CardView card_search;
-    private ImageView image_search_back, clearSearch;
-    private EditText edit_text_search;
-    private RelativeLayout view_search;
-    private DrawerLayout mDrawerLayout;
-    private AppBarLayout mSearchToolbar;
-
-    AdView footerAdview;
+    private AdView mAdViewFooter;
+    private FirebaseAnalytics mFirebaseAnalytics;
 
     public static int score = 0;
     public static Button[] allButtons;
+    private static int[] randPeripherals;
+    private static String[] randPeripheralsStrings;
 
-    public final String NUMBERS_TAG = "numbers";
-    public final String WEBSITES_TAG = "websites";
-    public final String IP_TAG = "ipAddresses";
+    private final String NUMBERS_TAG = "numbers";
+    private final String WEBSITES_TAG = "websites";
+    private final String IP_TAG = "ipAddresses";
 
-    public final String NUMBERS_TITLE = "Numbers";
-    public final String WEBSITES_TITLE = "Websites";
-    public final String IP_TITLE = "IPs";
-
+    private final String NUMBERS_TITLE = "Numbers";
+    private final String WEBSITES_TITLE = "Websites";
+    private final String IP_TITLE = "IPs";
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        if (!ATE.config(this, "light_theme").isConfigured(4)) {
+            ATE.config(this, "light_theme")
+                    .activityTheme(R.style.AppTheme)
+                    .primaryColorRes(R.color.colorPrimaryLightDefault)
+                    .accentColorRes(R.color.colorAccentLightDefault)
+                    .coloredNavigationBar(false)
+                    .navigationViewSelectedIconRes(R.color.colorAccentLightDefault)
+                    .navigationViewSelectedTextRes(R.color.colorAccentLightDefault)
+                    .commit();
+        }
+        if (!ATE.config(this, "dark_theme").isConfigured(4)) {
+            ATE.config(this, "dark_theme")
+                    .activityTheme(R.style.AppThemeDark)
+                    .primaryColorRes(R.color.colorPrimaryDarkDefault)
+                    .accentColorRes(R.color.colorAccentDarkDefault)
+                    .coloredNavigationBar(true)
+                    .navigationViewSelectedIconRes(R.color.colorAccentDarkDefault)
+                    .navigationViewSelectedTextRes(R.color.colorAccentDarkDefault)
+                    .commit();
+        }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        mIntroManager = new IntroManager(this);
+        if (mIntroManager.isFirstTimeLaunch()) {
+            startActivity(new Intent(MainActivity.this, IntroStepperActivity.class));
+            finish();
+        }
 
         mToolbar = (Toolbar) findViewById(R.id.toolbar_main);
         setSupportActionBar(mToolbar);
 
-        mCoordinatorLayout = (CoordinatorLayout) findViewById(R.id.coordinator_layout_main);
-        mSearchToolbar = (AppBarLayout) findViewById(R.id.search_toolbar);
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
         button1 = (Button) findViewById(R.id.button1);
         button2 = (Button) findViewById(R.id.button2);
@@ -131,46 +163,51 @@ public class MainActivity extends AppCompatActivity {
         button19 = (Button) findViewById(R.id.button19);
         button20 = (Button) findViewById(R.id.button20);
 
-        footerAdview = (AdView) findViewById(R.id.footerAdview);
+        mAdViewFooter = (AdView) findViewById(R.id.footerAdViewMain);
 
-        this.allButtons = new Button[]{button1, button2, button3, button4, button5, button6, button7, button8, button9, button10, button11, button12, button13, button14, button15, button16, button17, button18, button19, button20};
+        allButtons = new Button[]{button1, button2, button3, button4, button5, button6, button7, button8, button9, button10, button11, button12, button13, button14, button15, button16, button17, button18, button19, button20};
+        randPeripherals = new int[]{R.drawable.ic_peripheral_01, R.drawable.ic_peripheral_02, R.drawable.ic_peripheral_03, R.drawable.ic_peripheral_04, R.drawable.ic_peripheral_05, R.drawable.ic_peripheral_06};
+        randPeripheralsStrings = getResources().getStringArray(R.array.periphArray);
+        getSupportActionBar().setSubtitle(getString(R.string.score) + ": " + score + "/" + allButtons.length);
 
-        getSupportActionBar().setSubtitle("Score: " + score + "/" + allButtons.length);
-
-        if (savedInstanceState != null) {
-            score = savedInstanceState.getInt("KEY_CURRENT_SCORE");
-        }
-
-        MobileAds.initialize(getApplicationContext(), getString(R.string.ad_footer_id));
-        AdRequest adRequest = new AdRequest.Builder().build();
-        footerAdview.loadAd(adRequest);
-
-        for (int x = 0; x < allButtons.length; x++) {
-            final Button button = allButtons[x];
-            button.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    onButtonPressed(button);
-
+        mSearchCardView = (CardView) findViewById(R.id.card_search);
+        mSearchContainer = (RelativeLayout) findViewById(R.id.view_search);
+        mSearchText = (EditText) findViewById(R.id.edit_text_search);
+        mSearchBack = (ImageButton) findViewById(R.id.image_search_back);
+        mSearchBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                InitiateSearch.handleSearchBar(MainActivity.this, mSearchCardView, mToolbar, mSearchContainer, mSearchText, mSearchBack, mSearchClear, mSearchTabs, mDrawerLayout);
+            }
+        });
+        mSearchClear = (ImageButton) findViewById(R.id.clearSearch);
+        mSearchClear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (mSearchText.getText().toString().length() == 0) {
+                } else {
+                    mSearchText.setText("");
+                    ((InputMethodManager) MainActivity.this.getSystemService(Context.INPUT_METHOD_SERVICE)).toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
                 }
-            });
-        }
+            }
+        });
+        mSearchTabs = (TabLayout) findViewById(R.id.search_tabs);
 
-        DataHelper.inflateLists();
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawerlayout_main);
+        mNavigationView = (NavigationView) findViewById(R.id.navigationview_main);
+        mNavigationView.setNavigationItemSelectedListener(this);
 
-        viewPager = (ViewPager) findViewById(R.id.viewPager);
-        tabLayout = (TabLayout) findViewById(R.id.search_tabs);
+        mViewPager = (ViewPager) findViewById(R.id.viewPager);
+        mSearchTabs = (TabLayout) findViewById(R.id.search_tabs);
 
-        tabLayout.addTab(tabLayout.newTab().setTag(NUMBERS_TAG).setText(NUMBERS_TITLE));
-        tabLayout.addTab(tabLayout.newTab().setTag(WEBSITES_TAG).setText(WEBSITES_TITLE));
-        tabLayout.addTab(tabLayout.newTab().setTag(IP_TAG).setText(IP_TITLE));
+        mSearchTabs.addTab(mSearchTabs.newTab().setTag(NUMBERS_TAG).setText(NUMBERS_TITLE));
+        mSearchTabs.addTab(mSearchTabs.newTab().setTag(WEBSITES_TAG).setText(WEBSITES_TITLE));
+        mSearchTabs.addTab(mSearchTabs.newTab().setTag(IP_TAG).setText(IP_TITLE));
 
-        tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
-
-        tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+        mSearchTabs.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-                viewPager.setCurrentItem(tab.getPosition());
+                mViewPager.setCurrentItem(tab.getPosition());
             }
 
             @Override
@@ -184,39 +221,64 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        final PageAdapter pageAdapter = new PageAdapter(getSupportFragmentManager(), tabLayout.getTabCount());
-        viewPager.setAdapter(pageAdapter);
-        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+        final PageAdapter pageAdapter = new PageAdapter(getSupportFragmentManager(), mSearchTabs.getTabCount());
+        mViewPager.setAdapter(pageAdapter);
+        mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(mSearchTabs));
 
-        edit_text_search = (EditText) findViewById(R.id.edit_text_search);
-        card_search = (CardView) findViewById(R.id.card_search);
-        image_search_back = (ImageView) findViewById(R.id.image_search_back);
-        clearSearch = (ImageView) findViewById(R.id.clearSearch);
-        view_search = (RelativeLayout) findViewById(R.id.view_search);
+        for (int x = 0; x < allButtons.length; x++) {
+            final Button button = allButtons[x];
+            button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    onButtonPressed(button);
 
-        clearSearch.setOnClickListener(new View.OnClickListener() {
+                }
+            });
+        }
+
+        FirebaseStringHandler.init();
+        DataHelper.inflateLists();
+
+        mRandPeripheral = (ImageView) findViewById(R.id.rand_peripheral);
+        int peripheralId = (int) (Math.random() * randPeripherals.length);
+        mRandPeripheral.setBackgroundResource(randPeripherals[peripheralId]);
+        mRandPeripheral.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                if (edit_text_search.getText().toString().length() == 0) {
-                } else {
-                    edit_text_search.setText("");
-                    ((InputMethodManager) MainActivity.this.getSystemService(Context.INPUT_METHOD_SERVICE)).toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
+            public void onClick(View view) {
+                int peripheralId = (int) (Math.random() * randPeripherals.length);
+                mRandPeripheral.setBackgroundResource(randPeripherals[peripheralId]);
+
+                String peripheralStringId = randPeripheralsStrings[new Random().nextInt(randPeripheralsStrings.length)];
+                Toast.makeText(MainActivity.this, peripheralStringId, Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        showRateDialog();
+        doAppAds();
+        doButtonTexts(this);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        doAppAds();
+
+        if (score > 0){
+            for (Button button : allButtons){
+                if(!button.isEnabled()){
+                    resetScore();
+                    Toast.makeText(this, "There was an error with your score, resetting..", Toast.LENGTH_SHORT).show();
+                    return;
                 }
             }
-        });
-
-        image_search_back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                initiateSearch.handleSearchBar(MainActivity.this, card_search, mToolbar, view_search, edit_text_search, image_search_back, clearSearch, mSearchToolbar, tabLayout);
-            }
-        });
+        }
     }
 
     @Override
     public void onBackPressed() {
-        if (card_search.getVisibility() == View.VISIBLE) {
-            initiateSearch.handleSearchBar(MainActivity.this, card_search, mToolbar, view_search, edit_text_search, image_search_back, clearSearch, mSearchToolbar, tabLayout);
+        if (mSearchCardView.getVisibility() == View.VISIBLE) {
+            InitiateSearch.handleSearchBar(MainActivity.this, mSearchCardView, mToolbar, mSearchContainer, mSearchText, mSearchBack, mSearchClear, mSearchTabs, mDrawerLayout);
             ((InputMethodManager) MainActivity.this.getSystemService(Context.INPUT_METHOD_SERVICE)).hideSoftInputFromWindow(this.getCurrentFocus().getWindowToken(), 0);
         } else {
             super.onBackPressed();
@@ -224,16 +286,32 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onResume() {
-        super.onResume();
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // The action bar home/up action should open or close the drawer.
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                mDrawerLayout.openDrawer(GravityCompat.START);
+                break;
+            case R.id.action_search:
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    InitiateSearch.handleSearchBar(MainActivity.this, mSearchCardView, mToolbar, mSearchContainer, mSearchText, mSearchBack, mSearchClear, mSearchTabs, mDrawerLayout);
+                } else {
+                    Intent searchIntent = new Intent(MainActivity.this, SearchActivity.class);
+                    startActivity(searchIntent);
+                }
+                break;
+            case R.id.action_reset:
+                Snackbar.make(mDrawerLayout, "Are you sure you want to reset your score of " + score + "?", Snackbar.LENGTH_INDEFINITE).setDuration(Snackbar.LENGTH_SHORT)
+                        .setAction("Yes", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                resetScore();
+                            }
+                        }).show();
+                break;
+        }
 
-    }
-
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-
-        outState.putInt("KEY_CURRENT_SCORE", score);
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
@@ -243,102 +321,55 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.action_scammer_details:
-                initiateSearch.handleSearchBar(MainActivity.this, card_search, mToolbar, view_search, edit_text_search, image_search_back, clearSearch, mSearchToolbar, tabLayout);
-                break;
-
-            case R.id.action_share:
-                Intent shareIntent = new Intent();
-                shareIntent.setAction(Intent.ACTION_SEND);
-                shareIntent.putExtra(Intent.EXTRA_TEXT, "I scored a massive " + score + " / " + allButtons.length + " If you are getting scammed see what score you get too!");
-                shareIntent.setType("text/plain");
-                startActivity(shareIntent);
-                break;
-
-            case R.id.action_sub_lounge:
-                Intent discordIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.discord.me/ScammerSubLounge"));
-                startActivity(discordIntent);
-                break;
-
-            case R.id.action_report:
-                Snackbar.make(mCoordinatorLayout, "Coming soon, I promise", Snackbar.LENGTH_SHORT).show();
-                break;
-
-            case R.id.action_reset:
-                Snackbar.make(mCoordinatorLayout, "Are you sure you want to reset your score of " + score + "?", Snackbar.LENGTH_INDEFINITE)
-                        .setAction("Yes", new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                resetScore();
-                            }
-                        }).show();
-                break;
-
-            case R.id.action_button_text:
-                Intent changeIntent = new Intent(this, ButtonChangeTextActivity.class);
-                startActivity(changeIntent);
-                break;
-
-            case R.id.action_settings:
-                Intent settingsIntent = new Intent(this, SettingsActivity.class);
-                startActivity(settingsIntent);
-                break;
-
-            case R.id.action_about:
-                Intent aboutIntent = new Intent(this, AboutActivity.class);
-                startActivity(aboutIntent);
-                break;
-        }
-
-        return super.onOptionsItemSelected(item);
+    protected void onPostCreate(Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
     }
 
     public void onButtonPressed(Button pressedButton) {
-
         if (score != allButtons.length) {
             score++;
         } else {
-            Snackbar.make(mCoordinatorLayout, "Error: Please reset score", Snackbar.LENGTH_SHORT).show();
+            Snackbar.make(mDrawerLayout, "Error: Please reset score", Snackbar.LENGTH_SHORT).setDuration(Snackbar.LENGTH_LONG).show();
         }
         pressedButton.setEnabled(false);
         updateScore();
 
-        // Play Sound if enabled
         if (PreferenceHandler.areSoundsEnabled(this)) {
             final MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.button_click);
             mediaPlayer.seekTo(300);
             mediaPlayer.start();
         }
-    }
 
-    public void setButtonsEnabled() {
-        for (int x = 0; x < allButtons.length; x++) {
-            Button button = allButtons[x];
-            button.setEnabled(true);
+        if(PreferenceHandler.enableEasterEgg(this)){
+            if(score == new Random().nextInt(allButtons.length + 1) && pressedButton.getText().toString().equals(button13.getText().toString())){
+                // TODO show easter egg (some photo of a scammer)
+            }
         }
+
+        Bundle bundle = new Bundle();
+        bundle.putInt(FirebaseAnalytics.Param.ITEM_ID, pressedButton.getId());
+        bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, pressedButton.getText().toString());
+        bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "button");
+        mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
     }
 
     public void updateScore() {
-        getSupportActionBar().setSubtitle("Score: " + score + "/" + allButtons.length);
+        getSupportActionBar().setSubtitle(getString(R.string.score) + ": " + score + "/" + allButtons.length);
 
         if (score == allButtons.length) {
             MaterialDialog.Builder alertDialogComplete = new MaterialDialog.Builder(this);
-            alertDialogComplete.title("Bingo!");
-            alertDialogComplete.content("Well done, you played the scammer for a really long time! Make sure to report them!");
-            alertDialogComplete.positiveText("Okay");
+            alertDialogComplete.title(getString(R.string.bingo_complete_title));
+            alertDialogComplete.content(getString(R.string.bingo_complete_msg));
+            alertDialogComplete.positiveText(getString(R.string.action_okay));
             alertDialogComplete.show();
-
             if (PreferenceHandler.enableAutoReset(this)) {
                 resetScore();
             }
-
         } else if (score == allButtons.length / 2) {
             MaterialDialog.Builder alertDialogHalf = new MaterialDialog.Builder(this);
-            alertDialogHalf.title("Half way there");
-            alertDialogHalf.content("You're half way there! You can rat out the scammer now if it's taking too long but still make sure to report them!.");
-            alertDialogHalf.positiveText("Okay");
+            alertDialogHalf.title(getString(R.string.bingo_half_title));
+            alertDialogHalf.content(getString(R.string.bingo_half_msg));
+            alertDialogHalf.positiveText(getString(R.string.action_okay));
             alertDialogHalf.show();
         }
     }
@@ -347,6 +378,14 @@ public class MainActivity extends AppCompatActivity {
         score = 0;
         updateScore();
         setButtonsEnabled();
+        Snackbar.make(mDrawerLayout, "Reset", Snackbar.LENGTH_SHORT).show();
+    }
+
+    public void setButtonsEnabled() {
+        for (int x = 0; x < allButtons.length; x++) {
+            Button button = allButtons[x];
+            button.setEnabled(true);
+        }
     }
 
     public static ArrayList<String> getCurrentButtonTexts() {
@@ -362,6 +401,59 @@ public class MainActivity extends AppCompatActivity {
         return currentButtonTexts;
     }
 
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item) {
+
+        switch (item.getItemId()) {
+            case R.id.nav_home:
+                break;
+            case R.id.nav_numbers_game:
+                Intent numbersIntent = new Intent(MainActivity.this, NumberGameActivity.class);
+                startActivity(numbersIntent);
+                break;
+            case R.id.nav_settings:
+                Intent settingsIntent = new Intent(MainActivity.this, SettingsActivity.class);
+                startActivity(settingsIntent);
+                break;
+            case R.id.nav_premium:
+                Intent premiumIntent = new Intent(MainActivity.this, PremiumActivity.class);
+                startActivity(premiumIntent);
+                break;
+            case R.id.nav_about:
+                Intent aboutIntent = new Intent(MainActivity.this, AboutActivity.class);
+                startActivity(aboutIntent);
+                break;
+
+        }
+
+        mDrawerLayout.closeDrawer(GravityCompat.START);
+        return true;
+    }
+
+    private void showRateDialog(){
+        AppRaterHelper.appLaunched(this);
+    }
+
+    private void doAppAds() {
+        MobileAds.initialize(getApplicationContext(), "ca-app-pub-9817254026781393~2247426466");
+        if(PreferenceHandler.areAdsEnabled(this)) {
+            MobileAds.initialize(getApplicationContext(), getString(R.string.ad_footer_id));
+            AdRequest adRequest = new AdRequest.Builder().build();
+            mAdViewFooter.loadAd(adRequest);
+        }else {
+            mAdViewFooter.setVisibility(View.GONE);
+        }
+    }
+
+    public static void doButtonTexts(Context context) {
+
+        if (PreferenceHandler.getButtonTexts(context) != null && PreferenceHandler.getButtonTexts(context).length > 0){
+            for (int x = 0; x < allButtons.length; x++){
+                Button button = allButtons[x];
+                button.setText(PreferenceHandler.getButtonTexts(context)[x]);
+            }
+        }
+    }
 
     public class PageAdapter extends FragmentPagerAdapter {
         private int numTabs;
@@ -398,7 +490,7 @@ public class MainActivity extends AppCompatActivity {
         @Nullable
         @Override
         public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-            return inflater.inflate(R.layout.dialog_scammer_list_view, container, false);
+            return inflater.inflate(R.layout.scammer_listview_legacy, container, false);
         }
 
         @Override
@@ -406,8 +498,9 @@ public class MainActivity extends AppCompatActivity {
             super.onViewCreated(view, savedInstanceState);
             this.listViewScammers = (ListView) view.findViewById(R.id.listViewScammers);
 
-            ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(getContext(), R.layout.item_list_bullet, DataHelper.numbersList);
+            ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(getContext(), R.layout.list_item, DataHelper.numbersList);
             this.listViewScammers.setAdapter(arrayAdapter);
+            arrayAdapter.notifyDataSetChanged();
 
             this.listViewScammers.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
@@ -455,7 +548,7 @@ public class MainActivity extends AppCompatActivity {
         @Nullable
         @Override
         public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-            return inflater.inflate(R.layout.dialog_scammer_list_view, container, false);
+            return inflater.inflate(R.layout.scammer_listview_legacy, container, false);
         }
 
         @Override
@@ -463,8 +556,9 @@ public class MainActivity extends AppCompatActivity {
             super.onViewCreated(view, savedInstanceState);
             this.listViewScammers = (ListView) view.findViewById(R.id.listViewScammers);
 
-            ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(getContext(), R.layout.item_list_bullet, DataHelper.websitesList);
+            ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(getContext(), R.layout.list_item, DataHelper.websitesList);
             this.listViewScammers.setAdapter(arrayAdapter);
+            arrayAdapter.notifyDataSetChanged();
 
             this.listViewScammers.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
@@ -512,7 +606,7 @@ public class MainActivity extends AppCompatActivity {
         @Nullable
         @Override
         public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-            return inflater.inflate(R.layout.dialog_scammer_list_view, container, false);
+            return inflater.inflate(R.layout.scammer_listview_legacy, container, false);
         }
 
         @Override
@@ -520,7 +614,7 @@ public class MainActivity extends AppCompatActivity {
             super.onViewCreated(view, savedInstanceState);
             listViewScammers = (ListView) view.findViewById(R.id.listViewScammers);
 
-            ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(getContext(), R.layout.item_list_bullet, DataHelper.ipsList);
+            ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(getContext(), R.layout.list_item, DataHelper.ipsList);
             listViewScammers.setAdapter(arrayAdapter);
         }
 

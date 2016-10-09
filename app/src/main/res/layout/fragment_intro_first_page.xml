@@ -3,10 +3,9 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true">
 
-    <com.xelitexirish.scammerbingo.ui.widget.SquareWidthImageView
+    <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
         android:src="@drawable/intro_phone_call" />
 
     <LinearLayout
@@ -20,8 +19,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:lineSpacingExtra="32dp"
-            android:text="Don't Be Fooled By Them"
+            android:text="Don't Be Fooled"
             android:textSize="24sp" />
 
         <TextView

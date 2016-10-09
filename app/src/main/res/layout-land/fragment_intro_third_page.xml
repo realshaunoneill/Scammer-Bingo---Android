@@ -12,9 +12,10 @@
 
     <Space
         android:id="@+id/space"
-        android:layout_width="wrap_content"
-        android:layout_height="56dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         android:layout_centerVertical="true"
+        android:layout_marginTop="28dp"
         android:layout_toEndOf="@+id/imageView"
         android:layout_toRightOf="@+id/imageView" />
 
@@ -30,7 +31,6 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:lineSpacingExtra="32dp"
             android:text="How To Play"
             android:textSize="24sp" />
 

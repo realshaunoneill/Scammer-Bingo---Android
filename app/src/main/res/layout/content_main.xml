@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:ads="http://schemas.android.com/apk/res-auto"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
     android:id="@+id/scrollLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -13,10 +13,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="16dp"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
-        android:paddingTop="24dp"
+        android:layout_margin="@dimen/tile_spacing"
         android:orientation="vertical">
 
         <LinearLayout
@@ -27,15 +24,15 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
                 android:layout_weight="1"
                 android:orientation="vertical">
 
                 <Button
                     android:id="@+id/button1"
+                    style="@style/Widget.AppCompat.Button.Borderless"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/tile_height"
+                    android:background="@drawable/tile_drawable"
                     android:onClick="onButtonPressed"
                     android:text="Foreign Addresses"
                     android:textSize="12sp"
@@ -43,12 +40,14 @@
 
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="10dp" />
+                    android:layout_height="@dimen/tile_spacing" />
 
                 <Button
                     android:id="@+id/button2"
+                    style="@style/Widget.AppCompat.Button.Borderless"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/tile_height"
+                    android:background="@drawable/tile_drawable"
                     android:onClick="onButtonPressed"
                     android:text="Scan"
                     android:textSize="12sp"
@@ -56,12 +55,14 @@
 
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="10dp" />
+                    android:layout_height="@dimen/tile_spacing" />
 
                 <Button
                     android:id="@+id/button3"
+                    style="@style/Widget.AppCompat.Button.Borderless"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/tile_height"
+                    android:background="@drawable/tile_drawable"
                     android:onClick="onButtonPressed"
                     android:text="Windows Key + R"
                     android:textSize="12sp"
@@ -69,13 +70,15 @@
 
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="10dp" />
+                    android:layout_height="@dimen/tile_spacing" />
 
                 <Button
                     android:id="@+id/button4"
+                    style="@style/Widget.AppCompat.Button.Borderless"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/tile_height"
                     android:layout_gravity="center_horizontal"
+                    android:background="@drawable/tile_drawable"
                     android:onClick="onButtonPressed"
                     android:text="One Time Charge"
                     android:textSize="12sp"
@@ -83,13 +86,15 @@
 
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="10dp" />
+                    android:layout_height="@dimen/tile_spacing" />
 
                 <Button
                     android:id="@+id/button5"
+                    style="@style/Widget.AppCompat.Button.Borderless"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/tile_height"
                     android:layout_gravity="center_horizontal"
+                    android:background="@drawable/tile_drawable"
                     android:onClick="onButtonPressed"
                     android:text="Viruses"
                     android:textSize="12sp"
@@ -97,12 +102,14 @@
 
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="10dp" />
+                    android:layout_height="@dimen/tile_spacing" />
 
                 <Button
                     android:id="@+id/button6"
+                    style="@style/Widget.AppCompat.Button.Borderless"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/tile_height"
+                    android:background="@drawable/tile_drawable"
                     android:onClick="onButtonPressed"
                     android:text="Microsoft Certified"
                     android:textSize="12sp"
@@ -110,12 +117,14 @@
 
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="10dp" />
+                    android:layout_height="@dimen/tile_spacing" />
 
                 <Button
                     android:id="@+id/button7"
+                    style="@style/Widget.AppCompat.Button.Borderless"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/tile_height"
+                    android:background="@drawable/tile_drawable"
                     android:onClick="onButtonPressed"
                     android:text="$$$"
                     android:textSize="12sp"
@@ -123,12 +132,14 @@
 
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="10dp" />
+                    android:layout_height="@dimen/tile_spacing" />
 
                 <Button
                     android:id="@+id/button8"
+                    style="@style/Widget.AppCompat.Button.Borderless"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/tile_height"
+                    android:background="@drawable/tile_drawable"
                     android:onClick="onButtonPressed"
                     android:text="Trying to stick to the script"
                     android:textSize="12sp"
@@ -136,12 +147,14 @@
 
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="10dp" />
+                    android:layout_height="@dimen/tile_spacing" />
 
                 <Button
                     android:id="@+id/button9"
+                    style="@style/Widget.AppCompat.Button.Borderless"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/tile_height"
+                    android:background="@drawable/tile_drawable"
                     android:onClick="onButtonPressed"
                     android:text="Corrupted Drives"
                     android:textSize="12sp"
@@ -149,12 +162,14 @@
 
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="10dp" />
+                    android:layout_height="@dimen/tile_spacing" />
 
                 <Button
                     android:id="@+id/button10"
+                    style="@style/Widget.AppCompat.Button.Borderless"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/tile_height"
+                    android:background="@drawable/tile_drawable"
                     android:onClick="onButtonPressed"
                     android:text="Support.me"
                     android:textSize="12sp"
@@ -162,20 +177,24 @@
 
             </LinearLayout>
 
+            <android.support.v4.widget.Space
+                android:layout_width="@dimen/tile_spacing"
+                android:layout_height="match_parent" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
                 android:layout_weight="1"
                 android:orientation="vertical">
 
                 <Button
                     android:id="@+id/button11"
+                    style="@style/Widget.AppCompat.Button.Borderless"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/tile_height"
                     android:layout_gravity="center"
+                    android:background="@drawable/tile_drawable"
                     android:onClick="onButtonPressed"
                     android:text="Network Security"
                     android:textSize="12sp"
@@ -183,13 +202,15 @@
 
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="10dp" />
+                    android:layout_height="@dimen/tile_spacing" />
 
                 <Button
                     android:id="@+id/button12"
+                    style="@style/Widget.AppCompat.Button.Borderless"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/tile_height"
                     android:layout_gravity="center_horizontal"
+                    android:background="@drawable/tile_drawable"
                     android:onClick="onButtonPressed"
                     android:text="Do One Thing"
                     android:textSize="12sp"
@@ -197,12 +218,14 @@
 
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="10dp" />
+                    android:layout_height="@dimen/tile_spacing" />
 
                 <Button
                     android:id="@+id/button13"
+                    style="@style/Widget.AppCompat.Button.Borderless"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/tile_height"
+                    android:background="@drawable/tile_drawable"
                     android:onClick="onButtonPressed"
                     android:text="CMD.exe"
                     android:textSize="12sp"
@@ -210,12 +233,14 @@
 
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="10dp" />
+                    android:layout_height="@dimen/tile_spacing" />
 
                 <Button
                     android:id="@+id/button14"
+                    style="@style/Widget.AppCompat.Button.Borderless"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/tile_height"
+                    android:background="@drawable/tile_drawable"
                     android:onClick="onButtonPressed"
                     android:text="Secure Server"
                     android:textSize="12sp"
@@ -223,26 +248,29 @@
 
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="10dp" />
+                    android:layout_height="@dimen/tile_spacing" />
 
                 <Button
                     android:id="@+id/button15"
+                    style="@style/Widget.AppCompat.Button.Borderless"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/tile_height"
+                    android:background="@drawable/tile_drawable"
                     android:onClick="onButtonPressed"
                     android:text="C:\\>Tree"
                     android:textSize="12sp"
                     android:textStyle="bold" />
-                <!--Use 2 backslashes because 1 is used as an escape character -->
 
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="10dp" />
+                    android:layout_height="@dimen/tile_spacing" />
 
                 <Button
                     android:id="@+id/button16"
+                    style="@style/Widget.AppCompat.Button.Borderless"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/tile_height"
+                    android:background="@drawable/tile_drawable"
                     android:onClick="onButtonPressed"
                     android:text="Event Viewer"
                     android:textSize="12sp"
@@ -250,12 +278,14 @@
 
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="10dp" />
+                    android:layout_height="@dimen/tile_spacing" />
 
                 <Button
                     android:id="@+id/button17"
+                    style="@style/Widget.AppCompat.Button.Borderless"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/tile_height"
+                    android:background="@drawable/tile_drawable"
                     android:onClick="onButtonPressed"
                     android:text="Stopped Services"
                     android:textSize="12sp"
@@ -263,12 +293,14 @@
 
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="10dp" />
+                    android:layout_height="@dimen/tile_spacing" />
 
                 <Button
                     android:id="@+id/button18"
+                    style="@style/Widget.AppCompat.Button.Borderless"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/tile_height"
+                    android:background="@drawable/tile_drawable"
                     android:onClick="onButtonPressed"
                     android:text="Netstat"
                     android:textSize="12sp"
@@ -276,25 +308,30 @@
 
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="10dp" />
+                    android:layout_height="@dimen/tile_spacing" />
 
                 <Button
                     android:id="@+id/button19"
+                    style="@style/Widget.AppCompat.Button.Borderless"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/tile_height"
+                    android:background="@drawable/tile_drawable"
                     android:onClick="onButtonPressed"
+                    android:singleLine="true"
                     android:text="I can't understand you sir"
                     android:textSize="12sp"
                     android:textStyle="bold" />
 
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="10dp" />
+                    android:layout_height="@dimen/tile_spacing" />
 
                 <Button
                     android:id="@+id/button20"
+                    style="@style/Widget.AppCompat.Button.Borderless"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/tile_height"
+                    android:background="@drawable/tile_drawable"
                     android:onClick="onButtonPressed"
                     android:text="Bad Language"
                     android:textSize="12sp"
@@ -304,24 +341,31 @@
 
         </LinearLayout>
 
-        <RelativeLayout
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="8dp" />
+        
+        <com.google.android.gms.ads.AdView
+            android:id="@+id/footerAdViewMain"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_below="@id/scrollLayout"
-            android:gravity="bottom">
+            ads:adSize="BANNER"
+            ads:adUnitId="@string/ad_footer_id">
+        </com.google.android.gms.ads.AdView>
 
-            <com.google.android.gms.ads.AdView
-                android:id="@+id/footerAdview"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                ads:adSize="BANNER"
-                ads:adUnitId="@string/ad_footer_id">
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="8dp" />
 
-            </com.google.android.gms.ads.AdView>
+        <ImageView
+            android:id="@+id/rand_peripheral"
+            android:layout_gravity="center"
+            android:layout_width="24dp"
+            android:layout_height="24dp" />
 
-        </RelativeLayout>
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="8dp" />
 
     </LinearLayout>
 

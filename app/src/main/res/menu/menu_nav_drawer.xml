@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:checked="true"
+            android:icon="@drawable/ic_home_nav"
+            android:id="@+id/nav_home"
+            android:title="@string/action_home" />
+    </group>
+
+    <group android:checkableBehavior="none">
+        <item
+            android:icon="@drawable/ic_numbers"
+            android:id="@+id/nav_numbers_game"
+            android:title="@string/action_numbers" />
+        <item
+            android:icon="@drawable/ic_money"
+            android:id="@+id/nav_premium"
+            android:title="@string/action_premium" />
+        </group>
+    <group android:checkableBehavior="none">
+
+        <item
+            android:icon="@drawable/ic_settings_nav"
+            android:id="@+id/nav_settings"
+            android:title="@string/action_settings" />
+        <item
+            android:icon="@drawable/ic_about_nav"
+            android:id="@+id/nav_about"
+            android:title="@string/action_about" />
+    </group>
+
+</menu>

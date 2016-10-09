@@ -1,0 +1,126 @@
+<resources>
+    <string name="app_name">Scammer Bingo</string>
+    <string name="app_description">Waste as much of the scammers time as you can!</string>
+    <string name="title_activity_settings">Settings</string>
+    <string name="title_activity_about">About</string>
+    <string name="title_activity_numbers">Scammer Bingo - Numbers!</string>
+    <string name="title_activity_premium">Premium Features!</string>
+    <string name="title_activity_qr_reader">QR-Code Reader</string>
+
+    <string name="ad_footer_id">ca-app-pub-9817254026781393/3724159668</string>
+
+    <string name="about_msg_credits">
+        Scammer bingo was designed from the windows community version created by JoeTheHuman. HexxiumGamingYT, Lewis Tech
+        and Dazzas Gone Mad have amazing videos where they talk to scammers, check them all out!
+    </string>
+
+    <string name="score">Score</string>
+    <string name="bingo_complete_title">Bingo!</string>
+    <string name="bingo_complete_msg">Well done, you played the scammer for a really long time! Make sure to report them!</string>
+    <string name="bingo_half_title">Half way there</string>
+    <string name="bingo_half_msg">You\'re half way there! You can rat out the scammer now if it\'s taking too long but still make sure to report them!</string>
+
+    <string name="call_dialog_title">Are you sure you want to call this phone number?</string>
+    <string name="call_dialog_msg">This number is known for contacting scammers, are you sure you want to call?</string>
+    <string name="call_dialog_unable">Unable to call phone number</string>
+
+    <string name="website_dialog_title">Are you sure you want to open this URL?</string>
+    <string name="website_dialog_message">This website is known for advertising scammers, are you sure you want to open it?</string>
+
+    <string name="numbers_dialog_title">How to play Scammer bingo - Numbers</string>
+    <string name="numbers_dialog_message">Try to get the scammer to say any of the numbers and mark them off as you go!</string>
+
+    <string name="appbar_scrolling_view_behavior">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
+    <string name="pref_header_general">General</string>
+    <string name="youtube">YouTube</string>
+    <string name="github">GitHub</string>
+    <string name="twitter">Twitter</string>
+    <string name="website">Website</string>
+
+    <string name="action_okay">Okay</string>
+    <string name="action_no">No thanks</string>
+    <string name="action_never">Dont show this again</string>
+    <string name="action_reset">Reset Score</string>
+    <string name="action_call">Call</string>
+    <string name="action_dismiss">Dismiss</string>
+    <string name="action_open">Open</string>
+    <string name="action_search">Search</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_numbers">Numbers Edition</string>
+    <string name="action_premium">Premium Features</string>
+
+    <string name="action_about">About</string>
+    <string name="title_activity_search">SearchActivity</string>
+    <string name="action_home">Home</string>
+    <string name="not_available_below_m">You need Android Marshmallow (6.0) or above to use this feature.</string>
+    <string name="not_available_below_lollipop">You need Android Lollipop (5.0) or above to use this feature.</string>
+
+    <string-array name="periphArray">
+        <item name="periph01">Do you need technical suppowt?</item>
+        <item name="periph02">Press the Windows Key and the Letter R, R as in Romeo. You got that?</item>
+        <item name="periph03">Your Windows dextop is wirused sir.</item>
+        <item name="periph04">I see lots of malware and infections on your computer sir.</item>
+        <item name="periph05">DABLU DABLU DABLU DOT SUPPOWT DOT ME SIR, 3 DABLUS NOT 4!!!</item>
+        <item name="periph06">That will be a one time charge of $199.99 sir.</item>
+        <item name="periph07">There are tons of junk files on this computer sir.</item>
+        <item name="periph08">All these stopped services are bad sir.</item>
+        <item name="periph09">Oh my gosh sir!!! All these errors and warnings are Chinese hackers sir!!!</item>
+        <item name="periph10">DONTOUCHTHEKEYBOWDORMOUSESIR!!!</item>
+        <item name="periph11">BRIT MONKAY&#8230;</item>
+        <item name="periph12">I\'m not a scam sir.</item>
+        <item name="periph13">I will show you each and everything sir.</item>
+        <item name="periph14">#PRAYFORSID.</item>
+    </string-array>
+
+
+    <string name="primary_color">Primary Color</string>
+    <string name="primary_color_summary">Change the primary theme color</string>
+
+    <string name="accent_color">Accent Color</string>
+    <string name="accent_color_summary">Change the accent theme color</string>
+
+    <string name="primary_text_color">Primary Text Color</string>
+    <string name="primary_text_color_summary">Change the primary text color</string>
+
+    <string name="secondary_text_color">Secondary Text Color</string>
+    <string name="secondary_text_color_summary">Change the secondary text color</string>
+
+    <string name="colored_status_bar">Colored Status Bar</string>
+    <string name="colored_status_bar_summary">Toggle status bar coloring</string>
+
+    <string name="colored_nav_bar">Colored Navigation Bar</string>
+    <string name="colored_nav_bar_summary">Toggle navigation bar coloring</string>
+
+    <string name="dark_theme">Dark Theme</string>
+    <string name="dark_theme_summary">Apply a dark theme throughout the app</string>
+    <string name="light_status_bar_mode">Light Status Bar Mode</string>
+    <string name="light_toolbar_mode">Light Toolbar Mode</string>
+
+    <string name="light_ui_modes">Light UI Modes</string>
+    <string name="system_ui_colors">System UI Colors</string>
+    <string name="base_theme">Base Theme</string>
+    <string name="ate_colors">ATE Colors</string>
+
+    <string name="dialog_change_button_texts_title">Change button texts</string>
+    <string name="dialog_change_button_texts_content">Enter the text that you wish to appear on the selected button</string>
+    <string name="please_select_a_button_to_change_text">Please select a button to change text:</string>
+
+    <string-array name="light_status_mode_entries">
+        <item>Off, status bar icons will be white</item>
+        <item>On, status bar icons will be black</item>
+        <item>Auto, status bar icons will be black if primary color is light</item>
+    </string-array>
+
+    <string-array name="light_toolbar_mode_entries">
+        <item>Off, toolbar text/icons will be white</item>
+        <item>On, toolbar text/icons will be black</item>
+        <item>Auto, toolbar text/icons will be black if primary color is light</item>
+    </string-array>
+
+    <string-array name="light_status_mode_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+</resources>

@@ -3,43 +3,67 @@ package com.xelitexirish.scammerbingo.ui;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.design.widget.CoordinatorLayout;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.afollestad.appthemeengine.ATE;
 import com.xelitexirish.scammerbingo.BuildConfig;
 import com.xelitexirish.scammerbingo.R;
+import com.xelitexirish.scammerbingo.utils.BaseThemedActivity;
 
-public class AboutActivity extends AppCompatActivity {
+public class AboutActivity extends BaseThemedActivity {
 
     private Button mAuthorGithub,
-                   mAuthorTwitter,
-                   mAuthorWebsite,
-                   mDesignerGithub,
-                   mDesignerTwitter,
-                   mDesignerWebsite,
-                   mPromo1Github,
-                   mPromo1YouTube,
-                   mPromo1Twitter,
-                   mPromo2Github,
-                   mPromo2YouTube,
-                   mPromo2Twitter,
-                   mPromo3YouTube,
-                   mPromo3Twitter,
-                   mPromo4YouTube,
-                   mPromo4Twitter;
+            mAuthorTwitter,
+            mAuthorWebsite,
+            mDesignerGithub,
+            mDesignerTwitter,
+            mDesignerWebsite,
+            mPromo1Github,
+            mPromo1YouTube,
+            mPromo1Twitter,
+            mPromo2Github,
+            mPromo2YouTube,
+            mPromo2Twitter,
+            mPromo3YouTube,
+            mPromo3Twitter,
+            mPromo4YouTube,
+            mPromo4Twitter;
+
     private CoordinatorLayout mCoordinatorLayout;
     private String appVersion = BuildConfig.VERSION_NAME;
     private TextView mVersion;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+
+        if (!ATE.config(this, "light_theme").isConfigured(4)) {
+            ATE.config(this, "light_theme")
+                    .activityTheme(R.style.AppTheme)
+                    .primaryColorRes(R.color.colorPrimaryLightDefault)
+                    .accentColorRes(R.color.colorAccentLightDefault)
+                    .coloredNavigationBar(false)
+                    .navigationViewSelectedIconRes(R.color.colorAccentLightDefault)
+                    .navigationViewSelectedTextRes(R.color.colorAccentLightDefault)
+                    .commit();
+        }
+        if (!ATE.config(this, "dark_theme").isConfigured(4)) {
+            ATE.config(this, "dark_theme")
+                    .activityTheme(R.style.AppThemeDark)
+                    .primaryColorRes(R.color.colorPrimaryDarkDefault)
+                    .accentColorRes(R.color.colorAccentDarkDefault)
+                    .coloredNavigationBar(true)
+                    .navigationViewSelectedIconRes(R.color.colorAccentDarkDefault)
+                    .navigationViewSelectedTextRes(R.color.colorAccentDarkDefault)
+                    .commit();
+        }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_about);
@@ -50,6 +74,7 @@ public class AboutActivity extends AppCompatActivity {
         mVersion = (TextView) findViewById(R.id.version_text);
         mVersion.setText("Version: " + appVersion);
 
+        //XeliteXirish
         mAuthorGithub = (Button) findViewById(R.id.author_git);
         mAuthorGithub.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,12 +95,12 @@ public class AboutActivity extends AppCompatActivity {
         mAuthorWebsite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(mCoordinatorLayout, "Coming soon, I promise", Snackbar.LENGTH_SHORT).show();
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://xelitexirish.com"));
+                startActivity(intent);
             }
         });
 
-
-
+        //Newtsrock
         mDesignerGithub = (Button) findViewById(R.id.designer_git);
         mDesignerGithub.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -101,8 +126,7 @@ public class AboutActivity extends AppCompatActivity {
             }
         });
 
-
-
+        //JoeTheHuman
         mPromo1Github = (Button) findViewById(R.id.promo_1_git);
         mPromo1Github.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -130,8 +154,7 @@ public class AboutActivity extends AppCompatActivity {
             }
         });
 
-
-
+        //Hexxium
         mPromo2Github = (Button) findViewById(R.id.promo_2_git);
         mPromo2Github.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -159,8 +182,7 @@ public class AboutActivity extends AppCompatActivity {
             }
         });
 
-
-
+        //Dazza
         mPromo3YouTube = (Button) findViewById(R.id.promo_3_youtube);
         mPromo3YouTube.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -179,8 +201,7 @@ public class AboutActivity extends AppCompatActivity {
             }
         });
 
-
-
+        //Lewis
         mPromo4YouTube = (Button) findViewById(R.id.promo_4_youtube);
         mPromo4YouTube.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -202,12 +223,12 @@ public class AboutActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+
         switch (item.getItemId()) {
             case android.R.id.home:
                 finish();
-                break;
+                return true;
         }
         return super.onOptionsItemSelected(item);
     }
-
 }

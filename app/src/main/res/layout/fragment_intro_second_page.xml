@@ -2,10 +2,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.xelitexirish.scammerbingo.ui.widget.SquareWidthImageView
+    <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
         android:src="@drawable/intro_play_game" />
 
     <com.xelitexirish.scammerbingo.ui.widget.InkPageIndicator
@@ -25,7 +24,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:lineSpacingExtra="32dp"
-            android:text="Entertainment During The Call"
+            android:text="Pure Entertainment"
             android:textSize="24sp" />
 
         <TextView

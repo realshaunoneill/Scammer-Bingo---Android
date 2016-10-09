@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="app_name">"oplichter Bingo"</string>
+<string name="app_description">"Afval zoveel mogelijk van de oplichters tijd als je kan!"</string>
+<string name="title_activity_settings">"instellingen"</string>
+<string name="title_activity_about">"Over"</string>
+<string name="title_activity_numbers">"Scammer Bingo - Numbers!"</string>
+<string name="title_activity_premium">"Premium functies!"</string>
+<string name="title_activity_qr_reader">"QR-Code Reader"</string>
+<string name="ad_footer_id">"ca-app-pub-9817254026781393/3724159668"</string>
+<string name="about_msg_credits">"
+        Scammer bingo is ontworpen vanuit de ramen community versie gecreëerd door JoeTheHuman. HexxiumGamingYT, Lewis Tech
+        en Dazzas Gone Mad hebben geweldige video's, waar ze oplichters praten, controleer hen allen!
+    "</string>
+<string name="score">"partituur"</string>
+<string name="bingo_complete_title">"Bingo!"</string>
+<string name="bingo_complete_msg">"Goed gedaan, je speelde de oplichter voor een heel lange tijd! Zorg ervoor dat u te melden!"</string>
+<string name="bingo_half_title">"Halverwege"</string>
+<string name="bingo_half_msg">"Je bent half weg daar! U kunt nu rat uit de scammer als het te lang, maar nog steeds zorg ervoor om te melden is het nemen!"</string>
+<string name="call_dialog_title">"Bent u zeker dat u dit telefoonnummer te bellen?"</string>
+<string name="call_dialog_msg">"Dit nummer staat bekend om contact op te nemen oplichters, bent u zeker dat u wilt bellen?"</string>
+<string name="call_dialog_unable">"Kan geen telefoonnummer te bellen"</string>
+<string name="website_dialog_title">"Bent u zeker dat u deze URL openen?"</string>
+<string name="website_dialog_message">"Deze website is bekend om reclame oplichters, bent u zeker dat u wilt om het te openen?"</string>
+<string name="numbers_dialog_title">"Hoe te Scammer bingo spelen - Numbers"</string>
+<string name="numbers_dialog_message">"Probeer de oplichter te krijgen om een ​​van de nummers af te zeggen en markeer ze als je gaat!"</string>
+<string name="appbar_scrolling_view_behavior">"android.support.design.widget.AppBarLayout $ ScrollingViewBehavior"</string>
+<string name="pref_header_general">"Algemeen"</string>
+<string name="youtube">"YouTube"</string>
+<string name="github">"GitHub"</string>
+<string name="twitter">"tjilpen"</string>
+<string name="website">"Website"</string>
+<string name="action_okay">"oke"</string>
+<string name="action_no">"Nee, dank u wel"</string>
+<string name="action_never">"Laat je niet meer tonen"</string>
+<string name="action_reset">"Reset Score"</string>
+<string name="action_call">"telefoontje"</string>
+<string name="action_dismiss">"ontslaan"</string>
+<string name="action_open">"Open"</string>
+<string name="action_search">"Zoeken"</string>
+<string name="action_settings">"instellingen"</string>
+<string name="action_numbers">"Numbers Edition"</string>
+<string name="action_premium">"Premium Features"</string>
+<string name="action_about">"Over"</string>
+<string name="title_activity_search">"SearchActivity"</string>
+<string name="action_home">"Huis"</string>
+<string name="not_available_below_m">"U moet Android Heemst (6.0) of hoger om deze functie te gebruiken."</string>
+<string name="not_available_below_lollipop">"U moet Android Lollipop (5.0) of hoger om deze functie te gebruiken."</string>
+<string name="primary_color">"Primaire kleur"</string>
+<string name="primary_color_summary">"Verander de primaire themakleur"</string>
+<string name="accent_color">"Accent kleur"</string>
+<string name="accent_color_summary">"Verander het accent themakleur"</string>
+<string name="primary_text_color">"Primaire tekstkleur"</string>
+<string name="primary_text_color_summary">"Verander de primaire tekstkleur"</string>
+<string name="secondary_text_color">"Secundaire Tekst Kleur"</string>
+<string name="secondary_text_color_summary">"Verander de secundaire tekstkleur"</string>
+<string name="colored_status_bar">"Gekleurde Status Bar"</string>
+<string name="colored_status_bar_summary">"Toggle statusbalk kleuren"</string>
+<string name="colored_nav_bar">"Gekleurde navigatiebalk"</string>
+<string name="colored_nav_bar_summary">"Toggle navigatiebalk kleuring"</string>
+<string name="dark_theme">"Donker thema"</string>
+<string name="dark_theme_summary">"Breng een donkere thema in de app"</string>
+<string name="light_status_bar_mode">"Licht Status Bar Mode"</string>
+<string name="light_toolbar_mode">"Light Toolbar Mode"</string>
+<string name="light_ui_modes">"Licht UI Modes"</string>
+<string name="system_ui_colors">"System UI Kleuren"</string>
+<string name="base_theme">"Base Theme"</string>
+<string name="ate_colors">"ATE Kleuren"</string>
+<string name="dialog_change_button_texts_title">"Knop Wijzigen teksten"</string>
+<string name="dialog_change_button_texts_content">"Voer de tekst die u wilt op de geselecteerde knop om te verschijnen"</string>
+<string name="please_select_a_button_to_change_text">"Selecteer een knop om tekst te veranderen:"</string>
+</resources>
