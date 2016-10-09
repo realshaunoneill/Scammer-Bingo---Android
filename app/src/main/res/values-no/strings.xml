@@ -1,0 +1,89 @@
+<resources>
+    <string name="app_name">Scammer Bingo</string>
+    <string name="app_description">Avfall så mye av sin tid som mulig</string>
+    <string name="title_activity_settings">Innstillinger</string>
+    <string name="title_activity_about">Om</string>
+    <string name="title_activity_numbers">Scammer Bingo - Tall!</string>
+    <string name="title_activity_premium">Premium-funksjoner!</string>
+    <string name="title_activity_qr_reader">QR-Kode Reader</string>
+
+    <string name="ad_footer_id">ca-app-pub-9817254026781393/3724159668</string>
+
+    <string name="about_msg_credits">
+        Scammer bingo ble hentet fra windows community versjon opprettet av JoeTheHuman. HexxiumGamingYT, Lewis Tech
+        og Dazzas Gone Mad har utrolige videoer der å snakke til svindlere, kontroller dem alle ut!
+    </string>
+
+    <string name="score">Resultat</string>
+    <string name="bingo_complete_title">Bingo!</string>
+    <string name="bingo_complete_msg">Godt gjort, du har spilt med dem for en virkelig lang tid! Sørg for å rapportere dem!</string>
+    <string name="bingo_half_title">Halvveis til</string>
+    <string name="bingo_half_msg">Du er halvveis! Du kan rotte ut svindleren nå hvis det tar for lang tid, men fortsatt sørg for å rapportere dem!</string>
+
+    <string name="call_dialog_title">Er du sikker på at du vil ringe dette nummeret?</string>
+    <string name="call_dialog_msg">Dette nummeret er kjent for å kontakte svindlere, er du sikker på at du vil ringe til?</string>
+    <string name="call_dialog_unable">Ikke i stand til å ringe telefonnummer</string>
+
+    <string name="website_dialog_title">Er du sikker på at du ønsker å åpne denne URL?</string>
+    <string name="website_dialog_message">Dette nettstedet er kjent for reklame svindlere, er du sikker på at du ønsker å åpne det?</string>
+
+    <string name="numbers_dialog_title">Slik spiller du Scammer Bingo - Tall</string>
+    <string name="numbers_dialog_message">Prøv å få dem til å si noen av tallene og merk dem av som du går!</string>
+
+    <string name="appbar_scrolling_view_behavior">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
+    <string name="pref_header_general">Generelt</string>
+    <string name="youtube">YouTube</string>
+    <string name="github">GitHub</string>
+    <string name="twitter">Twitter</string>
+    <string name="website">Nettsted</string>
+
+    <string name="action_okay">Ok</string>
+    <string name="action_no">Nei takk</string>
+    <string name="action_never">Ikke vis dette igjen</string>
+    <string name="action_reset">Tilbakestill resultat</string>
+    <string name="action_call">Anrop</string>
+    <string name="action_dismiss">Avvise</string>
+    <string name="action_open">Åpne</string>
+    <string name="action_search">Søk</string>
+    <string name="action_settings">Innstillinger</string>
+    <string name="action_numbers">Tallene Edition</string>
+    <string name="action_premium">Premium-funksjoner</string>
+
+    <string name="action_about">Om</string>
+    <string name="title_activity_search">Søk Aktivitet</string>
+    <string name="action_home">Hjem</string>
+    <string name="not_available_below_m">Du trenger Android Marshmallow (6.0) eller over å bruke denne funksjonen..</string>
+    <string name="not_available_below_lollipop">Du trenger Android Lollipop (5.0) eller over å bruke denne funksjonen..</string>
+
+    <string name="primary_color">Primær farge</string>
+    <string name="primary_color_summary">Endre den primære tema farge</string>
+
+    <string name="accent_color">Fremhevende farge</string>
+    <string name="accent_color_summary">Endre den aksent tema farge</string>
+
+    <string name="primary_text_color">Primær tekst farge</string>
+    <string name="primary_text_color_summary">Endre den primære teksten farge</string>
+
+    <string name="secondary_text_color">Sekundær tekst farge</string>
+    <string name="secondary_text_color_summary">Endre den sekundær teksten farge</string>
+
+    <string name="colored_status_bar">Farget statuslinjen</string>
+    <string name="colored_status_bar_summary">Veksle statuslinjen farging</string>
+
+    <string name="colored_nav_bar">Farget Navigasjonslinjen</string>
+    <string name="colored_nav_bar_summary">Veksle navigasjonslinjen farging</string>
+
+    <string name="dark_theme">Mørkt tema</string>
+    <string name="dark_theme_summary">Påfør et mørkt tema i programmet</string>
+    <string name="light_status_bar_mode">Lys statuslinjen-modus</string>
+    <string name="light_toolbar_mode">Lys verktøylinje-modus</string>
+
+    <string name="light_ui_modes">Lys UI-modi</string>
+    <string name="system_ui_colors">Systemet UI farger</string>
+    <string name="base_theme">Base tema</string>
+    <string name="ate_colors">ATE farger</string>
+
+    <string name="dialog_change_button_texts_title">Endre knappen tekster</string>
+    <string name="dialog_change_button_texts_content">Skriv inn teksten du vil skal vises på det valgte knappen</string>
+    <string name="please_select_a_button_to_change_text">Velg en knapp for å endre tekst:</string>
+</resources>
