@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+<string name="app_name">Scammer Bingo</string>
+<string name="app_description">¡Haz perder el máximo tiempo posible a los estafadores!</string>
+<string name="title_activity_settings">Ajustes</string>
+<string name="title_activity_about">Sobre la app</string>
+<string name="title_activity_numbers">Scammer Bingo - Números</string>
+<string name="title_activity_premium">Funciones Premium</string>
+<string name="title_activity_qr_reader">Lector QR</string>
+<string name="ad_footer_id">ca-app-pub-9817254026781393/3724159668</string>
+<string name="about_msg_credits">Scammer Bingo ha sido diseñada a partir de la versión para Windows por JoeTheHuman. HexxiumGamingYT, Lewis Texh y Dazza\'s Gone Mad tienen videos muy interesantes donde hablan con estafadores, ¡échales un vistazo!</string>
+<string name="score">Puntuación</string>
+<string name="bingo_complete_title">Bingo!</string>
+<string name="bingo_complete_msg">¡Bien hecho! Has distraído al estafador durante mucho tiempo. No te olvides de reportarles</string>
+<string name="bingo_half_title">A mitad de camino</string>
+<string name="bingo_half_msg">¡Estás a mitad de camino! Puedes delatar al estafador ahora si te está llevando mucho tiempo pero no te olvides de reportarles</string>
+<string name="call_dialog_title">¿Estás seguro de que quieres llamar a este número?</string>
+<string name="call_dialog_msg">Este número es conocido por contactar estafadores, ¿estás seguro de que quieres llamar?</string>
+<string name="call_dialog_unable">Incapaz de llamar al número solicitado</string>
+<string name="website_dialog_title">¿Estás seguro de que quieres abrir esta URL?</string>
+<string name="website_dialog_message">Este sitio es conocido por publicitar a los estafadores, ¿estás seguro de que quieres abrir la URL?</string>
+<string name="numbers_dialog_title">Cómo jugar a Scammer Bingo - Números</string>
+<string name="numbers_dialog_message">Consigue que el estafador diga alguno de los números y táchalos según los escuches</string>
+
+<string name="appbar_scrolling_view_behavior">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
+<string name="pref_header_general">General</string>
+<string name="youtube">YouTube</string>
+<string name="github">GitHub</string>
+<string name="twitter">Twitter</string>
+<string name="website">Sitio web</string>
+
+<string name="action_okay">Vale</string>
+<string name="action_no">No, gracias</string>
+<string name="action_never">No volver a mostrar</string>
+<string name="action_reset">Reiniciar puntuación</string>
+<string name="action_call">Llamar</string>
+<string name="action_dismiss">Descartar</string>
+<string name="action_open">Abrir</string>
+<string name="action_search">Buscar</string>
+<string name="action_settings">Ajustes</string>
+<string name="action_numbers">Edición Números</string>
+<string name="action_premium">Funciones Premium</string>
+
+<string name="action_about">Sobre la app</string>
+<string name="title_activity_search">Buscar</string>
+<string name="action_home">Inicio</string>
+<string name="not_available_below_m">Necesitas tener Android Marshmallow (6.0) o superior para usar esta función</string>
+<string name="not_available_below_lollipop">Necesitas tener Android Lollipop (5.0) o superior para usar esta función</string>
+
+<string name="primary_color">Color principal</string>
+<string name="primary_color_summary">Cambia el color principal del tema</string>
+<string name="accent_color">Color secundario</string>
+<string name="accent_color_summary">Cambia el color secundario del tema</string>
+<string name="primary_text_color">Color principal del texto</string>
+<string name="primary_text_color_summary">Cambia el color principal del texto</string>
+<string name="secondary_text_color">Color secundario del texto</string>
+<string name="secondary_text_color_summary">Cambia el color secundario del texto</string>
+<string name="colored_status_bar">Aspecto de la barra de estado</string>
+<string name="colored_status_bar_summary">Activa/desactiva el color en la barra de estado</string>
+<string name="colored_nav_bar">Aspecto de la barra de navegación</string>
+<string name="colored_nav_bar_summary">Activa/desactiva el color en la barra de navegación</string>
+<string name="dark_theme">Tema oscuro</string>
+<string name="dark_theme_summary">Aplicar un tema más oscuro en la interfaz</string>
+<string name="light_status_bar_mode">Modo de color claro en la barra de estado</string>
+<string name="light_toolbar_mode">Modo de color claro en la barra de herramientas</string>
+<string name="light_ui_modes">Modos de interfaz clara</string>
+<string name="system_ui_colors">Colores de la interfaz</string>
+<string name="base_theme">Tema base</string>
+<string name="ate_colors">Colores ATE</string>
+<string name="dialog_change_button_texts_title">Cambiar texto de los botones</string>
+<string name="dialog_change_button_texts_content">Introduce el texto de los botones que desees</string>
+<string name="please_select_a_button_to_change_text">Por favor, selecciona un botón para cambiar:</string>
+
+</resources>
